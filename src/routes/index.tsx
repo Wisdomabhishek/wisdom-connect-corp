@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
 import supervisorPhoto from "@/assets/supervisor-briefing.webp";
-import manpowerPhoto from "@/assets/manpower-warehouse.webp";
 import securityPhoto from "@/assets/security-gate.webp";
 import facilityPhoto from "@/assets/facility-housekeeping.webp";
 import recruitmentPhoto from "@/assets/hr-interview.webp";
@@ -270,8 +269,9 @@ function About() {
 const pillars = [
   {
     no: "01",
-    photo: manpowerPhoto,
-    alt: "Manpower team working under supervision inside an Indian warehouse",
+    photo: securityPhoto,
+    focus: "50% 38%",
+    alt: "WISDOM security guard maintaining the gate register at an industrial site entrance",
     title: "People & Security",
     copy: "Manpower, security personnel and recruitment support, deployed and supervised so day-to-day operations stay steady.",
     chips: [
@@ -287,6 +287,7 @@ const pillars = [
   {
     no: "02",
     photo: facilityPhoto,
+    focus: "50% 22%",
     alt: "Housekeeping staff cleaning a corporate office floor in India",
     title: "Facility & Site Services",
     copy: "Housekeeping, site upkeep, water tank cleaning and solar panel cleaning, run on a schedule with supervisory checks.",
@@ -370,7 +371,14 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
             <article className="pillar" key={pillar.no}>
               <div className="pillar-top">
                 <span className="pillar-no">{pillar.no}</span>
-                <img src={pillar.photo} alt={pillar.alt} width={1400} height={900} loading="lazy" />
+                <img
+                  src={pillar.photo}
+                  alt={pillar.alt}
+                  width={1400}
+                  height={900}
+                  loading="lazy"
+                  style={{ objectPosition: pillar.focus }}
+                />
               </div>
               <div className="pillar-body">
                 <h3>{pillar.title}</h3>
