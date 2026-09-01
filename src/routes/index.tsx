@@ -9,11 +9,13 @@ import facilityPhoto from "@/assets/facility-housekeeping.webp";
 import recruitmentPhoto from "@/assets/hr-interview.webp";
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
+import skilledPhoto from "@/assets/skilled-manpower.webp";
 
 const PHONE = "+91 91224 47110";
 const PHONE_DIAL = "+919122447110";
 const WHATSAPP = "https://wa.me/919122447110";
 const EMAIL = "wisdomutilities@gmail.com";
+const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -86,6 +88,7 @@ const navLinks = [
   { href: "#why", label: "Why WISDOM" },
   { href: "#leadership", label: "Leadership" },
   { href: "#insights", label: "Insights" },
+  { href: "#careers", label: "Careers" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -305,48 +308,105 @@ const pillars = [
 
 type TabId = "manpower" | "security" | "recruitment" | "facility" | "water" | "solar";
 
-const tabs: { id: TabId; label: string; title: string; copy: string; points: string[] }[] = [
+const tabs: {
+  id: TabId;
+  label: string;
+  enquiry: string;
+  title: string;
+  copy: string;
+  points: string[];
+  photo: string;
+  alt: string;
+}[] = [
   {
     id: "manpower",
-    label: "Manpower",
-    title: "Manpower support for your site",
-    copy: "Skilled, semi-skilled and unskilled manpower, with deployment, attendance and supervisory support.",
-    points: ["Shift-wise deployment", "Attendance tracking", "Replacement support", "Site supervision"],
+    label: "Skilled & General Manpower",
+    enquiry: "Skilled & General Manpower",
+    title: "Skilled, semi-skilled and general manpower",
+    copy: "WISDOM supports organisations with skilled, semi-skilled and general manpower based on their operational requirements.",
+    points: [
+      "Shift-wise deployment",
+      "Attendance and deployment records",
+      "Replacement support",
+      "Site supervision",
+    ],
+    photo: skilledPhoto,
+    alt: "WISDOM technicians working on an electrical panel and a lathe machine in an Indian factory",
   },
   {
     id: "security",
-    label: "Security",
-    title: "Security and site supervision",
-    copy: "Security personnel, supervisors and practical field coordination for business and industrial sites.",
-    points: ["Gate and visitor control", "Round the clock shifts", "Supervisory checks", "Industrial and corporate sites"],
+    label: "Security Services",
+    enquiry: "Security Services",
+    title: "Security personnel and site supervision",
+    copy: "Professional security personnel for industrial, commercial, residential and institutional environments.",
+    points: [
+      "Gate and access control",
+      "Visitor management",
+      "Site patrolling",
+      "Shift deployment and supervision",
+    ],
+    photo: securityPhoto,
+    alt: "WISDOM security guard maintaining the gate register at an industrial site entrance",
   },
   {
     id: "recruitment",
-    label: "Recruitment",
-    title: "HR recruitment support",
-    copy: "Candidate sourcing, screening and interview coordination to support your workforce requirements.",
-    points: ["Requirement mapping", "Sourcing", "First level screening", "Interview coordination"],
+    label: "HR Recruitment Support",
+    enquiry: "HR Recruitment Support",
+    title: "Recruitment support for your hiring requirement",
+    copy: "Recruitment assistance for organisations looking to identify and hire suitable candidates for operational, technical, supervisory and support roles.",
+    points: [
+      "Requirement mapping",
+      "Candidate sourcing",
+      "First level screening",
+      "Interview coordination",
+    ],
+    photo: recruitmentPhoto,
+    alt: "HR team member interviewing a candidate at an Indian company office",
   },
   {
     id: "facility",
-    label: "Facility",
-    title: "Facility management support",
-    copy: "Housekeeping, facility support, site upkeep and supervisory coordination.",
-    points: ["Daily housekeeping", "Periodic deep cleaning", "Consumables planning", "Supervisor reporting"],
+    label: "Facility Management",
+    enquiry: "Facility Management",
+    title: "Practical facility and site support",
+    copy: "Housekeeping, cleaning operations, routine facility coordination and workforce supervision.",
+    points: [
+      "Daily housekeeping",
+      "Periodic deep cleaning",
+      "Routine facility coordination",
+      "Supervisor reporting",
+    ],
+    photo: facilityPhoto,
+    alt: "WISDOM housekeeping staff cleaning a commercial office floor in India",
   },
   {
     id: "water",
-    label: "Water Tank",
-    title: "Water tank cleaning",
-    copy: "Overhead and underground tank cleaning, sump cleaning, sludge removal, scrubbing and disinfection.",
-    points: ["Site inspection", "Sludge removal", "Scrubbing", "Disinfection and refill"],
+    label: "Water Tank Cleaning",
+    enquiry: "Water Tank Cleaning",
+    title: "Water tank cleaning for homes and businesses",
+    copy: "Overhead tanks, underground tanks and sumps for homes, apartments, societies, offices, commercial properties and industrial premises.",
+    points: [
+      "Site and tank inspection",
+      "Sludge removal",
+      "Scrubbing",
+      "Disinfection and refill",
+    ],
+    photo: waterTankPhoto,
+    alt: "WISDOM workers cleaning an overhead water tank with gloves and protective footwear",
   },
   {
     id: "solar",
-    label: "Solar",
-    title: "Solar panel cleaning",
-    copy: "Routine surface cleaning and site-level support for rooftop and ground-mounted solar installations.",
-    points: ["Access and safety survey", "Surface cleaning", "Visual check", "Cleaning schedule"],
+    label: "Solar Panel Cleaning",
+    enquiry: "Solar Panel Cleaning",
+    title: "Professional solar panel cleaning",
+    copy: "Cleaning support for rooftop and ground-mounted installations at homes, commercial buildings and industrial facilities.",
+    points: [
+      "Access and safety survey",
+      "Surface cleaning",
+      "Visual check",
+      "Cleaning schedule",
+    ],
+    photo: solarPhoto,
+    alt: "Worker cleaning rooftop solar panels at an Indian commercial building",
   },
 ];
 
