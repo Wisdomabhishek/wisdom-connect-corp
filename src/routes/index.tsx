@@ -9,11 +9,13 @@ import facilityPhoto from "@/assets/facility-housekeeping.webp";
 import recruitmentPhoto from "@/assets/hr-interview.webp";
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
+import skilledPhoto from "@/assets/skilled-manpower.webp";
 
 const PHONE = "+91 91224 47110";
 const PHONE_DIAL = "+919122447110";
 const WHATSAPP = "https://wa.me/919122447110";
 const EMAIL = "wisdomutilities@gmail.com";
+const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({
