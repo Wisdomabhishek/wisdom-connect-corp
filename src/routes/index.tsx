@@ -88,6 +88,7 @@ const navLinks = [
   { href: "#why", label: "Why WISDOM" },
   { href: "#leadership", label: "Leadership" },
   { href: "#insights", label: "Insights" },
+  { href: "#careers", label: "Careers" },
   { href: "#contact", label: "Contact" },
 ];
 
