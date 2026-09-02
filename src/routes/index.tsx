@@ -1302,12 +1302,15 @@ function HomePage() {
           }}
         />
         <SiteServices />
+        <Clients />
         <Why />
         <Serve />
         <Approach />
         <Leadership />
         <Insights />
+        <Careers />
         <Faq />
+
         <Contact service={service} setService={setService} />
       </main>
       <div className="mobile-bar">
