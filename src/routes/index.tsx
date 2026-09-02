@@ -833,14 +833,15 @@ function Faq() {
 /* ---------------------------- contact ---------------------------- */
 
 const serviceOptions = [
-  "Manpower",
-  "Security",
+  "Skilled & General Manpower",
+  "Security Services",
   "HR Recruitment Support",
   "Facility Management",
   "Water Tank Cleaning",
   "Solar Panel Cleaning",
   "Other",
 ];
+
 
 function Contact({ service, setService }: { service: string; setService: (v: string) => void }) {
   const [status, setStatus] = useState<{ text: string; ok: boolean } | null>(null);
