@@ -1050,6 +1050,9 @@ function Footer() {
             <a href="#why">Why WISDOM</a>
             <a href="#leadership">Leadership</a>
             <a href="#insights">Insights</a>
+            <a href="#clients">Trusted By</a>
+            <a href="#careers">Careers</a>
+
           </div>
           <div>
             <div className="footer-title">Contact</div>
