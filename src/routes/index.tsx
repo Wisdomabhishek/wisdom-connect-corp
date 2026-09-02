@@ -1288,19 +1288,8 @@ function HomePage() {
       <main id="main">
         <Hero />
         <About />
-        <Services
-          onSelectService={(label) => {
-            const map: Record<string, string> = {
-              Manpower: "Manpower",
-              Security: "Security",
-              Recruitment: "HR Recruitment Support",
-              Facility: "Facility Management",
-              "Water Tank": "Water Tank Cleaning",
-              Solar: "Solar Panel Cleaning",
-            };
-            setService(map[label] ?? "");
-          }}
-        />
+        <Services onSelectService={(label) => setService(label)} />
+
         <SiteServices />
         <Clients />
         <Why />
