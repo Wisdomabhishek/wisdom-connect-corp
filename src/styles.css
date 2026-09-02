@@ -1037,6 +1037,17 @@ footer a:hover {
 /* Responsive */
 
 @media (max-width: 1000px) {
+  .client-list {
+    grid-template-columns: 1fr;
+  }
+  .careers-grid,
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+  .panel-photo {
+    aspect-ratio: 16 / 9;
+  }
+
   .navlinks {
     display: none;
   }
