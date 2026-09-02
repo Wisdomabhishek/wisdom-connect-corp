@@ -481,23 +481,39 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
             ))}
           </div>
           <div className="panel" id="service-panel" role="tabpanel" aria-labelledby={`tab-${active}`}>
-            <b>{current.title}</b>
-            <p>{current.copy}</p>
-            <ul>
-              {current.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-            <div className="actions">
-              <a
-                className="btn primary"
-                href="#contact"
-                onClick={() => onSelectService(current.label)}
-              >
-                Enquire about {current.label.toLowerCase()}
-              </a>
+            <div className="panel-grid">
+              <div>
+                <b>{current.title}</b>
+                <p>{current.copy}</p>
+                <ul>
+                  {current.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <div className="actions">
+                  <a
+                    className="btn primary"
+                    href="#contact"
+                    onClick={() => onSelectService(current.enquiry)}
+                  >
+                    Enquire about this service
+                  </a>
+                  <a className="btn outline" href={WHATSAPP} target="_blank" rel="noopener">
+                    WhatsApp us
+                  </a>
+                </div>
+              </div>
+              <img
+                className="panel-photo"
+                src={current.photo}
+                alt={current.alt}
+                width={1400}
+                height={900}
+                loading="lazy"
+              />
             </div>
           </div>
+
         </div>
       </Reveal>
     </section>
