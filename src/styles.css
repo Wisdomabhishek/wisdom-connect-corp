@@ -521,6 +521,93 @@ section {
   font-size: 11px;
   color: #dfe6ed;
 }
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+}
+.panel-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid #ffffff25;
+}
+.panel .actions {
+  margin-top: 20px;
+}
+
+/* Trusted by */
+
+.clients {
+  background: #fff;
+}
+.client-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.client {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 26px 24px;
+  background: #fbfbfa;
+}
+.client b {
+  display: block;
+  font-size: 17px;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+.client span {
+  display: block;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Careers */
+
+.careers {
+  background: var(--cream);
+}
+.careers-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.careers-note {
+  background: #fff;
+  padding: 34px;
+}
+.careers-note h3 {
+  font-size: 22px;
+  color: var(--navy);
+}
+.careers-note ul {
+  list-style: none;
+  margin-top: 16px;
+}
+.careers-note li {
+  font-size: 14px;
+  color: #566170;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.careers-contact {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 18px;
+}
+.careers-contact a {
+  color: var(--orange-ink);
+  font-weight: 700;
+}
+
 
 /* Photo cards */
 
@@ -950,6 +1037,17 @@ footer a:hover {
 /* Responsive */
 
 @media (max-width: 1000px) {
+  .client-list {
+    grid-template-columns: 1fr;
+  }
+  .careers-grid,
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+  .panel-photo {
+    aspect-ratio: 16 / 9;
+  }
+
   .navlinks {
     display: none;
   }

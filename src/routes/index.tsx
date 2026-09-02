@@ -481,23 +481,39 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
             ))}
           </div>
           <div className="panel" id="service-panel" role="tabpanel" aria-labelledby={`tab-${active}`}>
-            <b>{current.title}</b>
-            <p>{current.copy}</p>
-            <ul>
-              {current.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-            <div className="actions">
-              <a
-                className="btn primary"
-                href="#contact"
-                onClick={() => onSelectService(current.label)}
-              >
-                Enquire about {current.label.toLowerCase()}
-              </a>
+            <div className="panel-grid">
+              <div>
+                <b>{current.title}</b>
+                <p>{current.copy}</p>
+                <ul>
+                  {current.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <div className="actions">
+                  <a
+                    className="btn primary"
+                    href="#contact"
+                    onClick={() => onSelectService(current.enquiry)}
+                  >
+                    Enquire about this service
+                  </a>
+                  <a className="btn outline" href={WHATSAPP} target="_blank" rel="noopener">
+                    WhatsApp us
+                  </a>
+                </div>
+              </div>
+              <img
+                className="panel-photo"
+                src={current.photo}
+                alt={current.alt}
+                width={1400}
+                height={900}
+                loading="lazy"
+              />
             </div>
           </div>
+
         </div>
       </Reveal>
     </section>
@@ -817,14 +833,15 @@ function Faq() {
 /* ---------------------------- contact ---------------------------- */
 
 const serviceOptions = [
-  "Manpower",
-  "Security",
+  "Skilled & General Manpower",
+  "Security Services",
   "HR Recruitment Support",
   "Facility Management",
   "Water Tank Cleaning",
   "Solar Panel Cleaning",
   "Other",
 ];
+
 
 function Contact({ service, setService }: { service: string; setService: (v: string) => void }) {
   const [status, setStatus] = useState<{ text: string; ok: boolean } | null>(null);
@@ -1033,6 +1050,9 @@ function Footer() {
             <a href="#why">Why WISDOM</a>
             <a href="#leadership">Leadership</a>
             <a href="#insights">Insights</a>
+            <a href="#clients">Trusted By</a>
+            <a href="#careers">Careers</a>
+
           </div>
           <div>
             <div className="footer-title">Contact</div>
@@ -1047,6 +1067,193 @@ function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+
+function Clients() {
+  const clients = [
+    ["Ecopack Services Pvt. Ltd.", "Packaging and industrial operations"],
+    ["Vacmet India Limited", "Manufacturing and industrial site"],
+    ["K R Industrial Projects Private Limited", "Industrial projects and site work"],
+  ];
+  return (
+    <section className="clients" id="clients">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Trusted By</div>
+          <h2 className="section-title">Organisations we work with.</h2>
+          <p className="section-desc">
+            A few of the companies that rely on WISDOM for people, security and site services.
+          </p>
+        </div>
+        <div className="client-list">
+          {clients.map(([name, note]) => (
+            <div className="client" key={name}>
+              <b>{name}</b>
+              <span>{note}</span>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+const careerRoles = [
+  "Security Guard",
+  "Security Supervisor",
+  "Skilled Manpower",
+  "Semi-Skilled Manpower",
+  "General Manpower",
+  "Housekeeping Staff",
+  "Supervisor",
+  "Office / Support Role",
+];
+
+function Careers() {
+  const [status, setStatus] = useState<{ text: string; ok: boolean } | null>(null);
+  const [sending, setSending] = useState(false);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    if (fd.get("_honey")) return;
+
+    const name = String(fd.get("name") ?? "").trim();
+    const phone = String(fd.get("phone") ?? "").trim();
+    if (!name || !phone || !fd.get("role")) {
+      setStatus({ text: "Please add your name, phone number and the role you are applying for.", ok: false });
+      return;
+    }
+    if (!/^[+\d][\d\s-]{7,17}$/.test(phone)) {
+      setStatus({ text: "Please enter a valid phone number.", ok: false });
+      return;
+    }
+
+    setSending(true);
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${CAREER_EMAIL}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: fd,
+      });
+      if (!res.ok) throw new Error("Delivery failed");
+      setStatus({ text: "Thank you. Your details have been sent to the WISDOM recruitment desk.", ok: true });
+      form.reset();
+    } catch {
+      const body = [...fd.entries()]
+        .filter(([k]) => !k.startsWith("_"))
+        .map(([k, v]) => `${k}: ${String(v)}`)
+        .join("\n");
+      window.location.href = `mailto:${CAREER_EMAIL}?subject=${encodeURIComponent(
+        "Job application from WISDOM website",
+      )}&body=${encodeURIComponent(body)}`;
+      setStatus({
+        text: "We could not confirm direct delivery, so your email app is opening as a backup. Please send that email so your application reaches us.",
+        ok: false,
+      });
+    }
+    setSending(false);
+  };
+
+  return (
+    <section className="careers" id="careers">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Careers</div>
+          <h2 className="section-title">Work with WISDOM.</h2>
+          <p className="section-desc">
+            We regularly need dependable people for security, manpower, housekeeping and
+            supervisory roles at client sites. Share your details and our recruitment desk will
+            contact you when a suitable requirement comes up.
+          </p>
+        </div>
+        <div className="careers-grid">
+          <div className="careers-note">
+            <h3>Who we look for</h3>
+            <ul>
+              <li>People who are punctual and reliable on site</li>
+              <li>Security personnel comfortable with gate and patrolling duties</li>
+              <li>Skilled and semi-skilled workers with practical experience</li>
+              <li>Supervisors who can coordinate a team and report clearly</li>
+            </ul>
+            <p className="careers-contact">
+              You can also send your details directly to{" "}
+              <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a> or call {PHONE}.
+            </p>
+          </div>
+          <form className="form" onSubmit={onSubmit} noValidate>
+            <input type="hidden" name="_subject" value="Job application from WISDOM website" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="text"
+              name="_honey"
+              style={{ position: "absolute", left: "-9999px" }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+            <div className="form-row">
+              <div className="field">
+                <label htmlFor="c-name">Full Name</label>
+                <input id="c-name" name="name" maxLength={100} required />
+              </div>
+              <div className="field">
+                <label htmlFor="c-phone">Phone</label>
+                <input id="c-phone" name="phone" type="tel" inputMode="tel" maxLength={20} required />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="field">
+                <label htmlFor="c-email">Email (optional)</label>
+                <input id="c-email" name="email" type="email" maxLength={160} />
+              </div>
+              <div className="field">
+                <label htmlFor="c-city">City / Location</label>
+                <input id="c-city" name="city" maxLength={80} />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="field full">
+                <label htmlFor="c-role">Role Applying For</label>
+                <select id="c-role" name="role" required defaultValue="">
+                  <option value="" disabled>
+                    Select a role
+                  </option>
+                  {careerRoles.map((role) => (
+                    <option key={role}>{role}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="field full">
+                <label htmlFor="c-message">Experience (brief)</label>
+                <textarea
+                  id="c-message"
+                  name="experience"
+                  maxLength={800}
+                  placeholder="Where you have worked and for how long"
+                />
+              </div>
+            </div>
+            <button className="submit" type="submit" disabled={sending}>
+              {sending ? "Sending..." : "Submit Application"}
+            </button>
+            <p className="note">Applications are sent to the WISDOM recruitment desk.</p>
+            {status && (
+              <p className={status.ok ? "status ok" : "status error"} role="status">
+                {status.text}
+              </p>
+            )}
+          </form>
+        </div>
+      </Reveal>
+    </section>
   );
 }
 
@@ -1085,26 +1292,18 @@ function HomePage() {
       <main id="main">
         <Hero />
         <About />
-        <Services
-          onSelectService={(label) => {
-            const map: Record<string, string> = {
-              Manpower: "Manpower",
-              Security: "Security",
-              Recruitment: "HR Recruitment Support",
-              Facility: "Facility Management",
-              "Water Tank": "Water Tank Cleaning",
-              Solar: "Solar Panel Cleaning",
-            };
-            setService(map[label] ?? "");
-          }}
-        />
+        <Services onSelectService={(label) => setService(label)} />
+
         <SiteServices />
+        <Clients />
         <Why />
         <Serve />
         <Approach />
         <Leadership />
         <Insights />
+        <Careers />
         <Faq />
+
         <Contact service={service} setService={setService} />
       </main>
       <div className="mobile-bar">
