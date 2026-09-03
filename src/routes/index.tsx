@@ -688,29 +688,6 @@ function Leadership() {
           <article className="founder">
             <div className="founder-head">
               <div className="initials" aria-hidden="true">
-                AK
-              </div>
-              <div>
-                <h3>Abhishek Kumar</h3>
-                <div className="role">Co-Founder | Business Development &amp; Facility Operations</div>
-              </div>
-            </div>
-            <p>
-              Abhishek focuses on client relationships, business development and facility
-              operations. His experience across commercial and operational responsibilities helps
-              WISDOM understand client requirements, build practical service solutions and
-              maintain long-term working relationships.
-            </p>
-            <div className="creds">
-              <span className="cred">SALES</span>
-              <span className="cred">BUSINESS DEVELOPMENT</span>
-              <span className="cred">FACILITY MANAGEMENT</span>
-              <span className="cred">CLIENT OPERATIONS</span>
-            </div>
-          </article>
-          <article className="founder">
-            <div className="founder-head">
-              <div className="initials" aria-hidden="true">
                 MS
               </div>
               <div>
@@ -731,6 +708,30 @@ function Leadership() {
               <span className="cred">SITE SUPERVISION</span>
             </div>
           </article>
+          <article className="founder">
+            <div className="founder-head">
+              <div className="initials" aria-hidden="true">
+                AK
+              </div>
+              <div>
+                <h3>Abhishek Kumar</h3>
+                <div className="role">Co-Founder | Business Development &amp; Facility Operations</div>
+              </div>
+            </div>
+            <p>
+              Abhishek focuses on client relationships, business development and facility
+              operations. His experience across commercial and operational responsibilities helps
+              WISDOM understand client requirements, build practical service solutions and
+              maintain long-term working relationships.
+            </p>
+            <div className="creds">
+              <span className="cred">SALES</span>
+              <span className="cred">BUSINESS DEVELOPMENT</span>
+              <span className="cred">FACILITY MANAGEMENT</span>
+              <span className="cred">CLIENT OPERATIONS</span>
+            </div>
+          </article>
+
         </div>
       </Reveal>
     </section>
