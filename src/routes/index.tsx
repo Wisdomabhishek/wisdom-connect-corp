@@ -430,7 +430,6 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
           {pillars.map((pillar) => (
             <article className="pillar" key={pillar.no}>
               <div className="pillar-top">
-                <span className="pillar-no">{pillar.no}</span>
                 <img
                   src={pillar.photo}
                   alt={pillar.alt}
