@@ -389,30 +389,12 @@ section {
   height: 100%;
   object-fit: cover;
 }
-.pillar-top:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--orange);
-  z-index: 3;
-}
 .pillar-top:after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #0b172633 20%, #0b1726cc);
+  background: linear-gradient(180deg, #0b172600 45%, #0b172640);
   z-index: 2;
-}
-.pillar-no {
-  position: absolute;
-  z-index: 4;
-  left: 20px;
-  top: 18px;
-  color: var(--orange);
-  font: 800 12px monospace;
 }
 .pillar-body {
   padding: 25px;
