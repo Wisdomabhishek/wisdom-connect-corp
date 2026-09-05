@@ -1076,7 +1076,7 @@ function Clients() {
   const clients = [
     ["Ecopack Services Pvt. Ltd.", "Packaging and industrial operations"],
     ["Vacmet India Limited", "Manufacturing and industrial site"],
-    ["K R Industrial Projects Private Limited", "Industrial projects and site work"],
+    ["Unite Mall Jamshedpur", "Commercial and retail facility"],
   ];
   return (
     <section className="clients" id="clients">
