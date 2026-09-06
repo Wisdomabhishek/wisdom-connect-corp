@@ -180,7 +180,8 @@ function Why() {
           <div className="kicker">Why WISDOM</div>
           <h2 className="section-title">Experienced people. Clear accountability.</h2>
           <p className="section-desc">
-            WISDOM in 2026: built for today's India, ready for what comes next.
+            Practical support for day-to-day operations, backed by clear communication and site
+            supervision.
           </p>
         </div>
 
@@ -268,10 +269,9 @@ function Reach() {
           <div className="footprint-side">
             <div className="footer-title">Experience</div>
             <div className="client-list">
-              {clients.map(([name, note]) => (
+              {clients.map(([name]) => (
                 <div className="client" key={name}>
                   <b>{name}</b>
-                  <span>{note}</span>
                 </div>
               ))}
             </div>
@@ -663,9 +663,6 @@ function Contact() {
               Jamshedpur, East Singhbhum, Jharkhand - 831004
               <br />
               <br />
-              <b>Business Hours</b>
-              <br />
-              Mon to Sat, 9:00 AM to 6:00 PM IST
             </div>
           </div>
         </div>
@@ -682,20 +679,16 @@ const faqs = [
     "Skilled, semi-skilled and general workers, deployed with proper supervision and attendance tracking.",
   ],
   [
-    "Do you provide security for residential sites as well as factories?",
-    "Yes. We deploy guards and supervisors at residential societies, commercial buildings, offices and industrial sites.",
+    "Do you provide security for industrial and commercial sites?",
+    "Yes. We deploy trained guards and supervisors for industrial sites, commercial buildings, offices and malls.",
   ],
   [
-    "Can you clean a large industrial water tank?",
-    "Yes. We clean overhead tanks, underground tanks and sumps of all sizes, including sludge removal and disinfection.",
+    "Can you support hiring from sourcing to onboarding?",
+    "Yes. We support requirements, candidate sourcing, screening, interview coordination, documentation, joining and onboarding.",
   ],
   [
-    "How quickly can I get a quote?",
-    "Send your requirement by call, WhatsApp or the form on this page. We usually reply the same working day.",
-  ],
-  [
-    "Do you work outside Jamshedpur?",
-    "Yes. We are based in Jamshedpur and serve clients across Jharkhand and other parts of India.",
+    "Can you provide facility and site cleaning services?",
+    "Yes. We provide floor cleaning, machine based cleaning, housekeeping support, site upkeep and workplace hygiene services.",
   ],
 ];
 
@@ -740,7 +733,6 @@ const jsonLd = {
     addressCountry: "IN",
   },
   areaServed: "IN",
-  openingHours: "Mo-Sa 09:00-18:00",
 };
 
 const faqJsonLd = {
