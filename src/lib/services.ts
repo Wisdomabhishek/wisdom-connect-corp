@@ -2,13 +2,15 @@ import securityPhotoAsset from "@/assets/wisdom-security-team.webp.asset.json";
 import facilityPhotoAsset from "@/assets/wisdom-facility-cleaning.webp.asset.json";
 import solarPhotoAsset from "@/assets/wisdom-solar-cleaning.webp.asset.json";
 import waterTankPhotoAsset from "@/assets/wisdom-water-tank-cleaning.png.asset.json";
+import hrSupportPhotoAsset from "@/assets/wisdom-hr-support-team.png.asset.json";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
-import hrSupportPhoto from "@/assets/hr-support.webp";
+import hrActionPhoto from "@/assets/hr-support.webp";
 
 export const securityPhoto = securityPhotoAsset.url;
 export const facilityPhoto = facilityPhotoAsset.url;
 export const solarPhoto = solarPhotoAsset.url;
 export const waterTankPhoto = waterTankPhotoAsset.url;
+export { hrActionPhoto };
 
 export type Service = {
   slug: string;
@@ -103,8 +105,8 @@ export const services: Service[] = [
       "Documentation, joining and onboarding support",
     ],
     process: ["Requirement", "Sourcing", "Screening", "Selection", "Joining", "Onboarding"],
-    photo: hrSupportPhoto,
-    alt: "WISDOM HR support team reviewing candidate documents at the Jamshedpur office",
+    photo: hrSupportPhotoAsset.url,
+    alt: "Two WISDOM professionals discussing candidate documents during an HR support meeting",
   },
   {
     slug: "facility-management",

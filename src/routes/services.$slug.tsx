@@ -3,6 +3,15 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PageShell, Reveal, WHATSAPP } from "@/components/site";
 import { getService } from "@/lib/services";
 
+const hrProcess = [
+  ["01", "Understand", "Understand the client's requirement."],
+  ["02", "Source", "Identify and source suitable candidates."],
+  ["03", "Screen", "Shortlist candidates based on the requirement."],
+  ["04", "Select", "Support interview and selection coordination."],
+  ["05", "Join", "Coordinate documentation and joining."],
+  ["06", "Onboard", "Support a smooth onboarding process."],
+];
+
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const service = getService(params.slug);
@@ -33,6 +42,7 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceDetail() {
   const { service } = Route.useLoaderData();
+  const isHrSupport = service.slug === "end-to-end-hr-support";
 
   return (
     <PageShell>
@@ -46,13 +56,46 @@ function ServiceDetail() {
             <p className="section-desc">{service.intro}</p>
           </div>
 
-          {service.photo && (
-            <img
-              className="service-photo"
-              src={service.photo}
-              alt={service.alt ?? service.name}
-              loading="lazy"
-            />
+          {isHrSupport && service.photo ? (
+            <div className="hr-service-intro">
+              <img
+                className="service-photo"
+                src={service.photo}
+                alt={service.alt ?? service.name}
+                loading="lazy"
+              />
+              <div>
+                <p className="hr-service-summary">
+                  From sourcing the right candidates to onboarding, WISDOM supports your complete
+                  hiring journey.
+                </p>
+                <p>
+                  From understanding your requirement and sourcing candidates to screening,
+                  interview coordination, documentation, joining and onboarding, WISDOM supports
+                  the complete hiring process.
+                </p>
+                <div className="hr-process-compact" aria-label="End-to-End HR Support process">
+                  {hrProcess.map(([number, title, copy]) => (
+                    <div className="hr-process-step" key={number}>
+                      <span>{number}</span>
+                      <div>
+                        <b>{title}</b>
+                        <p>{copy}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            service.photo && (
+              <img
+                className="service-photo"
+                src={service.photo}
+                alt={service.alt ?? service.name}
+                loading="lazy"
+              />
+            )
           )}
 
           <div className="detail-grid">
@@ -74,17 +117,19 @@ function ServiceDetail() {
             </div>
           </div>
 
-          <div className="hr-flow-block">
-            <div className="footer-title">How it works</div>
-            <div className="hr-flow">
-              {service.process.map((step, i) => (
-                <span key={step}>
-                  {step}
-                  {i < service.process.length - 1 ? <i aria-hidden="true">&rsaquo;</i> : null}
-                </span>
-              ))}
+          {!isHrSupport && (
+            <div className="hr-flow-block">
+              <div className="footer-title">How it works</div>
+              <div className="hr-flow">
+                {service.process.map((step, i) => (
+                  <span key={step}>
+                    {step}
+                    {i < service.process.length - 1 ? <i aria-hidden="true">&rsaquo;</i> : null}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="actions" style={{ marginTop: 26 }}>
             <a className="btn primary" href="/#contact">
