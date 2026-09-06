@@ -1178,10 +1178,12 @@ function Careers() {
           <div className="kicker">Careers</div>
           <h2 className="section-title">Work with WISDOM.</h2>
           <p className="section-desc">
-            We regularly need dependable people for security, manpower, housekeeping and
-            supervisory roles at client sites. Share your details and our recruitment desk will
-            contact you when a suitable requirement comes up.
+            We regularly need dependable people for security, manpower, housekeeping, technical
+            and supervisory roles at client sites. Share your details and our recruitment desk
+            will contact you when a suitable requirement comes up. You can also send an open
+            application at any time.
           </p>
+
         </div>
         <div className="careers-grid">
           <div className="careers-note">
