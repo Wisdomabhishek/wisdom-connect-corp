@@ -550,6 +550,14 @@ function SiteServices() {
   );
 }
 
+const MAP_MARKS = [
+  { n: "Mathura, Uttar Pradesh", x: 33.26, y: 31.38 },
+  { n: "Patna, Bihar", x: 57.46, y: 37.3 },
+  { n: "Jamshedpur, Jharkhand", x: 60.83, y: 45.98 },
+  { n: "Angul, Odisha", x: 57.33, y: 52.09 },
+  { n: "Pune, Maharashtra", x: 20.92, y: 59.31 },
+];
+
 function Footprint() {
   return (
     <section className="footprint" id="footprint">
