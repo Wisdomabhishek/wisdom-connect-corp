@@ -397,7 +397,7 @@ section {
   z-index: 2;
 }
 .pillar-body {
-  padding: 25px;
+  padding: 28px;
 }
 .pillar h3 {
   font-size: 25px;
@@ -511,9 +511,12 @@ section {
 }
 .panel-photo {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+  aspect-ratio: auto;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
   border: 1px solid #ffffff25;
+  background: #fff;
 }
 .panel .actions {
   margin-top: 20px;
@@ -662,16 +665,20 @@ section {
 
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border: 1px solid var(--line);
 }
 .why-card {
   background: #fff;
   padding: 29px 23px;
   border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.why-card:last-child {
+.why-card:nth-child(3n) {
   border-right: 0;
+}
+.why-card:nth-last-child(-n + 3) {
+  border-bottom: 0;
 }
 .num {
   font: 800 12px monospace;
@@ -700,12 +707,42 @@ section {
   font-size: 14px;
   color: var(--navy);
 }
+.serve-tag strong,
+.serve-tag span {
+  display: block;
+}
+.serve-tag span {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
 .serve-tag:hover {
   border-color: var(--orange);
 }
 .approach {
   background: var(--navy2);
   color: #fff;
+}
+
+.current-focus {
+  background: var(--navy2);
+  color: #fff;
+  padding: 70px 0;
+}
+.current-focus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: end;
+}
+.current-focus .section-title {
+  color: #fff;
+}
+.current-focus-grid > p {
+  color: #cbd4dd;
+  font-size: 17px;
+  max-width: 56ch;
 }
 .approach .section-title {
   color: #fff;
@@ -1043,6 +1080,18 @@ footer a:hover {
   .why-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .why-card:nth-child(3n) {
+    border-right: 1px solid var(--line);
+  }
+  .why-card:nth-child(2n) {
+    border-right: 0;
+  }
+  .why-card:nth-last-child(-n + 3) {
+    border-bottom: 1px solid var(--line);
+  }
+  .why-card:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
   .why-card {
     border-bottom: 1px solid var(--line);
   }
@@ -1060,6 +1109,10 @@ footer a:hover {
   }
   .about-grid {
     gap: 40px;
+  }
+  .current-focus-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 }
 
@@ -1107,6 +1160,16 @@ footer a:hover {
   .why-grid,
   .approach-grid {
     grid-template-columns: 1fr;
+  }
+  .why-card,
+  .why-card:nth-child(2n),
+  .why-card:nth-child(3n),
+  .why-card:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .why-card:last-child {
+    border-bottom: 0;
   }
   .step {
     border-right: 0;

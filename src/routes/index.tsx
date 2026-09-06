@@ -426,7 +426,6 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
         <div className="pillars">
           {pillars.map((pillar) => (
             <article className="pillar" key={pillar.no}>
-              <div className="pillar-index">{pillar.no}</div>
               <div className="pillar-body">
                 <h3>{pillar.title}</h3>
                 <p>{pillar.copy}</p>
@@ -705,6 +704,27 @@ function Why() {
               <p>{copy}</p>
             </div>
           ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+function CurrentFocus() {
+  return (
+    <section className="current-focus" aria-labelledby="current-focus-title">
+      <Reveal>
+        <div className="current-focus-grid">
+          <div>
+            <div className="kicker">WISDOM in 2026</div>
+            <h2 className="section-title" id="current-focus-title">
+              Building dependable service partnerships.
+            </h2>
+          </div>
+          <p>
+            From Jamshedpur, WISDOM is focused on disciplined manpower deployment, practical site
+            supervision and responsive support for businesses across India.
+          </p>
         </div>
       </Reveal>
     </section>
@@ -1035,7 +1055,7 @@ function Contact({ service, setService }: { service: string; setService: (v: str
               </div>
             </div>
             <div className="form-row">
-              <div className="field">
+              <div className="field full">
                 <label htmlFor="f-email">Email</label>
                 <input id="f-email" name="email" type="email" maxLength={160} required />
               </div>
@@ -1409,6 +1429,7 @@ function HomePage() {
         <Footprint />
         <Clients />
         <Why />
+        <CurrentFocus />
         <Serve />
         <Approach />
         <Leadership />
