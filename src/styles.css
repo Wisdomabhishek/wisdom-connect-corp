@@ -1793,3 +1793,37 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 17px 0;
+  font-weight: 800;
+  font-size: 14.5px;
+  color: var(--navy);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  color: var(--orange);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: "\2013";
+}
+
+.faq-item p {
+  padding: 0 40px 17px 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
