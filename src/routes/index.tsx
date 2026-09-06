@@ -6,10 +6,10 @@ import heroPhoto from "@/assets/hero-operations.webp";
 import hrSupportPhoto from "@/assets/hr-support.webp";
 import indiaMapPhoto from "@/assets/india-map.webp";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
-import securityPhotoAsset from "@/assets/approved-security-team.webp.asset.json";
-import facilityPhotoAsset from "@/assets/approved-facility-cleaning.webp.asset.json";
-import solarPhotoAsset from "@/assets/approved-solar-cleaning.webp.asset.json";
-import waterTankPhotoAsset from "@/assets/approved-water-tank-cleaning.png.asset.json";
+import securityPhotoAsset from "@/assets/wisdom-security-team.webp.asset.json";
+import facilityPhotoAsset from "@/assets/wisdom-facility-cleaning.webp.asset.json";
+import solarPhotoAsset from "@/assets/wisdom-solar-cleaning.webp.asset.json";
+import waterTankPhotoAsset from "@/assets/wisdom-water-tank-cleaning.png.asset.json";
 
 const supervisorPhoto = securityPhotoAsset.url;
 const facilityPhoto = facilityPhotoAsset.url;
