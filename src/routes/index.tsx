@@ -1065,7 +1065,11 @@ function Footer() {
             <p>Jamshedpur, Jharkhand</p>
             <a href={`tel:${PHONE_DIAL}`}>{PHONE}</a>
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            <a href={LINKEDIN} target="_blank" rel="noopener">
+              LinkedIn
+            </a>
           </div>
+
         </div>
         <div className="bottom">
           <p>© {new Date().getFullYear()} WISDOM. All rights reserved.</p>
