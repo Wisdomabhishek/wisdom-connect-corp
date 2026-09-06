@@ -1205,3 +1205,203 @@ footer a:hover {
     animation: none !important;
   }
 }
+
+/* Pillar index (no photo) */
+
+.pillar-index {
+  font: 800 12px monospace;
+  color: var(--orange);
+  padding: 25px 25px 0;
+}
+.pillar-body {
+  padding: 14px 25px 25px;
+}
+.panel-grid.single {
+  grid-template-columns: 1fr;
+}
+.panel-photo {
+  aspect-ratio: 16 / 10;
+  object-position: 50% 50%;
+}
+
+/* Facility and site services */
+
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.site-card {
+  background: #fff;
+  padding: 30px 26px;
+}
+.site-card h3 {
+  font-size: 23px;
+  color: var(--navy);
+}
+.site-card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 9px;
+}
+.site-card ul {
+  list-style: none;
+  margin-top: 16px;
+}
+.site-card li {
+  font-size: 13px;
+  color: #46515d;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+.site-card li:last-child {
+  border-bottom: 0;
+}
+
+/* Service footprint */
+
+.footprint {
+  background: var(--cream);
+}
+.footprint-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: 40px;
+  align-items: start;
+}
+.map-holder {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 22px;
+}
+.india-map {
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  display: block;
+}
+.india-map .state {
+  fill: #eef1f4;
+  stroke: #c9d0d8;
+  stroke-width: 1.1;
+}
+.india-map .state.on {
+  fill: var(--navy2);
+  stroke: var(--navy);
+}
+.india-map .mark {
+  fill: var(--orange);
+  stroke: #fff;
+  stroke-width: 2.5;
+}
+.india-map .mark-halo {
+  fill: #ed8a2130;
+}
+.footprint-side {
+  display: grid;
+  gap: 20px;
+}
+.footprint-block {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 26px;
+}
+.footprint-block .footer-title {
+  color: var(--orange-ink);
+}
+.plain-list {
+  list-style: none;
+}
+.plain-list li {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+.plain-list li:last-child {
+  border-bottom: 0;
+}
+.client-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  color: var(--navy);
+}
+.client-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* HR support */
+
+.hr {
+  background: #fff;
+}
+.hr-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 46px;
+  align-items: start;
+}
+.hr-photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: 50% 45%;
+  border: 1px solid var(--line);
+}
+.hr-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.hr-steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.hr-step-no {
+  font: 800 11px monospace;
+  color: var(--orange);
+}
+.hr-contact {
+  margin-top: 26px;
+  border-left: 2px solid var(--orange);
+  padding-left: 16px;
+}
+.hr-contact a {
+  font-weight: 800;
+  color: var(--orange-ink);
+  font-size: 15px;
+}
+
+@media (max-width: 1000px) {
+  .site-grid {
+    grid-template-columns: 1fr;
+  }
+  .footprint-grid,
+  .hr-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .india-map {
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hr-steps {
+    grid-template-columns: 1fr;
+  }
+}
