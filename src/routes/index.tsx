@@ -1251,8 +1251,13 @@ function Careers() {
                     <option key={role}>{role}</option>
                   ))}
                 </select>
+                <p className="note">
+                  No opening that matches you? Choose Open Application and we will keep your
+                  details on file for future requirements.
+                </p>
               </div>
             </div>
+
             <div className="form-row">
               <div className="field full">
                 <label htmlFor="c-message">Experience (brief)</label>
