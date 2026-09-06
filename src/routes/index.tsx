@@ -564,32 +564,29 @@ function Footprint() {
         </div>
         <div className="footprint-grid">
           <div className="map-holder">
-            <svg
-              viewBox={`0 0 ${indiaMap.w} ${indiaMap.h}`}
-              className="india-map"
-              role="img"
-              aria-label="Map of India with the states where WISDOM currently provides services marked"
-            >
-              <g>
-                {indiaMap.states.map((state) => (
-                  <path
-                    key={state.n}
-                    d={state.d}
-                    className={state.h ? "state on" : "state"}
-                  />
-                ))}
-              </g>
-              {indiaMap.marks.map((mark) => (
-                <g key={mark.n}>
-                  <circle className="mark-halo" cx={mark.x} cy={mark.y} r={18} />
-                  <circle className="mark" cx={mark.x} cy={mark.y} r={8} />
-                </g>
+            <div className="map-figure">
+              <img
+                className="india-map-img"
+                src={indiaMapPhoto}
+                alt="Map of India showing the locations where WISDOM currently provides services"
+                width={354}
+                height={412}
+                loading="lazy"
+              />
+              {MAP_MARKS.map((mark) => (
+                <span
+                  key={mark.n}
+                  className="map-mark"
+                  style={{ left: `${mark.x}%`, top: `${mark.y}%` }}
+                  title={mark.n}
+                />
               ))}
-            </svg>
+            </div>
             <p className="figure-note">
-              Marked areas indicate states where WISDOM currently supports client requirements.
+              Markers indicate locations where WISDOM currently supports client requirements.
             </p>
           </div>
+
           <div className="footprint-side">
             <div className="footprint-block">
               <div className="footer-title">States Currently Served</div>
