@@ -59,7 +59,7 @@ function ServiceDetail() {
           {isHrSupport && service.photo ? (
             <div className="hr-service-intro">
               <img
-                className="service-photo"
+                className={`service-photo${service.slug === "facility-management" ? " facility-detail-photo" : ""}`}
                 src={service.photo}
                 alt={service.alt ?? service.name}
                 loading="lazy"
