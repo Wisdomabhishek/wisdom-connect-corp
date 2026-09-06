@@ -9,20 +9,21 @@ import facilityPhoto from "@/assets/facility-housekeeping.webp";
 
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
+import { indiaMap } from "@/lib/india-map";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
 
 const PHONE = "+91 91224 47110";
 const PHONE_DIAL = "+919122447110";
 const WHATSAPP = "https://wa.me/919122447110";
 const EMAIL = "wisdomutilities@gmail.com";
-const LINKEDIN = "https://www.linkedin.com/company/wisdom-utilities";
+const LINKEDIN = "https://www.linkedin.com/company/m-s-wisdom";
 
 const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WISDOM | Manpower, Security & Facility Services in Jamshedpur" },
+      { title: "WISDOM | Manpower, Security & Facility Services in India" },
       {
         name: "description",
         content:
@@ -30,7 +31,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "WISDOM | Manpower, Security & Facility Services in Jamshedpur",
+        content: "WISDOM | Manpower, Security & Facility Services in India",
       },
       {
         property: "og:description",
@@ -170,16 +171,15 @@ function Hero() {
             <em>Service You Can Trust.</em>
           </h1>
           <p className="hero-copy">
-            Reliable people, secure sites and practical business support for Indian businesses.
-            Manpower, security, recruitment and facility services handled by a team that stays
-            close to the work.
+            Reliable manpower, security, HR recruitment and facility services for businesses
+            across India.
           </p>
           <div className="actions">
             <a className="btn primary" href="#contact">
               Get a Quote
             </a>
             <a className="btn outline" href="#services">
-              View Services
+              Explore Our Services
             </a>
           </div>
           <div className="trustbar">
@@ -274,15 +274,12 @@ function About() {
 const pillars = [
   {
     no: "01",
-    photo: supervisorPhoto,
-    focus: "50% 35%",
-    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
     title: "People & Security",
-    copy: "Manpower, security personnel and recruitment support, deployed and supervised so day-to-day operations stay steady.",
+    copy: "Manpower, security personnel and HR recruitment support, deployed and supervised so day-to-day operations stay steady.",
     chips: [
       "Skilled manpower",
       "Semi-skilled manpower",
-      "Unskilled manpower",
+      "General manpower",
       "Security guards",
       "Security supervisors",
       "HR recruitment support",
@@ -291,9 +288,6 @@ const pillars = [
   },
   {
     no: "02",
-    photo: facilityPhoto,
-    focus: "50% 22%",
-    alt: "Housekeeping staff cleaning a corporate office floor in India",
     title: "Facility & Site Services",
     copy: "Housekeeping, site upkeep, water tank cleaning and solar panel cleaning, run on a schedule with supervisory checks.",
     chips: [
@@ -317,8 +311,8 @@ const tabs: {
   title: string;
   copy: string;
   points: string[];
-  photo: string;
-  alt: string;
+  photo?: string;
+  alt?: string;
 }[] = [
   {
     id: "manpower",
@@ -347,23 +341,20 @@ const tabs: {
       "Site patrolling",
       "Shift deployment and supervision",
     ],
-    photo: supervisorPhoto,
-    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
   },
   {
     id: "recruitment",
-    label: "HR Recruitment Support",
-    enquiry: "HR Recruitment Support",
-    title: "Recruitment support for your hiring requirement",
-    copy: "Recruitment assistance for organisations looking to identify and hire suitable candidates for operational, technical, supervisory and support roles.",
+    label: "HR Recruitment & Workforce Support",
+    enquiry: "HR Recruitment & Workforce Support",
+    title: "End-to-end HR support for workforce requirements",
+    copy: "From sourcing the right candidates to onboarding, WISDOM supports clients throughout the recruitment process, not only at the CV stage.",
     points: [
-      "Requirement mapping",
-      "Candidate sourcing",
-      "First level screening",
-      "Interview coordination",
+      "Requirement understanding",
+      "Candidate sourcing and screening",
+      "Shortlisting and interview coordination",
+      "Selection, documentation and joining",
+      "Onboarding and follow-up support",
     ],
-    photo: hrSupportPhoto,
-    alt: "WISDOM HR support team reviewing candidate documents with an applicant at their office desk",
   },
   {
     id: "facility",
@@ -431,16 +422,7 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
         <div className="pillars">
           {pillars.map((pillar) => (
             <article className="pillar" key={pillar.no}>
-              <div className="pillar-top">
-                <img
-                  src={pillar.photo}
-                  alt={pillar.alt}
-                  width={1400}
-                  height={900}
-                  loading="lazy"
-                  style={{ objectPosition: pillar.focus }}
-                />
-              </div>
+              <div className="pillar-index">{pillar.no}</div>
               <div className="pillar-body">
                 <h3>{pillar.title}</h3>
                 <p>{pillar.copy}</p>
@@ -482,7 +464,7 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
             ))}
           </div>
           <div className="panel" id="service-panel" role="tabpanel" aria-labelledby={`tab-${active}`}>
-            <div className="panel-grid">
+            <div className={current.photo ? "panel-grid" : "panel-grid single"}>
               <div>
                 <b>{current.title}</b>
                 <p>{current.copy}</p>
@@ -504,14 +486,16 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
                   </a>
                 </div>
               </div>
-              <img
-                className="panel-photo"
-                src={current.photo}
-                alt={current.alt}
-                width={1400}
-                height={900}
-                loading="lazy"
-              />
+              {current.photo ? (
+                <img
+                  className="panel-photo"
+                  src={current.photo}
+                  alt={current.alt}
+                  width={1400}
+                  height={900}
+                  loading="lazy"
+                />
+              ) : null}
             </div>
           </div>
 
@@ -522,60 +506,169 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
 }
 
 function SiteServices() {
+  const items = [
+    [
+      "Facility Management",
+      "Daily housekeeping, cleaning operations, site upkeep and routine facility coordination, with a supervisor accountable for the work.",
+      ["Daily housekeeping", "Deep cleaning", "Site upkeep", "Supervisor reporting"],
+    ],
+    [
+      "Water Tank Cleaning",
+      "Overhead tanks, underground tanks and sumps, covering inspection, sludge removal, scrubbing and disinfection before refill.",
+      ["Inspection", "Sludge removal", "Scrubbing", "Disinfection"],
+    ],
+    [
+      "Solar Panel Cleaning",
+      "Routine cleaning for rooftop and ground mounted installations, along with site level maintenance support.",
+      ["Access survey", "Surface cleaning", "Visual check", "Cleaning schedule"],
+    ],
+  ] as const;
   return (
     <section className="visual">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Site Services</div>
+          <div className="kicker">Facility &amp; Site Services</div>
           <h2 className="section-title">Work that is visible. Standards that are practical.</h2>
+          <p className="section-desc">
+            Scheduled site work with clear scope, trained staff and supervisory checks after
+            completion.
+          </p>
         </div>
-        <div className="visual-grid">
-          <article className="visual-card">
+        <div className="site-grid">
+          {items.map(([title, copy, steps]) => (
+            <article className="site-card" key={title}>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+              <ul>
+                {steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+function Footprint() {
+  return (
+    <section className="footprint" id="footprint">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Current Service Footprint</div>
+          <h2 className="section-title">Where WISDOM Currently Serves</h2>
+          <p className="section-desc">
+            WISDOM is currently supporting business and operational requirements across multiple
+            locations in India.
+          </p>
+        </div>
+        <div className="footprint-grid">
+          <div className="map-holder">
+            <svg
+              viewBox={`0 0 ${indiaMap.w} ${indiaMap.h}`}
+              className="india-map"
+              role="img"
+              aria-label="Map of India with the states where WISDOM currently provides services marked"
+            >
+              <g>
+                {indiaMap.states.map((state) => (
+                  <path
+                    key={state.n}
+                    d={state.d}
+                    className={state.h ? "state on" : "state"}
+                  />
+                ))}
+              </g>
+              {indiaMap.marks.map((mark) => (
+                <g key={mark.n}>
+                  <circle className="mark-halo" cx={mark.x} cy={mark.y} r={18} />
+                  <circle className="mark" cx={mark.x} cy={mark.y} r={8} />
+                </g>
+              ))}
+            </svg>
+            <p className="figure-note">
+              Marked areas indicate states where WISDOM currently supports client requirements.
+            </p>
+          </div>
+          <div className="footprint-side">
+            <div className="footprint-block">
+              <div className="footer-title">States Currently Served</div>
+              <ul className="plain-list">
+                <li>Uttar Pradesh</li>
+                <li>Bihar</li>
+                <li>Jharkhand</li>
+                <li>Odisha</li>
+                <li>Maharashtra</li>
+              </ul>
+            </div>
+            <div className="footprint-block">
+              <div className="footer-title">Client Relationship</div>
+              <p className="client-name">Ecopack Services Private Limited</p>
+              <p className="client-note">
+                An ongoing business relationship supporting operational service requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+function HrSupport() {
+  const steps = [
+    "Sourcing",
+    "Screening",
+    "Shortlisting",
+    "Interviews",
+    "Selection",
+    "Documentation",
+    "Joining",
+    "Onboarding",
+  ];
+  return (
+    <section className="hr" id="hr">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">HR Recruitment &amp; Workforce Support</div>
+          <h2 className="section-title">End-to-End HR Support</h2>
+          <p className="section-desc">
+            From sourcing the right candidates to onboarding, WISDOM supports clients throughout
+            the recruitment process.
+          </p>
+        </div>
+        <div className="hr-grid">
+          <div>
             <img
-              src={waterTankPhoto}
-              alt="WISDOM workers cleaning an overhead water tank with protective gloves and boots"
-              width={1400}
+              className="hr-photo"
+              src={hrSupportPhoto}
+              alt="WISDOM HR support team reviewing candidate documents at the Jamshedpur office"
+              width={1600}
               height={1000}
               loading="lazy"
             />
-            <div className="visual-content">
-              <div className="tag">Water Tank Cleaning</div>
-              <h3>Clean from inspection to completion.</h3>
-              <p>
-                Overhead tanks, underground tanks and sumps, with sludge removal, scrubbing and
-                disinfection.
+            <p className="figure-note">HR support desk at the WISDOM office in Jamshedpur.</p>
+          </div>
+          <div>
+            <ol className="hr-steps">
+              {steps.map((step, i) => (
+                <li key={step}>
+                  <span className="hr-step-no">{String(i + 1).padStart(2, "0")}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+            <div className="hr-contact">
+              <div className="footer-title">Recruitment Enquiries</div>
+              <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>
+              <p className="client-note">
+                Please write to the recruitment desk for hiring and workforce support
+                requirements.
               </p>
-              <div className="process">
-                <span>Inspect</span>
-                <span>Clean</span>
-                <span>Remove sludge</span>
-                <span>Disinfect</span>
-              </div>
             </div>
-          </article>
-          <article className="visual-card">
-            <img
-              src={solarPhoto}
-              alt="Worker cleaning rooftop solar panels at an Indian commercial site"
-              width={1400}
-              height={1000}
-              loading="lazy"
-            />
-            <div className="visual-content">
-              <div className="tag">Solar Panel Cleaning</div>
-              <h3>Keep panels clean and ready for operation.</h3>
-              <p>
-                Routine surface cleaning and site-level support for rooftop and ground-mounted
-                solar installations.
-              </p>
-              <div className="process">
-                <span>Inspect</span>
-                <span>Clean</span>
-                <span>Check</span>
-                <span>Schedule</span>
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
       </Reveal>
     </section>
@@ -838,7 +931,7 @@ function Faq() {
 const serviceOptions = [
   "Skilled & General Manpower",
   "Security Services",
-  "HR Recruitment Support",
+  "HR Recruitment & Workforce Support",
   "Facility Management",
   "Water Tank Cleaning",
   "Solar Panel Cleaning",
@@ -1049,7 +1142,7 @@ function Footer() {
             <div className="footer-title">Services</div>
             <a href="#services">People &amp; Security</a>
             <a href="#services">Facility &amp; Site Services</a>
-            <a href="#services">HR Recruitment Support</a>
+            <a href="#hr">HR Recruitment &amp; Workforce Support</a>
           </div>
           <div>
             <div className="footer-title">Company</div>
@@ -1209,18 +1302,9 @@ function Careers() {
               <li>Technical staff such as electricians, plumbers and technicians</li>
               <li>Supervisors who can coordinate a team and report clearly</li>
             </ul>
-            <img
-              className="about-photo"
-              src={hrSupportPhoto}
-              alt="WISDOM HR support team member helping a candidate at the office desk"
-              width={1600}
-              height={1000}
-              loading="lazy"
-            />
-            <p className="figure-note">Our HR support desk at the Jamshedpur office.</p>
             <p className="careers-contact">
               You can also send your details directly to{" "}
-              <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a> or call {PHONE}.
+              <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
             </p>
           </div>
 
@@ -1341,11 +1425,13 @@ function HomePage() {
         <Services onSelectService={(label) => setService(label)} />
 
         <SiteServices />
+        <Footprint />
         <Clients />
         <Why />
         <Serve />
         <Approach />
         <Leadership />
+        <HrSupport />
         <Insights />
         <Careers />
         <Faq />
