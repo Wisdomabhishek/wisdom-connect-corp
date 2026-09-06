@@ -749,6 +749,52 @@ function Contact() {
   );
 }
 
+/* -------------------------------- faq -------------------------------- */
+
+const faqs = [
+  [
+    "What kind of manpower do you provide?",
+    "Skilled, semi-skilled and general workers, deployed with proper supervision and attendance tracking.",
+  ],
+  [
+    "Do you provide security for residential sites as well as factories?",
+    "Yes. We deploy guards and supervisors at residential societies, commercial buildings, offices and industrial sites.",
+  ],
+  [
+    "Can you clean a large industrial water tank?",
+    "Yes. We clean overhead tanks, underground tanks and sumps of all sizes, including sludge removal and disinfection.",
+  ],
+  [
+    "How quickly can I get a quote?",
+    "Send your requirement by call, WhatsApp or the form on this page. We usually reply the same working day.",
+  ],
+  [
+    "Do you work outside Jamshedpur?",
+    "Yes. We are based in Jamshedpur and serve clients across Jharkhand and other parts of India.",
+  ],
+];
+
+function Faq() {
+  return (
+    <section className="faq" id="faq">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">FAQ</div>
+          <h2 className="section-title">Common questions.</h2>
+        </div>
+        <div className="faq-list">
+          {faqs.map(([q, a]) => (
+            <details className="faq-item" key={q}>
+              <summary>{q}</summary>
+              <p>{a}</p>
+            </details>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 
 const jsonLd = {
@@ -771,6 +817,17 @@ const jsonLd = {
   areaServed: "IN",
   openingHours: "Mo-Sa 09:00-18:00",
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(([q, a]) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
 
 function HomePage() {
   return (
