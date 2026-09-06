@@ -1220,8 +1220,9 @@ footer a:hover {
   grid-template-columns: 1fr;
 }
 .panel-photo {
-  aspect-ratio: 4 / 3;
-  object-position: 50% 50%;
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Facility and site services */
@@ -1391,9 +1392,6 @@ footer a:hover {
   .hr-grid {
     grid-template-columns: 1fr;
     gap: 28px;
-  }
-  .india-map {
-    max-height: none;
   }
 }
 
