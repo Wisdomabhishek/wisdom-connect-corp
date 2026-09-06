@@ -584,10 +584,10 @@ function SiteServices() {
 
 function Why() {
   const cards = [
-    ["01", "Experienced Leadership", "Commercial, facility, security and field experience brought together under one team."],
-    ["02", "Reliable Operations", "Clear deployment, supervision and practical day-to-day coordination."],
-    ["03", "Workforce Coordination", "Attendance, deployment and supervision handled properly, so nothing falls through the gaps."],
-    ["04", "One Point of Contact", "Connected services that reduce unnecessary vendor complexity."],
+    ["01", "Trained, Uniformed Staff", "Every person deployed is screened, uniformed and briefed before joining your site."],
+    ["02", "Supervision Every Day", "A supervisor checks attendance and work on site, so quality does not drop after week one."],
+    ["03", "Quick Replacement", "If someone is absent, we arrange a replacement so your work does not stop."],
+    ["04", "One Point of Contact", "Manpower, security and site services from one team, with one person you can call."],
   ];
   return (
     <section id="why">
@@ -596,10 +596,11 @@ function Why() {
           <div className="kicker">Why WISDOM</div>
           <h2 className="section-title">Experienced people. Clear accountability.</h2>
           <p className="section-desc">
-            Businesses do not need more promises. They need people who understand the requirement
-            and stay close to the work.
+            Businesses do not need more promises. They need trained people, daily supervision and
+            one number to call when something is needed.
           </p>
         </div>
+
         <div className="why-grid">
           {cards.map(([num, title, copy]) => (
             <div className="why-card" key={num}>
