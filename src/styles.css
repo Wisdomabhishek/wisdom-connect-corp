@@ -1276,29 +1276,26 @@ footer a:hover {
   border: 1px solid var(--line);
   padding: 22px;
 }
-.india-map {
+.map-figure {
+  position: relative;
+  width: min(100%, 460px);
+  margin: 0 auto;
+}
+.india-map-img {
   width: 100%;
   height: auto;
-  max-height: 620px;
   display: block;
 }
-.india-map .state {
-  fill: #eef1f4;
-  stroke: #c9d0d8;
-  stroke-width: 1.1;
+.map-mark {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 4px #ed8a2140;
 }
-.india-map .state.on {
-  fill: var(--navy2);
-  stroke: var(--navy);
-}
-.india-map .mark {
-  fill: var(--orange);
-  stroke: #fff;
-  stroke-width: 2.5;
-}
-.india-map .mark-halo {
-  fill: #ed8a2130;
-}
+
 .footprint-side {
   display: grid;
   gap: 20px;
