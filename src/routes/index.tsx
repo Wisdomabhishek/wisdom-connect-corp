@@ -114,7 +114,7 @@ function WhatWeDo() {
             <article className="service-card" key={service.slug}>
               {service.photo && (
                 <Link
-                  className="service-card-photo"
+                  className={`service-card-photo${service.slug === "facility-management" ? " facility-photo-frame" : ""}`}
                   to="/services/$slug"
                   params={{ slug: service.slug }}
                   aria-label={`View ${service.name}`}

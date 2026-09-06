@@ -1,5 +1,5 @@
 import securityPhotoAsset from "@/assets/wisdom-security-team.webp.asset.json";
-import facilityPhotoAsset from "@/assets/wisdom-facility-cleaning.webp.asset.json";
+import facilityPhoto from "@/assets/facility-cleaning.webp";
 import solarPhotoAsset from "@/assets/wisdom-solar-cleaning.webp.asset.json";
 import waterTankPhotoAsset from "@/assets/wisdom-water-tank-cleaning.png.asset.json";
 import hrSupportPhotoAsset from "@/assets/wisdom-hr-support-team.png.asset.json";
@@ -7,7 +7,7 @@ import skilledPhoto from "@/assets/skilled-manpower.webp";
 import hrActionPhoto from "@/assets/hr-support.webp";
 
 export const securityPhoto = securityPhotoAsset.url;
-export const facilityPhoto = facilityPhotoAsset.url;
+export { facilityPhoto };
 export const solarPhoto = solarPhotoAsset.url;
 export const waterTankPhoto = waterTankPhotoAsset.url;
 export { hrActionPhoto };
