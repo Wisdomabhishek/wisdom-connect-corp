@@ -1204,10 +1204,13 @@ const careerRoles = [
   "Security Guard",
   "Security Supervisor",
   "Facility Supervisor",
-  "Technical / Skilled Roles",
-  "Skilled Technician / Operator",
+  "Housekeeping Staff",
+  "Skilled Technician or Machine Operator",
+  "Site Manager",
+  "Office and Admin Staff",
   "Unsolicited Application",
 ];
+
 
 
 
