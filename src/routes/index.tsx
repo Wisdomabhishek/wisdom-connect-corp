@@ -3,13 +3,13 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 
 import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
-import supervisorPhoto from "@/assets/supervisor-briefing.webp";
+import supervisorPhoto from "@/assets/security-team.webp";
 import hrSupportPhoto from "@/assets/hr-support.webp";
-import facilityPhoto from "@/assets/floor-cleaning-machine.webp";
+import facilityPhoto from "@/assets/facility-cleaning.webp";
 
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
-import { indiaMap } from "@/lib/india-map";
+import indiaMapPhoto from "@/assets/india-map.webp";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
 
 const PHONE = "+91 91224 47110";
