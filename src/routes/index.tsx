@@ -1104,9 +1104,9 @@ function Clients() {
 const careerRoles = [
   "Security Guard",
   "Security Supervisor",
-  "Skilled Manpower",
-  "Semi-Skilled Manpower",
-  "General Manpower",
+  "Security Officer",
+  "Site Supervisor",
+  "Facility Supervisor",
   "Housekeeping Staff",
   "Electrician",
   "Plumber",
@@ -1115,13 +1115,16 @@ const careerRoles = [
   "Machine Operator",
   "AC and Refrigeration Technician",
   "Maintenance Technician",
-  "Water Tank Cleaning Staff",
-  "Solar Panel Cleaning Staff",
+  "Water Tank Cleaning Technician",
+  "Solar Panel Cleaning Technician",
   "Driver",
-  "Supervisor",
-  "Office / Support Role",
+  "Store Keeper",
+  "Accounts Assistant",
+  "HR Executive",
+  "Office Assistant",
   "Open Application (any suitable role)",
 ];
+
 
 
 function Careers() {
