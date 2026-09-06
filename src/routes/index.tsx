@@ -274,15 +274,12 @@ function About() {
 const pillars = [
   {
     no: "01",
-    photo: supervisorPhoto,
-    focus: "50% 35%",
-    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
     title: "People & Security",
-    copy: "Manpower, security personnel and recruitment support, deployed and supervised so day-to-day operations stay steady.",
+    copy: "Manpower, security personnel and HR recruitment support, deployed and supervised so day-to-day operations stay steady.",
     chips: [
       "Skilled manpower",
       "Semi-skilled manpower",
-      "Unskilled manpower",
+      "General manpower",
       "Security guards",
       "Security supervisors",
       "HR recruitment support",
@@ -291,9 +288,6 @@ const pillars = [
   },
   {
     no: "02",
-    photo: facilityPhoto,
-    focus: "50% 22%",
-    alt: "Housekeeping staff cleaning a corporate office floor in India",
     title: "Facility & Site Services",
     copy: "Housekeeping, site upkeep, water tank cleaning and solar panel cleaning, run on a schedule with supervisory checks.",
     chips: [
@@ -317,8 +311,8 @@ const tabs: {
   title: string;
   copy: string;
   points: string[];
-  photo: string;
-  alt: string;
+  photo?: string;
+  alt?: string;
 }[] = [
   {
     id: "manpower",
@@ -347,23 +341,20 @@ const tabs: {
       "Site patrolling",
       "Shift deployment and supervision",
     ],
-    photo: supervisorPhoto,
-    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
   },
   {
     id: "recruitment",
-    label: "HR Recruitment Support",
-    enquiry: "HR Recruitment Support",
-    title: "Recruitment support for your hiring requirement",
-    copy: "Recruitment assistance for organisations looking to identify and hire suitable candidates for operational, technical, supervisory and support roles.",
+    label: "HR Recruitment & Workforce Support",
+    enquiry: "HR Recruitment & Workforce Support",
+    title: "End-to-end HR support for workforce requirements",
+    copy: "From sourcing the right candidates to onboarding, WISDOM supports clients throughout the recruitment process, not only at the CV stage.",
     points: [
-      "Requirement mapping",
-      "Candidate sourcing",
-      "First level screening",
-      "Interview coordination",
+      "Requirement understanding",
+      "Candidate sourcing and screening",
+      "Shortlisting and interview coordination",
+      "Selection, documentation and joining",
+      "Onboarding and follow-up support",
     ],
-    photo: hrSupportPhoto,
-    alt: "WISDOM HR support team reviewing candidate documents with an applicant at their office desk",
   },
   {
     id: "facility",
@@ -431,16 +422,7 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
         <div className="pillars">
           {pillars.map((pillar) => (
             <article className="pillar" key={pillar.no}>
-              <div className="pillar-top">
-                <img
-                  src={pillar.photo}
-                  alt={pillar.alt}
-                  width={1400}
-                  height={900}
-                  loading="lazy"
-                  style={{ objectPosition: pillar.focus }}
-                />
-              </div>
+              <div className="pillar-index">{pillar.no}</div>
               <div className="pillar-body">
                 <h3>{pillar.title}</h3>
                 <p>{pillar.copy}</p>
@@ -482,7 +464,7 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
             ))}
           </div>
           <div className="panel" id="service-panel" role="tabpanel" aria-labelledby={`tab-${active}`}>
-            <div className="panel-grid">
+            <div className={current.photo ? "panel-grid" : "panel-grid single"}>
               <div>
                 <b>{current.title}</b>
                 <p>{current.copy}</p>
@@ -504,14 +486,16 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
                   </a>
                 </div>
               </div>
-              <img
-                className="panel-photo"
-                src={current.photo}
-                alt={current.alt}
-                width={1400}
-                height={900}
-                loading="lazy"
-              />
+              {current.photo ? (
+                <img
+                  className="panel-photo"
+                  src={current.photo}
+                  alt={current.alt}
+                  width={1400}
+                  height={900}
+                  loading="lazy"
+                />
+              ) : null}
             </div>
           </div>
 
@@ -838,7 +822,7 @@ function Faq() {
 const serviceOptions = [
   "Skilled & General Manpower",
   "Security Services",
-  "HR Recruitment Support",
+  "HR Recruitment & Workforce Support",
   "Facility Management",
   "Water Tank Cleaning",
   "Solar Panel Cleaning",
@@ -1049,7 +1033,7 @@ function Footer() {
             <div className="footer-title">Services</div>
             <a href="#services">People &amp; Security</a>
             <a href="#services">Facility &amp; Site Services</a>
-            <a href="#services">HR Recruitment Support</a>
+            <a href="#hr">HR Recruitment &amp; Workforce Support</a>
           </div>
           <div>
             <div className="footer-title">Company</div>
