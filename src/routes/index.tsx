@@ -15,7 +15,14 @@ import {
   Reveal,
   WHATSAPP,
 } from "@/components/site";
-import { facilityPhoto, securityPhoto, services, solarPhoto, waterTankPhoto } from "@/lib/services";
+import {
+  facilityPhoto,
+  hrActionPhoto,
+  securityPhoto,
+  services,
+  solarPhoto,
+  waterTankPhoto,
+} from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -131,6 +138,14 @@ function WhatWeDo() {
                         {s.name}
                       </Link>
                       <span>{s.short}</span>
+                      <Link
+                        className="service-learn"
+                        to="/services/$slug"
+                        params={{ slug: s.slug }}
+                        aria-label={`Learn more about ${s.name}`}
+                      >
+                        Learn More
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -167,6 +182,11 @@ function WhatWeDo() {
 /* --------------------------- wisdom in action ------------------------ */
 
 const actionShots = [
+  {
+    src: hrActionPhoto,
+    caption: "HR support and hiring coordination.",
+    alt: "WISDOM HR support team reviewing candidate documents at the Jamshedpur office",
+  },
   {
     src: securityPhoto,
     caption: "Security team briefing before the shift.",

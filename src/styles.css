@@ -1541,6 +1541,14 @@ footer a:hover {
   line-height: 1.55;
 }
 
+.svc-list .service-learn {
+  display: inline-block;
+  margin-top: 7px;
+  color: var(--orange-ink);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
 .hr-flow-block {
   margin-top: 30px;
   padding: 18px 20px;
@@ -1590,6 +1598,14 @@ footer a:hover {
 
 .action-shot {
   margin: 0;
+}
+
+.action-shot:first-child {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  align-items: end;
+  gap: 18px;
 }
 
 .action-shot img {
@@ -1676,6 +1692,67 @@ footer a:hover {
   background: rgba(11, 23, 38, 0.06);
 }
 
+.hr-service-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+  margin: 8px 0 30px;
+}
+
+.hr-service-intro .service-photo {
+  margin: 0;
+  max-height: none;
+}
+
+.hr-service-intro > div > p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.hr-service-summary {
+  color: var(--navy) !important;
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hr-process-compact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.hr-process-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+.hr-process-step > span {
+  color: var(--orange-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.hr-process-step b {
+  color: var(--navy);
+  font-size: 0.88rem;
+}
+
+.hr-process-step p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.45;
+}
+
 .detail-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1696,7 +1773,23 @@ footer a:hover {
 @media (max-width: 900px) {
   .reach-grid,
   .action-grid,
-  .detail-grid {
+  .detail-grid,
+  .hr-service-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .action-shot:first-child {
+    grid-column: auto;
+    display: block;
+  }
+
+  .action-shot:first-child figcaption {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hr-process-compact {
     grid-template-columns: 1fr;
   }
 }
