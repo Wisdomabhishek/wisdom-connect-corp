@@ -53,7 +53,7 @@ function ServiceDetail() {
               {service.group === "people" ? "People & Security" : "Facility & Site Services"}
             </div>
             <h1 className="section-title">{service.title}</h1>
-            <p className="section-desc">{service.intro}</p>
+            {!isHrSupport && <p className="section-desc">{service.intro}</p>}
           </div>
 
           {isHrSupport && service.photo ? (
