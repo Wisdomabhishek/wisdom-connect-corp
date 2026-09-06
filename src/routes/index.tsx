@@ -3,13 +3,13 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 
 import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
-import supervisorPhoto from "@/assets/supervisor-briefing.webp";
+import supervisorPhoto from "@/assets/security-team.webp";
 import hrSupportPhoto from "@/assets/hr-support.webp";
-import facilityPhoto from "@/assets/floor-cleaning-machine.webp";
+import facilityPhoto from "@/assets/facility-cleaning.webp";
 
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
-import { indiaMap } from "@/lib/india-map";
+import indiaMapPhoto from "@/assets/india-map.webp";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
 
 const PHONE = "+91 91224 47110";
@@ -550,6 +550,14 @@ function SiteServices() {
   );
 }
 
+const MAP_MARKS = [
+  { n: "Mathura, Uttar Pradesh", x: 33.26, y: 31.38 },
+  { n: "Patna, Bihar", x: 57.46, y: 37.3 },
+  { n: "Jamshedpur, Jharkhand", x: 60.83, y: 45.98 },
+  { n: "Angul, Odisha", x: 57.33, y: 52.09 },
+  { n: "Pune, Maharashtra", x: 20.92, y: 59.31 },
+];
+
 function Footprint() {
   return (
     <section className="footprint" id="footprint">
@@ -564,44 +572,40 @@ function Footprint() {
         </div>
         <div className="footprint-grid">
           <div className="map-holder">
-            <svg
-              viewBox={`0 0 ${indiaMap.w} ${indiaMap.h}`}
-              className="india-map"
-              role="img"
-              aria-label="Map of India with the states where WISDOM currently provides services marked"
-            >
-              <g>
-                {indiaMap.states.map((state) => (
-                  <path
-                    key={state.n}
-                    d={state.d}
-                    className={state.h ? "state on" : "state"}
-                  />
-                ))}
-              </g>
-              {indiaMap.marks.map((mark) => (
-                <g key={mark.n}>
-                  <circle className="mark-halo" cx={mark.x} cy={mark.y} r={18} />
-                  <circle className="mark" cx={mark.x} cy={mark.y} r={8} />
-                </g>
+            <div className="map-figure">
+              <img
+                className="india-map-img"
+                src={indiaMapPhoto}
+                alt="Map of India showing the locations where WISDOM currently provides services"
+                width={354}
+                height={412}
+                loading="lazy"
+              />
+              {MAP_MARKS.map((mark) => (
+                <span
+                  key={mark.n}
+                  className="map-mark"
+                  style={{ left: `${mark.x}%`, top: `${mark.y}%` }}
+                  title={mark.n}
+                />
               ))}
-            </svg>
+            </div>
             <p className="figure-note">
-              Marked areas indicate states where WISDOM currently supports client requirements.
+              Markers indicate locations where WISDOM currently supports client requirements.
             </p>
           </div>
+
           <div className="footprint-side">
             <div className="footprint-block">
-              <div className="footer-title">States Currently Served</div>
+              <div className="footer-title">Locations Currently Served</div>
               <ul className="plain-list">
-                <li>Uttar Pradesh</li>
-                <li>Bihar</li>
-                <li>Jharkhand</li>
-                <li>Odisha</li>
-                <li>Maharashtra</li>
+                {MAP_MARKS.map((mark) => (
+                  <li key={mark.n}>{mark.n}</li>
+                ))}
               </ul>
             </div>
           </div>
+
         </div>
       </Reveal>
     </section>
@@ -1200,10 +1204,13 @@ const careerRoles = [
   "Security Guard",
   "Security Supervisor",
   "Facility Supervisor",
-  "Technical / Skilled Roles",
-  "Skilled Technician / Operator",
+  "Housekeeping Staff",
+  "Skilled Technician or Machine Operator",
+  "Site Manager",
+  "Office and Admin Staff",
   "Unsolicited Application",
 ];
+
 
 
 
