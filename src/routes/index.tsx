@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
 import supervisorPhoto from "@/assets/supervisor-briefing.webp";
-import securityPhoto from "@/assets/security-gate.webp";
+import hrSupportPhoto from "@/assets/hr-support.webp";
 import facilityPhoto from "@/assets/facility-housekeeping.webp";
 import recruitmentPhoto from "@/assets/hr-interview.webp";
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
