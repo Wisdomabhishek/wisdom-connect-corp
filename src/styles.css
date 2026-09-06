@@ -1497,3 +1497,206 @@ footer a:hover {
 .footprint-grid > * {
   min-width: 0;
 }
+
+/* ---------------- 2026 structure refinements ---------------- */
+
+.hero-trust {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: rgba(246, 243, 235, 0.78);
+}
+
+.svc-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.svc-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(11, 23, 38, 0.1);
+}
+
+.svc-list li:first-child {
+  border-top: 0;
+}
+
+.svc-list a {
+  display: block;
+  font-weight: 700;
+  color: #0b1726;
+  text-decoration: none;
+}
+
+.svc-list a:hover {
+  color: #ed8a21;
+}
+
+.svc-list span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.92rem;
+  color: rgba(11, 23, 38, 0.7);
+  line-height: 1.55;
+}
+
+.hr-flow-block {
+  margin-top: 30px;
+  padding: 18px 20px;
+  background: rgba(11, 23, 38, 0.04);
+  border-left: 3px solid #ed8a21;
+}
+
+.hr-flow {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0b1726;
+}
+
+.hr-flow i {
+  margin-left: 10px;
+  color: #ed8a21;
+  font-style: normal;
+}
+
+.sector-line {
+  margin-top: 26px;
+  font-size: 0.92rem;
+  color: rgba(11, 23, 38, 0.72);
+}
+
+.sector {
+  display: inline-block;
+  margin: 6px 6px 0 0;
+  padding: 5px 12px;
+  border: 1px solid rgba(11, 23, 38, 0.16);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  color: #0b1726;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.action-shot {
+  margin: 0;
+}
+
+.action-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: rgba(11, 23, 38, 0.06);
+}
+
+.action-shot figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: rgba(11, 23, 38, 0.72);
+}
+
+.how-head {
+  margin-top: 40px;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #ed8a21;
+}
+
+.reach-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 34px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.reach-note h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.reach-note p {
+  margin: 0 0 8px;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.reach-states b {
+  display: block;
+  margin-top: 4px;
+}
+
+.careers-head {
+  margin-top: 46px;
+}
+
+.careers-form {
+  margin-top: 6px;
+  max-width: 760px;
+}
+
+.legal-links a {
+  margin-left: 16px;
+}
+
+.page-head {
+  padding-top: 26px;
+}
+
+.prose p {
+  margin: 0 0 14px;
+  line-height: 1.7;
+  max-width: 70ch;
+}
+
+.prose h3 {
+  margin: 26px 0 8px;
+  font-size: 1.05rem;
+}
+
+.service-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px 0 26px;
+  max-height: 520px;
+  object-fit: contain;
+  background: rgba(11, 23, 38, 0.06);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 10px;
+}
+
+.detail-grid ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.detail-grid li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .reach-grid,
+  .action-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
