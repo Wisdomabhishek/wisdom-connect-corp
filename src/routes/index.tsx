@@ -272,9 +272,9 @@ function About() {
 const pillars = [
   {
     no: "01",
-    photo: securityPhoto,
-    focus: "50% 38%",
-    alt: "WISDOM security guard maintaining the gate register at an industrial site entrance",
+    photo: supervisorPhoto,
+    focus: "50% 35%",
+    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
     title: "People & Security",
     copy: "Manpower, security personnel and recruitment support, deployed and supervised so day-to-day operations stay steady.",
     chips: [
@@ -345,8 +345,8 @@ const tabs: {
       "Site patrolling",
       "Shift deployment and supervision",
     ],
-    photo: securityPhoto,
-    alt: "WISDOM security guard maintaining the gate register at an industrial site entrance",
+    photo: supervisorPhoto,
+    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
   },
   {
     id: "recruitment",
@@ -360,8 +360,8 @@ const tabs: {
       "First level screening",
       "Interview coordination",
     ],
-    photo: recruitmentPhoto,
-    alt: "HR team member interviewing a candidate at an Indian company office",
+    photo: hrSupportPhoto,
+    alt: "WISDOM HR support team reviewing candidate documents with an applicant at their office desk",
   },
   {
     id: "facility",
