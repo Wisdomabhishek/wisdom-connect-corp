@@ -5,7 +5,7 @@ import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
 import supervisorPhoto from "@/assets/supervisor-briefing.webp";
 import hrSupportPhoto from "@/assets/hr-support.webp";
-import facilityPhoto from "@/assets/facility-housekeeping.webp";
+import facilityPhoto from "@/assets/floor-cleaning-machine.webp";
 
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
@@ -144,6 +144,12 @@ function Header() {
           <a href={`tel:${PHONE_DIAL}`} onClick={() => setOpen(false)}>
             Call {PHONE}
           </a>
+          <a href={WHATSAPP} target="_blank" rel="noopener" onClick={() => setOpen(false)}>
+            Chat on WhatsApp
+          </a>
+          <a href={LINKEDIN} target="_blank" rel="noopener" onClick={() => setOpen(false)}>
+            WISDOM on LinkedIn
+          </a>
         </div>
       </div>
     </header>
@@ -171,15 +177,14 @@ function Hero() {
             <em>Service You Can Trust.</em>
           </h1>
           <p className="hero-copy">
-            Reliable manpower, security, HR recruitment and facility services for businesses
-            across India.
+            Reliable people, secure sites and practical business support.
           </p>
           <div className="actions">
             <a className="btn primary" href="#contact">
               Get a Quote
             </a>
             <a className="btn outline" href="#services">
-              Explore Our Services
+              Explore Services
             </a>
           </div>
           <div className="trustbar">
@@ -231,15 +236,6 @@ function About() {
               We keep our commitments realistic. If a requirement is outside what we can support
               well, we say so. What we do take on is planned properly, supervised and reviewed.
             </p>
-            <img
-              className="about-photo"
-              src={supervisorPhoto}
-              alt="WISDOM supervisor briefing a site team before the start of a shift"
-              width={1600}
-              height={1000}
-              loading="lazy"
-            />
-            <p className="figure-note">Shift briefing at a client site in Jharkhand.</p>
           </div>
           <div className="facts">
             <div className="fact">
@@ -319,12 +315,12 @@ const tabs: {
     label: "Skilled & General Manpower",
     enquiry: "Skilled & General Manpower",
     title: "Skilled, semi-skilled and general manpower",
-    copy: "WISDOM supports organisations with skilled, semi-skilled and general manpower based on their operational requirements.",
+    copy: "Reliable manpower for day-to-day operations, site requirements and project needs.",
     points: [
-      "Shift-wise deployment",
-      "Attendance and deployment records",
-      "Replacement support",
-      "Site supervision",
+      "Skilled, semi-skilled and general manpower",
+      "Technical manpower and site support",
+      "Shift wise deployment and replacement support",
+      "Workforce coordination and supervisory support",
     ],
     photo: skilledPhoto,
     alt: "WISDOM technicians working on an electrical panel and a lathe machine in an Indian factory",
@@ -334,64 +330,66 @@ const tabs: {
     label: "Security Services",
     enquiry: "Security Services",
     title: "Security personnel and site supervision",
-    copy: "Professional security personnel for industrial, commercial, residential and institutional environments.",
+    copy: "Professional security personnel for industrial, commercial and residential sites.",
     points: [
-      "Gate and access control",
+      "Gate management and access control",
       "Visitor management",
-      "Site patrolling",
-      "Shift deployment and supervision",
+      "Patrolling",
+      "Shift deployment and site supervision",
     ],
+    photo: supervisorPhoto,
+    alt: "WISDOM security supervisor briefing a line of uniformed security guards at an industrial site",
   },
   {
     id: "recruitment",
     label: "HR Recruitment & Workforce Support",
     enquiry: "HR Recruitment & Workforce Support",
-    title: "End-to-end HR support for workforce requirements",
-    copy: "From sourcing the right candidates to onboarding, WISDOM supports clients throughout the recruitment process, not only at the CV stage.",
+    title: "End to end HR support from candidate sourcing to onboarding",
+    copy: "WISDOM supports clients through the full recruitment process, not only at the CV stage.",
     points: [
       "Requirement understanding",
       "Candidate sourcing and screening",
       "Shortlisting and interview coordination",
       "Selection, documentation and joining",
-      "Onboarding and follow-up support",
+      "Onboarding support",
     ],
   },
   {
     id: "facility",
     label: "Facility Management",
     enquiry: "Facility Management",
-    title: "Practical facility and site support",
-    copy: "Housekeeping, cleaning operations, routine facility coordination and workforce supervision.",
+    title: "Clean, organised and well supported workplaces",
+    copy: "Clean, organised and well supported workplaces, buildings and sites.",
     points: [
-      "Daily housekeeping",
-      "Periodic deep cleaning",
-      "Routine facility coordination",
-      "Supervisor reporting",
+      "Floor cleaning with machinery",
+      "Housekeeping and site upkeep",
+      "Facility support",
+      "Supervision and reporting",
     ],
     photo: facilityPhoto,
-    alt: "WISDOM housekeeping staff cleaning a commercial office floor in India",
+    alt: "WISDOM staff operating a floor scrubbing machine in an Indian commercial building",
   },
   {
     id: "water",
     label: "Water Tank Cleaning",
     enquiry: "Water Tank Cleaning",
     title: "Water tank cleaning for homes and businesses",
-    copy: "Overhead tanks, underground tanks and sumps for homes, apartments, societies, offices, commercial properties and industrial premises.",
+    copy: "Overhead tanks, underground tanks and sumps for homes, societies, offices, commercial properties and industrial premises.",
     points: [
       "Site and tank inspection",
       "Sludge removal",
-      "Scrubbing",
+      "Scrubbing and high pressure cleaning",
       "Disinfection and refill",
     ],
     photo: waterTankPhoto,
-    alt: "WISDOM workers cleaning an overhead water tank with gloves and protective footwear",
+    alt: "WISDOM worker in helmet and gloves cleaning the inside of a large industrial water tank",
   },
   {
     id: "solar",
     label: "Solar Panel Cleaning",
     enquiry: "Solar Panel Cleaning",
-    title: "Professional solar panel cleaning",
-    copy: "Cleaning support for rooftop and ground-mounted installations at homes, commercial buildings and industrial facilities.",
+    title: "Solar panel cleaning",
+    copy: "Routine solar panel cleaning to help keep installations clean and well maintained.",
     points: [
       "Access and safety survey",
       "Surface cleaning",
@@ -399,7 +397,7 @@ const tabs: {
       "Cleaning schedule",
     ],
     photo: solarPhoto,
-    alt: "Worker cleaning rooftop solar panels at an Indian commercial building",
+    alt: "WISDOM workers cleaning rooftop solar panels with water fed brushes at an Indian industrial building",
   },
 ];
 
@@ -1173,7 +1171,7 @@ function Clients() {
   const clients = [
     ["Ecopack Services Pvt. Ltd.", "Packaging and industrial operations"],
     ["Vacmet India Limited", "Manufacturing and industrial site"],
-    ["Unite Mall Jamshedpur", "Commercial and retail facility"],
+    ["Unite Mall, Jamshedpur", "Commercial and retail facility"],
   ];
   return (
     <section className="clients" id="clients">
@@ -1263,10 +1261,8 @@ function Careers() {
           <div className="kicker">Careers</div>
           <h2 className="section-title">Work with WISDOM.</h2>
           <p className="section-desc">
-            We regularly need dependable people for security, manpower, housekeeping, technical
-            and supervisory roles at client sites. Share your details and our recruitment desk
-            will contact you when a suitable requirement comes up. You can also send an open
-            application at any time.
+            Tell us about your experience and the kind of role you are looking for. If there is
+            no suitable opening, you can still submit an unsolicited application.
           </p>
 
         </div>
@@ -1330,8 +1326,8 @@ function Careers() {
                   ))}
                 </select>
                 <p className="note">
-                  No opening that matches you? Choose Open Application and we will keep your
-                  details on file for future requirements.
+                  No opening that matches you? Choose Unsolicited Application and we will keep
+                  your details on file for future requirements.
                 </p>
               </div>
             </div>
