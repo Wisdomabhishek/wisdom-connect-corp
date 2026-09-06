@@ -15,14 +15,7 @@ import {
   Reveal,
   WHATSAPP,
 } from "@/components/site";
-import {
-  facilityPhoto,
-  hrActionPhoto,
-  securityPhoto,
-  services,
-  solarPhoto,
-  waterTankPhoto,
-} from "@/lib/services";
+import { services } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -103,128 +96,60 @@ const sectors = [
   "Project & Site Operations",
 ];
 
-const hrFlow = ["Requirement", "Sourcing", "Screening", "Selection", "Joining", "Onboarding"];
-
 function WhatWeDo() {
-  const people = services.filter((s) => s.group === "people");
-  const facility = services.filter((s) => s.group === "facility");
-
   return (
     <section id="services">
       <Reveal>
         <div className="section-head">
           <div className="kicker">What We Do</div>
-          <h2 className="section-title">
-            People, security, HR and site services under one service partner.
-          </h2>
+          <h2 className="section-title">Six services. One trusted team.</h2>
           <p className="section-desc">
-            WISDOM brings people, security, HR and site services together under one service
-            partner.
+            Whatever your business needs, WISDOM provides the right people and practical support
+            to complete the work properly.
           </p>
         </div>
 
-        <div className="pillars">
-          {[
-            ["People & Security", people],
-            ["Facility & Site Services", facility],
-          ].map(([title, list]) => (
-            <article className="pillar" key={title as string}>
-              <div className="pillar-body">
-                <h3>{title as string}</h3>
-                <ul className="svc-list">
-                  {(list as typeof services).map((s) => (
-                    <li key={s.slug}>
-                      <Link to="/services/$slug" params={{ slug: s.slug }}>
-                        {s.name}
-                      </Link>
-                      <span>{s.short}</span>
-                      <Link
-                        className="service-learn"
-                        to="/services/$slug"
-                        params={{ slug: s.slug }}
-                        aria-label={`Learn more about ${s.name}`}
-                      >
-                        Learn More
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+        <div className="service-card-grid">
+          {services.map((service) => (
+            <article className="service-card" key={service.slug}>
+              {service.photo && (
+                <Link
+                  className="service-card-photo"
+                  to="/services/$slug"
+                  params={{ slug: service.slug }}
+                  aria-label={`View ${service.name}`}
+                >
+                  <img src={service.photo} alt={service.alt ?? service.name} loading="lazy" />
+                </Link>
+              )}
+              <div className="service-card-body">
+                <h3>
+                  <Link to="/services/$slug" params={{ slug: service.slug }}>
+                    {service.name}
+                  </Link>
+                </h3>
+                <p>{service.short}</p>
+                <Link
+                  className="service-card-link"
+                  to="/services/$slug"
+                  params={{ slug: service.slug }}
+                  aria-label={`View details for ${service.name}`}
+                >
+                  View service <span aria-hidden="true">→</span>
+                </Link>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="hr-flow-block">
-          <div className="footer-title">End-to-End HR Support</div>
-          <div className="hr-flow">
-            {hrFlow.map((step, i) => (
-              <span key={step}>
-                {step}
-                {i < hrFlow.length - 1 ? <i aria-hidden="true">&rsaquo;</i> : null}
-              </span>
-            ))}
-          </div>
-        </div>
-
         <p className="sector-line">
           WISDOM supports requirements across:
-          {sectors.map((s) => (
-            <span className="sector" key={s}>
-              {s}
+          {sectors.map((sector) => (
+            <span className="sector" key={sector}>
+              {sector}
             </span>
           ))}
         </p>
-      </Reveal>
-    </section>
-  );
-}
-
-/* --------------------------- wisdom in action ------------------------ */
-
-const actionShots = [
-  {
-    src: hrActionPhoto,
-    caption: "HR support and hiring coordination.",
-    alt: "WISDOM HR support team reviewing candidate documents at the Jamshedpur office",
-  },
-  {
-    src: securityPhoto,
-    caption: "Security team briefing before the shift.",
-    alt: "WISDOM security supervisor briefing a line of uniformed WISDOM security guards at an industrial gate",
-  },
-  {
-    src: facilityPhoto,
-    caption: "Facility management and cleaning operations.",
-    alt: "WISDOM facility staff cleaning a marble floor with a mop and a floor scrubbing machine",
-  },
-  {
-    src: waterTankPhoto,
-    caption: "Water tank cleaning with proper equipment.",
-    alt: "WISDOM workers in helmets and safety gear washing the inside of a large concrete water tank",
-  },
-  {
-    src: solarPhoto,
-    caption: "Solar panel cleaning on site.",
-    alt: "Two WISDOM workers in branded workwear cleaning a row of solar panels with brushes",
-  },
-];
-
-function InAction() {
-  return (
-    <section className="visual" id="work">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">WISDOM in Action</div>
-          <h2 className="section-title">Real teams. Real sites.</h2>
-        </div>
-        <div className="action-grid">
-          {actionShots.map((shot) => (
-            <figure className="action-shot" key={shot.caption}>
-              <img src={shot.src} alt={shot.alt} loading="lazy" />
-              <figcaption>{shot.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
       </Reveal>
     </section>
   );
@@ -844,7 +769,6 @@ function HomePage() {
       <main id="main">
         <Hero />
         <WhatWeDo />
-        <InAction />
         <Why />
         <Reach />
         <LeadershipCareers />
