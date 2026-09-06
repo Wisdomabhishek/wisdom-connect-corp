@@ -1178,13 +1178,24 @@ function Careers() {
               <li>People who are punctual and reliable on site</li>
               <li>Security personnel comfortable with gate and patrolling duties</li>
               <li>Skilled and semi-skilled workers with practical experience</li>
+              <li>Technical staff such as electricians, plumbers and technicians</li>
               <li>Supervisors who can coordinate a team and report clearly</li>
             </ul>
+            <img
+              className="about-photo"
+              src={hrSupportPhoto}
+              alt="WISDOM HR support team member helping a candidate at the office desk"
+              width={1600}
+              height={1000}
+              loading="lazy"
+            />
+            <p className="figure-note">Our HR support desk at the Jamshedpur office.</p>
             <p className="careers-contact">
               You can also send your details directly to{" "}
               <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a> or call {PHONE}.
             </p>
           </div>
+
           <form className="form" onSubmit={onSubmit} noValidate>
             <input type="hidden" name="_subject" value="Job application from WISDOM website" />
             <input type="hidden" name="_template" value="table" />
