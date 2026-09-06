@@ -4,9 +4,9 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
 import supervisorPhoto from "@/assets/supervisor-briefing.webp";
-import securityPhoto from "@/assets/security-gate.webp";
+import hrSupportPhoto from "@/assets/hr-support.webp";
 import facilityPhoto from "@/assets/facility-housekeeping.webp";
-import recruitmentPhoto from "@/assets/hr-interview.webp";
+
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
@@ -272,9 +272,9 @@ function About() {
 const pillars = [
   {
     no: "01",
-    photo: securityPhoto,
-    focus: "50% 38%",
-    alt: "WISDOM security guard maintaining the gate register at an industrial site entrance",
+    photo: supervisorPhoto,
+    focus: "50% 35%",
+    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
     title: "People & Security",
     copy: "Manpower, security personnel and recruitment support, deployed and supervised so day-to-day operations stay steady.",
     chips: [
@@ -345,8 +345,8 @@ const tabs: {
       "Site patrolling",
       "Shift deployment and supervision",
     ],
-    photo: securityPhoto,
-    alt: "WISDOM security guard maintaining the gate register at an industrial site entrance",
+    photo: supervisorPhoto,
+    alt: "WISDOM security supervisor with his team of guards in matching navy uniforms at an industrial site",
   },
   {
     id: "recruitment",
@@ -360,8 +360,8 @@ const tabs: {
       "First level screening",
       "Interview coordination",
     ],
-    photo: recruitmentPhoto,
-    alt: "HR team member interviewing a candidate at an Indian company office",
+    photo: hrSupportPhoto,
+    alt: "WISDOM HR support team reviewing candidate documents with an applicant at their office desk",
   },
   {
     id: "facility",
