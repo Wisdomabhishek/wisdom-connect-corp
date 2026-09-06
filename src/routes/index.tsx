@@ -597,16 +597,15 @@ function Footprint() {
 
           <div className="footprint-side">
             <div className="footprint-block">
-              <div className="footer-title">States Currently Served</div>
+              <div className="footer-title">Locations Currently Served</div>
               <ul className="plain-list">
-                <li>Uttar Pradesh</li>
-                <li>Bihar</li>
-                <li>Jharkhand</li>
-                <li>Odisha</li>
-                <li>Maharashtra</li>
+                {MAP_MARKS.map((mark) => (
+                  <li key={mark.n}>{mark.n}</li>
+                ))}
               </ul>
             </div>
           </div>
+
         </div>
       </Reveal>
     </section>
