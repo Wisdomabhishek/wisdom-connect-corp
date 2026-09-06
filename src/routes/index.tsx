@@ -9,20 +9,21 @@ import facilityPhoto from "@/assets/facility-housekeeping.webp";
 
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
+import { indiaMap } from "@/lib/india-map";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
 
 const PHONE = "+91 91224 47110";
 const PHONE_DIAL = "+919122447110";
 const WHATSAPP = "https://wa.me/919122447110";
 const EMAIL = "wisdomutilities@gmail.com";
-const LINKEDIN = "https://www.linkedin.com/company/wisdom-utilities";
+const LINKEDIN = "https://www.linkedin.com/company/m-s-wisdom";
 
 const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WISDOM | Manpower, Security & Facility Services in Jamshedpur" },
+      { title: "WISDOM | Manpower, Security & Facility Services in India" },
       {
         name: "description",
         content:
@@ -30,7 +31,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "WISDOM | Manpower, Security & Facility Services in Jamshedpur",
+        content: "WISDOM | Manpower, Security & Facility Services in India",
       },
       {
         property: "og:description",
@@ -170,16 +171,15 @@ function Hero() {
             <em>Service You Can Trust.</em>
           </h1>
           <p className="hero-copy">
-            Reliable people, secure sites and practical business support for Indian businesses.
-            Manpower, security, recruitment and facility services handled by a team that stays
-            close to the work.
+            Reliable manpower, security, HR recruitment and facility services for businesses
+            across India.
           </p>
           <div className="actions">
             <a className="btn primary" href="#contact">
               Get a Quote
             </a>
             <a className="btn outline" href="#services">
-              View Services
+              Explore Our Services
             </a>
           </div>
           <div className="trustbar">
