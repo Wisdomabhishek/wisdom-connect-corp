@@ -6,7 +6,7 @@ import heroPhoto from "@/assets/hero-operations.webp";
 import supervisorPhoto from "@/assets/supervisor-briefing.webp";
 import hrSupportPhoto from "@/assets/hr-support.webp";
 import facilityPhoto from "@/assets/facility-housekeeping.webp";
-import recruitmentPhoto from "@/assets/hr-interview.webp";
+
 import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
 import solarPhoto from "@/assets/solar-cleaning.webp";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
