@@ -833,6 +833,10 @@ function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -844,7 +848,9 @@ function HomePage() {
         <Why />
         <Reach />
         <LeadershipCareers />
+        <Faq />
         <Contact />
+
       </main>
       <MobileBar />
       <Footer />
