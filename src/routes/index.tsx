@@ -15,6 +15,8 @@ const PHONE = "+91 91224 47110";
 const PHONE_DIAL = "+919122447110";
 const WHATSAPP = "https://wa.me/919122447110";
 const EMAIL = "wisdomutilities@gmail.com";
+const LINKEDIN = "https://www.linkedin.com/company/wisdom-utilities";
+
 const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
 
 export const Route = createFileRoute("/")({
@@ -1007,6 +1009,10 @@ function Contact({ service, setService }: { service: string; setService: (v: str
             <a className="contact-link" href={WHATSAPP} target="_blank" rel="noopener">
               WhatsApp {PHONE}
             </a>
+            <a className="contact-link" href={LINKEDIN} target="_blank" rel="noopener">
+              WISDOM on LinkedIn
+            </a>
+
             <div className="address">
               <b>Head / Registered Office</b>
               <br />
