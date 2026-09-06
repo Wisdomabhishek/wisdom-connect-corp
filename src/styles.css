@@ -1405,3 +1405,37 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* Small screen form fitting */
+
+.field {
+  min-width: 0;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+.careers-note,
+.contact-info,
+.footprint-block,
+.hr-contact {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 380px) {
+  .careers-note,
+  .form {
+    padding: 22px 16px;
+  }
+}
+
+.careers-note,
+.form,
+.contact-info,
+.site-card,
+.hr-grid > *,
+.footprint-grid > * {
+  min-width: 0;
+}
