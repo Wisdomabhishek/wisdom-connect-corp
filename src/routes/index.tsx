@@ -15,6 +15,8 @@ const PHONE = "+91 91224 47110";
 const PHONE_DIAL = "+919122447110";
 const WHATSAPP = "https://wa.me/919122447110";
 const EMAIL = "wisdomutilities@gmail.com";
+const LINKEDIN = "https://www.linkedin.com/company/wisdom-utilities";
+
 const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
 
 export const Route = createFileRoute("/")({
@@ -582,10 +584,10 @@ function SiteServices() {
 
 function Why() {
   const cards = [
-    ["01", "Experienced Leadership", "Commercial, facility, security and field experience brought together under one team."],
-    ["02", "Reliable Operations", "Clear deployment, supervision and practical day-to-day coordination."],
-    ["03", "Workforce Coordination", "Attendance, deployment and supervision handled properly, so nothing falls through the gaps."],
-    ["04", "One Point of Contact", "Connected services that reduce unnecessary vendor complexity."],
+    ["01", "Trained, Uniformed Staff", "Every person deployed is screened, uniformed and briefed before joining your site."],
+    ["02", "Supervision Every Day", "A supervisor checks attendance and work on site, so quality does not drop after week one."],
+    ["03", "Quick Replacement", "If someone is absent, we arrange a replacement so your work does not stop."],
+    ["04", "One Point of Contact", "Manpower, security and site services from one team, with one person you can call."],
   ];
   return (
     <section id="why">
@@ -594,10 +596,11 @@ function Why() {
           <div className="kicker">Why WISDOM</div>
           <h2 className="section-title">Experienced people. Clear accountability.</h2>
           <p className="section-desc">
-            Businesses do not need more promises. They need people who understand the requirement
-            and stay close to the work.
+            Businesses do not need more promises. They need trained people, daily supervision and
+            one number to call when something is needed.
           </p>
         </div>
+
         <div className="why-grid">
           {cards.map(([num, title, copy]) => (
             <div className="why-card" key={num}>
@@ -1007,6 +1010,10 @@ function Contact({ service, setService }: { service: string; setService: (v: str
             <a className="contact-link" href={WHATSAPP} target="_blank" rel="noopener">
               WhatsApp {PHONE}
             </a>
+            <a className="contact-link" href={LINKEDIN} target="_blank" rel="noopener">
+              WISDOM on LinkedIn
+            </a>
+
             <div className="address">
               <b>Head / Registered Office</b>
               <br />
@@ -1059,7 +1066,11 @@ function Footer() {
             <p>Jamshedpur, Jharkhand</p>
             <a href={`tel:${PHONE_DIAL}`}>{PHONE}</a>
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            <a href={LINKEDIN} target="_blank" rel="noopener">
+              LinkedIn
+            </a>
           </div>
+
         </div>
         <div className="bottom">
           <p>© {new Date().getFullYear()} WISDOM. All rights reserved.</p>
@@ -1104,9 +1115,9 @@ function Clients() {
 const careerRoles = [
   "Security Guard",
   "Security Supervisor",
-  "Skilled Manpower",
-  "Semi-Skilled Manpower",
-  "General Manpower",
+  "Security Officer",
+  "Site Supervisor",
+  "Facility Supervisor",
   "Housekeeping Staff",
   "Electrician",
   "Plumber",
@@ -1115,13 +1126,16 @@ const careerRoles = [
   "Machine Operator",
   "AC and Refrigeration Technician",
   "Maintenance Technician",
-  "Water Tank Cleaning Staff",
-  "Solar Panel Cleaning Staff",
+  "Water Tank Cleaning Technician",
+  "Solar Panel Cleaning Technician",
   "Driver",
-  "Supervisor",
-  "Office / Support Role",
+  "Store Keeper",
+  "Accounts Assistant",
+  "HR Executive",
+  "Office Assistant",
   "Open Application (any suitable role)",
 ];
+
 
 
 function Careers() {
@@ -1297,6 +1311,8 @@ const jsonLd = {
     "Manpower, security, HR recruitment support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur, Jharkhand and across India.",
   telephone: PHONE_DIAL,
   email: EMAIL,
+  sameAs: [LINKEDIN],
+
   address: {
     "@type": "PostalAddress",
     streetAddress: "House No. 15, Road No. 2B, Chhota Govindpur",
