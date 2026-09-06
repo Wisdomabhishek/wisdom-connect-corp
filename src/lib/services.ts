@@ -112,22 +112,22 @@ export const services: Service[] = [
     slug: "facility-management",
     name: "Facility Management",
     group: "facility",
-    short: "Cleaning operations and site upkeep for clean, well-run workplaces.",
+    short: "Reliable site and facility support that keeps workplaces clean, safe and ready for business.",
     title: "Facility Management Services",
     metaTitle: "Facility Management Services | WISDOM",
     metaDescription:
       "Facility support, cleaning operations and site upkeep with trained staff, machine based floor cleaning and supervisory checks.",
     intro:
-      "WISDOM keeps workplaces clean and orderly with trained staff, the right equipment and supervisory checks after each shift.",
+      "Reliable site and facility support that keeps workplaces clean, safe and ready for business.",
     who: [
       "Offices and corporate buildings",
       "Malls and retail facilities",
       "Plants, warehouses and institutions",
     ],
     provides: [
-      "Machine based floor cleaning",
-      "Daily cleaning operations",
-      "Site upkeep and facility support",
+      "Floor cleaning and machine based cleaning",
+      "Housekeeping support",
+      "Site upkeep and workplace hygiene",
       "Supervision and reporting",
     ],
     process: ["Site scope", "Staffing", "Schedule", "Execution", "Checks"],
@@ -138,7 +138,7 @@ export const services: Service[] = [
     slug: "water-tank-cleaning",
     name: "Water Tank Cleaning",
     group: "facility",
-    short: "Cleaning of overhead tanks, underground tanks and sumps.",
+    short: "Professional water tank cleaning and hygiene support for business premises.",
     title: "Water Tank Cleaning Services",
     metaTitle: "Water Tank Cleaning Services | WISDOM",
     metaDescription:
@@ -164,7 +164,7 @@ export const services: Service[] = [
     slug: "solar-panel-cleaning",
     name: "Solar Panel Cleaning",
     group: "facility",
-    short: "Routine cleaning to keep solar installations clean and well maintained.",
+    short: "Professional solar panel cleaning to help maintain clean surfaces and efficient site operations.",
     title: "Solar Panel Cleaning Services",
     metaTitle: "Solar Panel Cleaning Services | WISDOM",
     metaDescription:
