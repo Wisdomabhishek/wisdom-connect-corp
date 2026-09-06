@@ -3,14 +3,18 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 
 import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
-import supervisorPhoto from "@/assets/security-team.webp";
 import hrSupportPhoto from "@/assets/hr-support.webp";
-import facilityPhoto from "@/assets/facility-cleaning.webp";
-
-import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
-import solarPhoto from "@/assets/solar-cleaning.webp";
 import indiaMapPhoto from "@/assets/india-map.webp";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
+import securityPhotoAsset from "@/assets/approved-security-team.webp.asset.json";
+import facilityPhotoAsset from "@/assets/approved-facility-cleaning.webp.asset.json";
+import solarPhotoAsset from "@/assets/approved-solar-cleaning.webp.asset.json";
+import waterTankPhotoAsset from "@/assets/approved-water-tank-cleaning.png.asset.json";
+
+const supervisorPhoto = securityPhotoAsset.url;
+const facilityPhoto = facilityPhotoAsset.url;
+const solarPhoto = solarPhotoAsset.url;
+const waterTankPhoto = waterTankPhotoAsset.url;
 
 const PHONE = "+91 91224 47110";
 const PHONE_DIAL = "+919122447110";
@@ -38,6 +42,8 @@ export const Route = createFileRoute("/")({
         content:
           "Reliable people, secure sites and practical business support for Indian businesses. Based in Jamshedpur, Jharkhand.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: HomePage,
@@ -86,6 +92,7 @@ function Reveal({ children }: { children: ReactNode }) {
 /* ------------------------------------------------------------------ */
 
 const navLinks = [
+  { href: "#top", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#why", label: "Why WISDOM" },
@@ -194,7 +201,7 @@ function Hero() {
             </div>
             <div className="trust">
               <b>Facility &amp; Site Services</b>
-              <span>Housekeeping, tanks, solar</span>
+              <span>Facility, tanks and solar</span>
             </div>
             <div className="trust">
               <b>Jamshedpur Based</b>
@@ -222,9 +229,8 @@ function About() {
         <div className="about-grid">
           <div className="about-copy">
             <p>
-              WISDOM is an Indian business services company based in Jamshedpur, Jharkhand. We
-              provide manpower, security, HR recruitment support and facility services to
-              businesses that need the work done properly and without constant follow-up.
+              WISDOM brings manpower, security, recruitment and site services together under one
+              name. We support businesses that need practical service and clear accountability.
             </p>
             <p>
               The company was set up by people who have spent their working lives in commercial,
@@ -285,9 +291,9 @@ const pillars = [
   {
     no: "02",
     title: "Facility & Site Services",
-    copy: "Housekeeping, site upkeep, water tank cleaning and solar panel cleaning, run on a schedule with supervisory checks.",
+    copy: "Facility management, site upkeep, water tank cleaning and solar panel cleaning, delivered with supervisory checks.",
     chips: [
-      "Housekeeping",
+      "Facility support",
       "Site upkeep",
       "Water tank cleaning",
       "Sump cleaning",
@@ -358,11 +364,11 @@ const tabs: {
     id: "facility",
     label: "Facility Management",
     enquiry: "Facility Management",
-    title: "Clean, organised and well supported workplaces",
-    copy: "Clean, organised and well supported workplaces, buildings and sites.",
+    title: "Facility management for well-maintained workplaces",
+    copy: "Practical facility support for clean, organised and well-maintained workplaces.",
     points: [
       "Floor cleaning with machinery",
-      "Housekeeping and site upkeep",
+      "Cleaning operations and site upkeep",
       "Facility support",
       "Supervision and reporting",
     ],
@@ -373,16 +379,16 @@ const tabs: {
     id: "water",
     label: "Water Tank Cleaning",
     enquiry: "Water Tank Cleaning",
-    title: "Water tank cleaning for homes and businesses",
-    copy: "Overhead tanks, underground tanks and sumps for homes, societies, offices, commercial properties and industrial premises.",
+    title: "Professional water tank cleaning",
+    copy: "Professional cleaning for overhead tanks, underground tanks and sumps.",
     points: [
-      "Site and tank inspection",
+      "Overhead and underground tank cleaning",
+      "Sump cleaning",
       "Sludge removal",
-      "Scrubbing and high pressure cleaning",
-      "Disinfection and refill",
+      "Scrubbing, cleaning and disinfection",
     ],
     photo: waterTankPhoto,
-    alt: "WISDOM worker in helmet and gloves cleaning the inside of a large industrial water tank",
+    alt: "WISDOM workers wearing protective equipment and cleaning inside a large water tank",
   },
   {
     id: "solar",
@@ -391,19 +397,19 @@ const tabs: {
     title: "Solar panel cleaning",
     copy: "Routine solar panel cleaning to help keep installations clean and well maintained.",
     points: [
-      "Access and safety survey",
       "Surface cleaning",
       "Visual check",
       "Cleaning schedule",
     ],
     photo: solarPhoto,
-    alt: "WISDOM workers cleaning rooftop solar panels with water fed brushes at an Indian industrial building",
+    alt: "WISDOM workers in branded protective workwear cleaning a large solar panel installation",
   },
 ];
 
 function Services({ onSelectService }: { onSelectService: (label: string) => void }) {
   const [active, setActive] = useState<TabId>("manpower");
-  const current = tabs.find((t) => t.id === active)!;
+  const current = tabs.find((t) => t.id === active) ?? tabs[0];
+  if (!current) return null;
 
   return (
     <section id="services">
@@ -420,7 +426,6 @@ function Services({ onSelectService }: { onSelectService: (label: string) => voi
         <div className="pillars">
           {pillars.map((pillar) => (
             <article className="pillar" key={pillar.no}>
-              <div className="pillar-index">{pillar.no}</div>
               <div className="pillar-body">
                 <h3>{pillar.title}</h3>
                 <p>{pillar.copy}</p>
@@ -507,18 +512,18 @@ function SiteServices() {
   const items = [
     [
       "Facility Management",
-      "Daily housekeeping, cleaning operations, site upkeep and routine facility coordination, with a supervisor accountable for the work.",
-      ["Daily housekeeping", "Deep cleaning", "Site upkeep", "Supervisor reporting"],
+      "Practical facility support for clean, organised and well-maintained workplaces.",
+      ["Floor cleaning", "Machine-based cleaning", "Site upkeep", "Supervision"],
     ],
     [
       "Water Tank Cleaning",
-      "Overhead tanks, underground tanks and sumps, covering inspection, sludge removal, scrubbing and disinfection before refill.",
-      ["Inspection", "Sludge removal", "Scrubbing", "Disinfection"],
+      "Professional cleaning for overhead tanks, underground tanks and sumps.",
+      ["Overhead tanks", "Underground tanks", "Sludge removal", "Cleaning and disinfection"],
     ],
     [
       "Solar Panel Cleaning",
-      "Routine cleaning for rooftop and ground mounted installations, along with site level maintenance support.",
-      ["Access survey", "Surface cleaning", "Visual check", "Cleaning schedule"],
+      "Routine solar panel cleaning to help keep installations clean and well maintained.",
+      ["Surface cleaning", "Visual check", "Cleaning schedule"],
     ],
   ] as const;
   return (
@@ -614,11 +619,12 @@ function Footprint() {
 
 function HrSupport() {
   const steps = [
-    "Sourcing",
+    "Requirement Understanding",
+    "Candidate Sourcing",
     "Screening",
     "Shortlisting",
-    "Interviews",
-    "Selection",
+    "Interview Coordination",
+    "Selection Support",
     "Documentation",
     "Joining",
     "Onboarding",
@@ -672,10 +678,12 @@ function HrSupport() {
 
 function Why() {
   const cards = [
-    ["01", "Trained, Uniformed Staff", "Every person deployed is screened, uniformed and briefed before joining your site."],
-    ["02", "Supervision Every Day", "A supervisor checks attendance and work on site, so quality does not drop after week one."],
-    ["03", "Quick Replacement", "If someone is absent, we arrange a replacement so your work does not stop."],
-    ["04", "One Point of Contact", "Manpower, security and site services from one team, with one person you can call."],
+    ["Experienced People", "Practical experience across security, manpower and field operations."],
+    ["Reliable Deployment", "People are assigned according to the site and day-to-day requirement."],
+    ["Site Supervision", "Clear on-site checks help keep work and attendance on track."],
+    ["Workforce Coordination", "Straightforward coordination from deployment through daily operations."],
+    ["Practical Service Delivery", "Clear scope, sensible planning and responsive support."],
+    ["One Point of Contact", "One team to contact for manpower, security and site services."],
   ];
   return (
     <section id="why">
@@ -690,9 +698,8 @@ function Why() {
         </div>
 
         <div className="why-grid">
-          {cards.map(([num, title, copy]) => (
-            <div className="why-card" key={num}>
-              <div className="num">{num}</div>
+          {cards.map(([title, copy]) => (
+            <div className="why-card" key={title}>
               <h3>{title}</h3>
               <p>{copy}</p>
             </div>
@@ -703,16 +710,33 @@ function Why() {
   );
 }
 
+function CurrentFocus() {
+  return (
+    <section className="current-focus" aria-labelledby="current-focus-title">
+      <Reveal>
+        <div className="current-focus-grid">
+          <div>
+            <div className="kicker">WISDOM in 2026</div>
+            <h2 className="section-title" id="current-focus-title">
+              Building dependable service partnerships.
+            </h2>
+          </div>
+          <p>
+            From Jamshedpur, WISDOM is focused on disciplined manpower deployment, practical site
+            supervision and responsive support for businesses across India.
+          </p>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 function Serve() {
-  const tags = [
-    "Manufacturing & Industrial",
-    "Warehouses & Logistics",
-    "Corporate Offices",
-    "Commercial Facilities",
-    "Residential Communities",
-    "SMEs & Growing Businesses",
-    "Educational & Institutional",
-    "Industrial Sites",
+  const groups = [
+    ["Industrial & Manufacturing", "Factories, plants and industrial sites"],
+    ["Warehousing & Logistics", "Warehouses and logistics operations"],
+    ["Corporate & Commercial", "Offices, malls and commercial facilities"],
+    ["Institutions & Communities", "Institutions, residential communities and SMEs"],
   ];
   return (
     <section id="serve">
@@ -722,9 +746,10 @@ function Serve() {
           <h2 className="section-title">Built for businesses that need things done properly.</h2>
         </div>
         <div className="serve-grid">
-          {tags.map((tag) => (
-            <div className="serve-tag" key={tag}>
-              {tag}
+          {groups.map(([title, examples]) => (
+            <div className="serve-tag" key={title}>
+              <strong>{title}</strong>
+              <span>{examples}</span>
             </div>
           ))}
         </div>
@@ -830,10 +855,10 @@ function Leadership() {
 
 function Insights() {
   const items = [
-    ["MANPOWER", "Choosing the Right Manpower Partner", "What to check before you sign on a staffing vendor."],
-    ["SECURITY", "What to Look for in Industrial Security", "Practical points that matter more than a guard's uniform."],
-    ["HR", "From Recruitment to Onboarding", "How a simple, well run hiring process saves months of trouble."],
-    ["FACILITY", "Managing Facility Services Effectively", "Why supervision matters as much as the cleaning schedule."],
+    ["01", "Choosing the Right Manpower Partner", "What to check before choosing a manpower partner."],
+    ["02", "What to Look for in Industrial Security", "Practical points for a well-managed security team."],
+    ["03", "From Recruitment to Onboarding", "How a clear hiring process supports better joining outcomes."],
+    ["04", "Managing Facility Services Effectively", "Why clear scope and supervision matter."],
   ];
   return (
     <section className="insights" id="insights">
@@ -875,7 +900,7 @@ const faqs = [
   ],
   [
     "What facility management services do you provide?",
-    "WISDOM supports housekeeping, general facility upkeep and site-level supervision, alongside water tank and solar panel cleaning.",
+    "WISDOM supports cleaning operations, facility upkeep and site-level supervision, alongside water tank and solar panel cleaning.",
   ],
   [
     "Which areas do you work in?",
@@ -924,9 +949,9 @@ function Faq() {
 /* ---------------------------- contact ---------------------------- */
 
 const serviceOptions = [
-  "Skilled & General Manpower",
-  "Security Services",
-  "HR Recruitment & Workforce Support",
+  "Manpower",
+  "Security",
+  "HR Recruitment Support",
   "Facility Management",
   "Water Tank Cleaning",
   "Solar Panel Cleaning",
@@ -1024,23 +1049,15 @@ function Contact({ service, setService }: { service: string; setService: (v: str
               </div>
             </div>
             <div className="form-row">
-              <div className="field">
-                <label htmlFor="f-designation">Designation</label>
-                <input id="f-designation" name="designation" maxLength={80} />
-              </div>
-              <div className="field">
+              <div className="field full">
                 <label htmlFor="f-phone">Phone</label>
                 <input id="f-phone" name="phone" type="tel" inputMode="tel" maxLength={20} required />
               </div>
             </div>
             <div className="form-row">
-              <div className="field">
+              <div className="field full">
                 <label htmlFor="f-email">Email</label>
                 <input id="f-email" name="email" type="email" maxLength={160} required />
-              </div>
-              <div className="field">
-                <label htmlFor="f-city">City / Location</label>
-                <input id="f-city" name="city" maxLength={80} />
               </div>
             </div>
             <div className="form-row">
@@ -1064,7 +1081,7 @@ function Contact({ service, setService }: { service: string; setService: (v: str
             </div>
             <div className="form-row">
               <div className="field full">
-                <label htmlFor="f-message">Brief Requirement</label>
+                <label htmlFor="f-message">Message</label>
                 <textarea
                   id="f-message"
                   name="message"
@@ -1096,7 +1113,7 @@ function Contact({ service, setService }: { service: string; setService: (v: str
               Email {EMAIL}
             </a>
             <a className="contact-link" href={WHATSAPP} target="_blank" rel="noopener">
-              WhatsApp {PHONE}
+              Chat on WhatsApp
             </a>
             <a className="contact-link" href={LINKEDIN} target="_blank" rel="noopener">
               WISDOM on LinkedIn
@@ -1173,7 +1190,7 @@ function Footer() {
 
 function Clients() {
   const clients = [
-    ["Ecopack Services Pvt. Ltd.", "Packaging and industrial operations"],
+    ["Ecopack Services Private Limited", "Packaging and industrial operations"],
     ["Vacmet India Limited", "Manufacturing and industrial site"],
     ["Unite Mall, Jamshedpur", "Commercial and retail facility"],
   ];
@@ -1204,10 +1221,8 @@ const careerRoles = [
   "Security Guard",
   "Security Supervisor",
   "Facility Supervisor",
-  "Housekeeping Staff",
-  "Skilled Technician or Machine Operator",
-  "Site Manager",
-  "Office and Admin Staff",
+  "Technical / Skilled Roles",
+  "Skilled Technician / Operator",
   "Unsolicited Application",
 ];
 
@@ -1226,12 +1241,17 @@ function Careers() {
 
     const name = String(fd.get("name") ?? "").trim();
     const phone = String(fd.get("phone") ?? "").trim();
-    if (!name || !phone || !fd.get("role")) {
-      setStatus({ text: "Please add your name, phone number and the role you are applying for.", ok: false });
+    const email = String(fd.get("email") ?? "").trim();
+    if (!name || !phone || !email || !fd.get("role")) {
+      setStatus({ text: "Please add your name, phone number, email and the role you are applying for.", ok: false });
       return;
     }
     if (!/^[+\d][\d\s-]{7,17}$/.test(phone)) {
       setStatus({ text: "Please enter a valid phone number.", ok: false });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setStatus({ text: "Please enter a valid email address.", ok: false });
       return;
     }
 
@@ -1313,8 +1333,8 @@ function Careers() {
             </div>
             <div className="form-row">
               <div className="field">
-                <label htmlFor="c-email">Email (optional)</label>
-                <input id="c-email" name="email" type="email" maxLength={160} />
+                <label htmlFor="c-email">Email</label>
+                <input id="c-email" name="email" type="email" maxLength={160} required />
               </div>
               <div className="field">
                 <label htmlFor="c-city">City / Location</label>
@@ -1409,6 +1429,7 @@ function HomePage() {
         <Footprint />
         <Clients />
         <Why />
+        <CurrentFocus />
         <Serve />
         <Approach />
         <Leadership />
