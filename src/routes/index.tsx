@@ -603,13 +603,6 @@ function Footprint() {
                 <li>Maharashtra</li>
               </ul>
             </div>
-            <div className="footprint-block">
-              <div className="footer-title">Client Relationship</div>
-              <p className="client-name">Ecopack Services Private Limited</p>
-              <p className="client-note">
-                An ongoing business relationship supporting operational service requirements.
-              </p>
-            </div>
           </div>
         </div>
       </Reveal>
@@ -837,8 +830,8 @@ function Insights() {
   const items = [
     ["MANPOWER", "Choosing the Right Manpower Partner", "What to check before you sign on a staffing vendor."],
     ["SECURITY", "What to Look for in Industrial Security", "Practical points that matter more than a guard's uniform."],
+    ["HR", "From Recruitment to Onboarding", "How a simple, well run hiring process saves months of trouble."],
     ["FACILITY", "Managing Facility Services Effectively", "Why supervision matters as much as the cleaning schedule."],
-    ["SOLAR", "Solar Panel Cleaning and Routine Maintenance", "How often panels actually need attention, and why."],
   ];
   return (
     <section className="insights" id="insights">
@@ -1208,25 +1201,10 @@ function Clients() {
 const careerRoles = [
   "Security Guard",
   "Security Supervisor",
-  "Security Officer",
-  "Site Supervisor",
   "Facility Supervisor",
-  "Housekeeping Staff",
-  "Electrician",
-  "Plumber",
-  "Welder",
-  "Fitter",
-  "Machine Operator",
-  "AC and Refrigeration Technician",
-  "Maintenance Technician",
-  "Water Tank Cleaning Technician",
-  "Solar Panel Cleaning Technician",
-  "Driver",
-  "Store Keeper",
-  "Accounts Assistant",
-  "HR Executive",
-  "Office Assistant",
-  "Open Application (any suitable role)",
+  "Technical / Skilled Roles",
+  "Skilled Technician / Operator",
+  "Unsolicited Application",
 ];
 
 
