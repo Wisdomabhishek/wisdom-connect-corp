@@ -1311,6 +1311,8 @@ const jsonLd = {
     "Manpower, security, HR recruitment support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur, Jharkhand and across India.",
   telephone: PHONE_DIAL,
   email: EMAIL,
+  sameAs: [LINKEDIN],
+
   address: {
     "@type": "PostalAddress",
     streetAddress: "House No. 15, Road No. 2B, Chhota Govindpur",
