@@ -1,167 +1,49 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, type FormEvent } from "react";
 
-import logo from "@/assets/wisdom-logo.jpg";
 import heroPhoto from "@/assets/hero-operations.webp";
-import hrSupportPhoto from "@/assets/hr-support.webp";
 import indiaMapPhoto from "@/assets/india-map.webp";
-import skilledPhoto from "@/assets/skilled-manpower.webp";
-import securityPhotoAsset from "@/assets/wisdom-security-team.webp.asset.json";
-import facilityPhotoAsset from "@/assets/wisdom-facility-cleaning.webp.asset.json";
-import solarPhotoAsset from "@/assets/wisdom-solar-cleaning.webp.asset.json";
-import waterTankPhotoAsset from "@/assets/wisdom-water-tank-cleaning.png.asset.json";
-
-const supervisorPhoto = securityPhotoAsset.url;
-const facilityPhoto = facilityPhotoAsset.url;
-const solarPhoto = solarPhotoAsset.url;
-const waterTankPhoto = waterTankPhotoAsset.url;
-
-const PHONE = "+91 91224 47110";
-const PHONE_DIAL = "+919122447110";
-const WHATSAPP = "https://wa.me/919122447110";
-const EMAIL = "wisdomutilities@gmail.com";
-const LINKEDIN = "https://www.linkedin.com/company/m-s-wisdom";
-
-const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
+import {
+  CAREER_EMAIL,
+  EMAIL,
+  Footer,
+  Header,
+  LINKEDIN,
+  MobileBar,
+  PHONE,
+  PHONE_DIAL,
+  Reveal,
+  WHATSAPP,
+} from "@/components/site";
+import { facilityPhoto, securityPhoto, services, solarPhoto, waterTankPhoto } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WISDOM | Manpower, Security & Facility Services in India" },
+      { title: "WISDOM | Manpower, Security, HR & Facility Services in India" },
       {
         name: "description",
         content:
-          "WISDOM provides manpower, security, HR recruitment support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur, Jharkhand and across India.",
+          "WISDOM provides manpower, security, end-to-end HR support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur and across India.",
       },
       {
         property: "og:title",
-        content: "WISDOM | Manpower, Security & Facility Services in India",
+        content: "WISDOM | Manpower, Security, HR & Facility Services in India",
       },
       {
         property: "og:description",
         content:
-          "Reliable people, secure sites and practical business support for Indian businesses. Based in Jamshedpur, Jharkhand.",
+          "Reliable manpower, security, HR and facility services for businesses across India. Based in Jamshedpur, Jharkhand.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: HomePage,
 });
 
-/* ------------------------------------------------------------------ */
-
-function useReveal<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.08 },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, className: visible ? "wrap reveal visible" : "wrap reveal" };
-}
-
-function Reveal({ children }: { children: ReactNode }) {
-  const { ref, className } = useReveal<HTMLDivElement>();
-  return (
-    <div ref={ref} className={className}>
-      {children}
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-
-const navLinks = [
-  { href: "#top", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#why", label: "Why WISDOM" },
-  { href: "#leadership", label: "Leadership" },
-  { href: "#insights", label: "Insights" },
-  { href: "#careers", label: "Careers" },
-  { href: "#contact", label: "Contact" },
-];
-
-function Header() {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, []);
-
-  return (
-    <header>
-      <div className="wrap">
-        <nav aria-label="Primary">
-          <a className="brand" href="#top">
-            <img className="logo" src={logo} alt="WISDOM" width={48} height={48} />
-            <span>WISDOM</span>
-          </a>
-          <div className="navlinks">
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
-            <a className="cta" href="#contact">
-              Get a Quote
-            </a>
-          </div>
-          <button
-            className="burger"
-            type="button"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label="Toggle navigation menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            Menu
-          </button>
-        </nav>
-        <div id="mobile-menu" className={open ? "mobile open" : "mobile"}>
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
-              {link.label}
-            </a>
-          ))}
-          <a href={`tel:${PHONE_DIAL}`} onClick={() => setOpen(false)}>
-            Call {PHONE}
-          </a>
-          <a href={WHATSAPP} target="_blank" rel="noopener" onClick={() => setOpen(false)}>
-            Chat on WhatsApp
-          </a>
-          <a href={LINKEDIN} target="_blank" rel="noopener" onClick={() => setOpen(false)}>
-            WISDOM on LinkedIn
-          </a>
-        </div>
-      </div>
-    </header>
-  );
-}
+/* ------------------------------- hero ------------------------------- */
 
 function Hero() {
   return (
@@ -184,376 +66,204 @@ function Hero() {
             <em>Service You Can Trust.</em>
           </h1>
           <p className="hero-copy">
-            Reliable people, secure sites and practical business support.
+            Reliable manpower, security, HR and facility services for businesses across India.
           </p>
           <div className="actions">
             <a className="btn primary" href="#contact">
-              Get a Quote
+              Request a Quote
             </a>
-            <a className="btn outline" href="#services">
-              Explore Services
+            <a className="btn outline" href={WHATSAPP} target="_blank" rel="noopener">
+              WhatsApp Us
             </a>
           </div>
-          <div className="trustbar">
-            <div className="trust">
-              <b>Manpower &amp; Security</b>
-              <span>Deployment with supervision</span>
-            </div>
-            <div className="trust">
-              <b>Facility &amp; Site Services</b>
-              <span>Facility, tanks and solar</span>
-            </div>
-            <div className="trust">
-              <b>Jamshedpur Based</b>
-              <span>Serving businesses across India</span>
-            </div>
-            <div className="trust">
-              <b>One Point of Contact</b>
-              <span>Fewer vendors to manage</span>
-            </div>
-          </div>
+          <p className="hero-trust">
+            Supporting industrial, commercial and operational requirements.
+          </p>
         </div>
       </div>
     </section>
   );
 }
 
-function About() {
-  return (
-    <section className="about" id="about">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">About WISDOM</div>
-          <h2 className="section-title">A practical service partner, built around experienced people.</h2>
-        </div>
-        <div className="about-grid">
-          <div className="about-copy">
-            <p>
-              WISDOM brings manpower, security, recruitment and site services together under one
-              name. We support businesses that need practical service and clear accountability.
-            </p>
-            <p>
-              The company was set up by people who have spent their working lives in commercial,
-              security and field operations. That background shapes how we work. We look at the
-              site, understand the requirement, put the right people in place and keep a
-              supervisory line running so accountability is never unclear.
-            </p>
-            <p>
-              We keep our commitments realistic. If a requirement is outside what we can support
-              well, we say so. What we do take on is planned properly, supervised and reviewed.
-            </p>
-          </div>
-          <div className="facts">
-            <div className="fact">
-              <b>Head office</b>
-              <span>Jamshedpur, Jharkhand</span>
-            </div>
-            <div className="fact">
-              <b>Coverage</b>
-              <span>Jharkhand and across India</span>
-            </div>
-            <div className="fact">
-              <b>Service areas</b>
-              <span>People, security and facility services</span>
-            </div>
-            <div className="fact">
-              <b>Working hours</b>
-              <span>Mon to Sat, 9:00 AM to 6:00 PM IST</span>
-            </div>
-            <div className="fact">
-              <b>Contact</b>
-              <span>{PHONE}</span>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
+/* ----------------------------- what we do ---------------------------- */
 
-/* ---------------------------- services ---------------------------- */
-
-const pillars = [
-  {
-    no: "01",
-    title: "People & Security",
-    copy: "Manpower, security personnel and HR recruitment support, deployed and supervised so day-to-day operations stay steady.",
-    chips: [
-      "Skilled manpower",
-      "Semi-skilled manpower",
-      "General manpower",
-      "Security guards",
-      "Security supervisors",
-      "HR recruitment support",
-    ],
-    tab: "manpower",
-  },
-  {
-    no: "02",
-    title: "Facility & Site Services",
-    copy: "Facility management, site upkeep, water tank cleaning and solar panel cleaning, delivered with supervisory checks.",
-    chips: [
-      "Facility support",
-      "Site upkeep",
-      "Water tank cleaning",
-      "Sump cleaning",
-      "Solar panel cleaning",
-      "Supervisory support",
-    ],
-    tab: "facility",
-  },
-] as const;
-
-type TabId = "manpower" | "security" | "recruitment" | "facility" | "water" | "solar";
-
-const tabs: {
-  id: TabId;
-  label: string;
-  enquiry: string;
-  title: string;
-  copy: string;
-  points: string[];
-  photo?: string;
-  alt?: string;
-}[] = [
-  {
-    id: "manpower",
-    label: "Skilled & General Manpower",
-    enquiry: "Skilled & General Manpower",
-    title: "Skilled, semi-skilled and general manpower",
-    copy: "Reliable manpower for day-to-day operations, site requirements and project needs.",
-    points: [
-      "Skilled, semi-skilled and general manpower",
-      "Technical manpower and site support",
-      "Shift wise deployment and replacement support",
-      "Workforce coordination and supervisory support",
-    ],
-    photo: skilledPhoto,
-    alt: "WISDOM technicians working on an electrical panel and a lathe machine in an Indian factory",
-  },
-  {
-    id: "security",
-    label: "Security Services",
-    enquiry: "Security Services",
-    title: "Security personnel and site supervision",
-    copy: "Professional security personnel for industrial, commercial and residential sites.",
-    points: [
-      "Gate management and access control",
-      "Visitor management",
-      "Patrolling",
-      "Shift deployment and site supervision",
-    ],
-    photo: supervisorPhoto,
-    alt: "WISDOM security supervisor briefing a line of uniformed security guards at an industrial site",
-  },
-  {
-    id: "recruitment",
-    label: "HR Recruitment & Workforce Support",
-    enquiry: "HR Recruitment & Workforce Support",
-    title: "End to end HR support from candidate sourcing to onboarding",
-    copy: "WISDOM supports clients through the full recruitment process, not only at the CV stage.",
-    points: [
-      "Requirement understanding",
-      "Candidate sourcing and screening",
-      "Shortlisting and interview coordination",
-      "Selection, documentation and joining",
-      "Onboarding support",
-    ],
-  },
-  {
-    id: "facility",
-    label: "Facility Management",
-    enquiry: "Facility Management",
-    title: "Facility management for well-maintained workplaces",
-    copy: "Practical facility support for clean, organised and well-maintained workplaces.",
-    points: [
-      "Floor cleaning with machinery",
-      "Cleaning operations and site upkeep",
-      "Facility support",
-      "Supervision and reporting",
-    ],
-    photo: facilityPhoto,
-    alt: "WISDOM staff operating a floor scrubbing machine in an Indian commercial building",
-  },
-  {
-    id: "water",
-    label: "Water Tank Cleaning",
-    enquiry: "Water Tank Cleaning",
-    title: "Professional water tank cleaning",
-    copy: "Professional cleaning for overhead tanks, underground tanks and sumps.",
-    points: [
-      "Overhead and underground tank cleaning",
-      "Sump cleaning",
-      "Sludge removal",
-      "Scrubbing, cleaning and disinfection",
-    ],
-    photo: waterTankPhoto,
-    alt: "WISDOM workers wearing protective equipment and cleaning inside a large water tank",
-  },
-  {
-    id: "solar",
-    label: "Solar Panel Cleaning",
-    enquiry: "Solar Panel Cleaning",
-    title: "Solar panel cleaning",
-    copy: "Routine solar panel cleaning to help keep installations clean and well maintained.",
-    points: [
-      "Surface cleaning",
-      "Visual check",
-      "Cleaning schedule",
-    ],
-    photo: solarPhoto,
-    alt: "WISDOM workers in branded protective workwear cleaning a large solar panel installation",
-  },
+const sectors = [
+  "Industrial & Manufacturing",
+  "Warehousing & Logistics",
+  "Corporate & Commercial",
+  "Retail & Malls",
+  "Institutions & Communities",
+  "Project & Site Operations",
 ];
 
-function Services({ onSelectService }: { onSelectService: (label: string) => void }) {
-  const [active, setActive] = useState<TabId>("manpower");
-  const current = tabs.find((t) => t.id === active) ?? tabs[0];
-  if (!current) return null;
+const hrFlow = ["Requirement", "Sourcing", "Screening", "Selection", "Joining", "Onboarding"];
+
+function WhatWeDo() {
+  const people = services.filter((s) => s.group === "people");
+  const facility = services.filter((s) => s.group === "facility");
 
   return (
     <section id="services">
       <Reveal>
         <div className="section-head">
           <div className="kicker">What We Do</div>
-          <h2 className="section-title">Two service pillars. Six services businesses actually ask for.</h2>
+          <h2 className="section-title">
+            People, security, HR and site services under one service partner.
+          </h2>
           <p className="section-desc">
-            Everything we provide sits under people and security, or facility and site services.
-            No long service list, no areas we cannot supervise properly.
+            WISDOM brings people, security, HR and site services together under one service
+            partner.
           </p>
         </div>
 
         <div className="pillars">
-          {pillars.map((pillar) => (
-            <article className="pillar" key={pillar.no}>
+          {[
+            ["People & Security", people],
+            ["Facility & Site Services", facility],
+          ].map(([title, list]) => (
+            <article className="pillar" key={title as string}>
               <div className="pillar-body">
-                <h3>{pillar.title}</h3>
-                <p>{pillar.copy}</p>
-                <div className="chips">
-                  {pillar.chips.map((chip) => (
-                    <span className="chip" key={chip}>
-                      {chip}
-                    </span>
-                  ))}
-                </div>
-                <button
-                  className="pillar-link"
-                  type="button"
-                  onClick={() => setActive(pillar.tab as TabId)}
-                >
-                  See what this covers
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="selector">
-          <h3>What do you need help with?</h3>
-          <div className="tabs" role="tablist" aria-label="Services">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={tab.id === active ? "tab active" : "tab"}
-                role="tab"
-                type="button"
-                id={`tab-${tab.id}`}
-                aria-selected={tab.id === active}
-                aria-controls="service-panel"
-                onClick={() => setActive(tab.id)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          <div className="panel" id="service-panel" role="tabpanel" aria-labelledby={`tab-${active}`}>
-            <div className={current.photo ? "panel-grid" : "panel-grid single"}>
-              <div>
-                <b>{current.title}</b>
-                <p>{current.copy}</p>
-                <ul>
-                  {current.points.map((point) => (
-                    <li key={point}>{point}</li>
+                <h3>{title as string}</h3>
+                <ul className="svc-list">
+                  {(list as typeof services).map((s) => (
+                    <li key={s.slug}>
+                      <Link to="/services/$slug" params={{ slug: s.slug }}>
+                        {s.name}
+                      </Link>
+                      <span>{s.short}</span>
+                    </li>
                   ))}
                 </ul>
-                <div className="actions">
-                  <a
-                    className="btn primary"
-                    href="#contact"
-                    onClick={() => onSelectService(current.enquiry)}
-                  >
-                    Enquire about this service
-                  </a>
-                  <a className="btn outline" href={WHATSAPP} target="_blank" rel="noopener">
-                    WhatsApp us
-                  </a>
-                </div>
               </div>
-              {current.photo ? (
-                <img
-                  className="panel-photo"
-                  src={current.photo}
-                  alt={current.alt}
-                  width={1400}
-                  height={900}
-                  loading="lazy"
-                />
-              ) : null}
-            </div>
-          </div>
-
+            </article>
+          ))}
         </div>
+
+        <div className="hr-flow-block">
+          <div className="footer-title">End-to-End HR Support</div>
+          <div className="hr-flow">
+            {hrFlow.map((step, i) => (
+              <span key={step}>
+                {step}
+                {i < hrFlow.length - 1 ? <i aria-hidden="true">&rsaquo;</i> : null}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <p className="sector-line">
+          WISDOM supports requirements across:
+          {sectors.map((s) => (
+            <span className="sector" key={s}>
+              {s}
+            </span>
+          ))}
+        </p>
       </Reveal>
     </section>
   );
 }
 
-function SiteServices() {
-  const items = [
-    [
-      "Facility Management",
-      "Practical facility support for clean, organised and well-maintained workplaces.",
-      ["Floor cleaning", "Machine-based cleaning", "Site upkeep", "Supervision"],
-    ],
-    [
-      "Water Tank Cleaning",
-      "Professional cleaning for overhead tanks, underground tanks and sumps.",
-      ["Overhead tanks", "Underground tanks", "Sludge removal", "Cleaning and disinfection"],
-    ],
-    [
-      "Solar Panel Cleaning",
-      "Routine solar panel cleaning to help keep installations clean and well maintained.",
-      ["Surface cleaning", "Visual check", "Cleaning schedule"],
-    ],
-  ] as const;
+/* --------------------------- wisdom in action ------------------------ */
+
+const actionShots = [
+  {
+    src: securityPhoto,
+    caption: "Security team briefing before the shift.",
+    alt: "WISDOM security supervisor briefing a line of uniformed WISDOM security guards at an industrial gate",
+  },
+  {
+    src: facilityPhoto,
+    caption: "Facility management and cleaning operations.",
+    alt: "WISDOM facility staff cleaning a marble floor with a mop and a floor scrubbing machine",
+  },
+  {
+    src: waterTankPhoto,
+    caption: "Water tank cleaning with proper equipment.",
+    alt: "WISDOM workers in helmets and safety gear washing the inside of a large concrete water tank",
+  },
+  {
+    src: solarPhoto,
+    caption: "Solar panel cleaning on site.",
+    alt: "Two WISDOM workers in branded workwear cleaning a row of solar panels with brushes",
+  },
+];
+
+function InAction() {
   return (
-    <section className="visual">
+    <section className="visual" id="work">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Facility &amp; Site Services</div>
-          <h2 className="section-title">Work that is visible. Standards that are practical.</h2>
-          <p className="section-desc">
-            Scheduled site work with clear scope, trained staff and supervisory checks after
-            completion.
-          </p>
+          <div className="kicker">WISDOM in Action</div>
+          <h2 className="section-title">Real teams. Real sites.</h2>
         </div>
-        <div className="site-grid">
-          {items.map(([title, copy, steps]) => (
-            <article className="site-card" key={title}>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-              <ul>
-                {steps.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ul>
-            </article>
+        <div className="action-grid">
+          {actionShots.map((shot) => (
+            <figure className="action-shot" key={shot.caption}>
+              <img src={shot.src} alt={shot.alt} loading="lazy" />
+              <figcaption>{shot.caption}</figcaption>
+            </figure>
           ))}
         </div>
       </Reveal>
     </section>
   );
 }
+
+/* ------------------------------ why wisdom --------------------------- */
+
+const whyPoints = [
+  ["Reliable People", "People who turn up and do the work properly."],
+  ["Practical Service", "Clear scope, sensible planning, no overselling."],
+  ["Site Supervision", "On-site checks keep work and attendance on track."],
+  ["Workforce Coordination", "Straightforward coordination day to day."],
+  ["One Point of Contact", "One team for people, security and site services."],
+];
+
+const howWeWork = [
+  ["01", "Understand", "We understand your requirement."],
+  ["02", "Plan", "We identify the people, skills and service structure required."],
+  ["03", "Deploy", "Suitable people and services are deployed."],
+  ["04", "Support", "We coordinate with the client for ongoing requirements."],
+];
+
+function Why() {
+  return (
+    <section id="why">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Why WISDOM</div>
+          <h2 className="section-title">Experienced people. Clear accountability.</h2>
+          <p className="section-desc">
+            WISDOM in 2026: built for today's India, ready for what comes next.
+          </p>
+        </div>
+
+        <div className="why-grid">
+          {whyPoints.map(([title, copy]) => (
+            <div className="why-card" key={title}>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="how-head">How We Work</div>
+        <div className="approach-grid">
+          {howWeWork.map(([num, title, copy]) => (
+            <div className="step" key={num}>
+              <div className="num">{num}</div>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+/* --------------------------- reach + experience ---------------------- */
 
 const MAP_MARKS = [
   { n: "Mathura, Uttar Pradesh", x: 33.26, y: 31.38 },
@@ -563,25 +273,27 @@ const MAP_MARKS = [
   { n: "Pune, Maharashtra", x: 20.92, y: 59.31 },
 ];
 
-function Footprint() {
+const clients = [
+  ["Ecopack Services Private Limited", "Packaging and industrial operations"],
+  ["Vacmet India Limited", "Manufacturing and industrial site"],
+  ["Unite Mall, Jamshedpur", "Commercial and retail facility"],
+];
+
+function Reach() {
   return (
-    <section className="footprint" id="footprint">
+    <section className="footprint" id="reach">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Current Service Footprint</div>
-          <h2 className="section-title">Where WISDOM Currently Serves</h2>
-          <p className="section-desc">
-            WISDOM is currently supporting business and operational requirements across multiple
-            locations in India.
-          </p>
+          <div className="kicker">Our Reach</div>
+          <h2 className="section-title">Current Service Footprint</h2>
         </div>
-        <div className="footprint-grid">
+        <div className="reach-grid">
           <div className="map-holder">
             <div className="map-figure">
               <img
                 className="india-map-img"
                 src={indiaMapPhoto}
-                alt="Map of India showing the locations where WISDOM currently provides services"
+                alt="Map of India marking the locations where WISDOM currently provides services"
                 width={354}
                 height={412}
                 loading="lazy"
@@ -595,209 +307,111 @@ function Footprint() {
                 />
               ))}
             </div>
-            <p className="figure-note">
-              Markers indicate locations where WISDOM currently supports client requirements.
-            </p>
-          </div>
-
-          <div className="footprint-side">
-            <div className="footprint-block">
-              <div className="footer-title">Locations Currently Served</div>
-              <ul className="plain-list">
-                {MAP_MARKS.map((mark) => (
-                  <li key={mark.n}>{mark.n}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-function HrSupport() {
-  const steps = [
-    "Requirement Understanding",
-    "Candidate Sourcing",
-    "Screening",
-    "Shortlisting",
-    "Interview Coordination",
-    "Selection Support",
-    "Documentation",
-    "Joining",
-    "Onboarding",
-  ];
-  return (
-    <section className="hr" id="hr">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">HR Recruitment &amp; Workforce Support</div>
-          <h2 className="section-title">End-to-End HR Support</h2>
-          <p className="section-desc">
-            From sourcing the right candidates to onboarding, WISDOM supports clients throughout
-            the recruitment process.
-          </p>
-        </div>
-        <div className="hr-grid">
-          <div>
-            <img
-              className="hr-photo"
-              src={hrSupportPhoto}
-              alt="WISDOM HR support team reviewing candidate documents at the Jamshedpur office"
-              width={1600}
-              height={1000}
-              loading="lazy"
-            />
-            <p className="figure-note">HR support desk at the WISDOM office in Jamshedpur.</p>
-          </div>
-          <div>
-            <ol className="hr-steps">
-              {steps.map((step, i) => (
-                <li key={step}>
-                  <span className="hr-step-no">{String(i + 1).padStart(2, "0")}</span>
-                  {step}
-                </li>
-              ))}
-            </ol>
-            <div className="hr-contact">
-              <div className="footer-title">Recruitment Enquiries</div>
-              <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>
-              <p className="client-note">
-                Please write to the recruitment desk for hiring and workforce support
-                requirements.
+            <div className="reach-note">
+              <h3>Growing Across India</h3>
+              <p>
+                WISDOM is building its operational presence across industrial and commercial
+                locations in India.
+              </p>
+              <p className="reach-states">
+                Currently serving selected locations across:
+                <b>Uttar Pradesh | Odisha | Jharkhand | Bihar | Maharashtra</b>
               </p>
             </div>
           </div>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
 
-function Why() {
-  const cards = [
-    ["Experienced People", "Practical experience across security, manpower and field operations."],
-    ["Reliable Deployment", "People are assigned according to the site and day-to-day requirement."],
-    ["Site Supervision", "Clear on-site checks help keep work and attendance on track."],
-    ["Workforce Coordination", "Straightforward coordination from deployment through daily operations."],
-    ["Practical Service Delivery", "Clear scope, sensible planning and responsive support."],
-    ["One Point of Contact", "One team to contact for manpower, security and site services."],
-  ];
-  return (
-    <section id="why">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">Why WISDOM</div>
-          <h2 className="section-title">Experienced people. Clear accountability.</h2>
-          <p className="section-desc">
-            Businesses do not need more promises. They need trained people, daily supervision and
-            one number to call when something is needed.
-          </p>
-        </div>
-
-        <div className="why-grid">
-          {cards.map(([title, copy]) => (
-            <div className="why-card" key={title}>
-              <h3>{title}</h3>
-              <p>{copy}</p>
+          <div className="footprint-side">
+            <div className="footer-title">Experience</div>
+            <div className="client-list">
+              {clients.map(([name, note]) => (
+                <div className="client" key={name}>
+                  <b>{name}</b>
+                  <span>{note}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-function CurrentFocus() {
-  return (
-    <section className="current-focus" aria-labelledby="current-focus-title">
-      <Reveal>
-        <div className="current-focus-grid">
-          <div>
-            <div className="kicker">WISDOM in 2026</div>
-            <h2 className="section-title" id="current-focus-title">
-              Building dependable service partnerships.
-            </h2>
           </div>
-          <p>
-            From Jamshedpur, WISDOM is focused on disciplined manpower deployment, practical site
-            supervision and responsive support for businesses across India.
-          </p>
         </div>
       </Reveal>
     </section>
   );
 }
 
-function Serve() {
-  const groups = [
-    ["Industrial & Manufacturing", "Factories, plants and industrial sites"],
-    ["Warehousing & Logistics", "Warehouses and logistics operations"],
-    ["Corporate & Commercial", "Offices, malls and commercial facilities"],
-    ["Institutions & Communities", "Institutions, residential communities and SMEs"],
-  ];
-  return (
-    <section id="serve">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">Who We Serve</div>
-          <h2 className="section-title">Built for businesses that need things done properly.</h2>
-        </div>
-        <div className="serve-grid">
-          {groups.map(([title, examples]) => (
-            <div className="serve-tag" key={title}>
-              <strong>{title}</strong>
-              <span>{examples}</span>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </section>
-  );
-}
+/* -------------------------- leadership + careers --------------------- */
 
-function Approach() {
-  const steps = [
-    ["01", "Understand", "We understand the site, people and requirement."],
-    ["02", "Plan", "We work out the right service and deployment structure."],
-    ["03", "Deploy", "We put the right people and process in place."],
-    ["04", "Supervise", "We stay close to the operation and keep accountability clear."],
-    ["05", "Support", "We remain available and keep communication straightforward."],
-  ];
-  return (
-    <section className="approach">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">Our Approach</div>
-          <h2 className="section-title">A straightforward process.</h2>
-        </div>
-        <div className="approach-grid">
-          {steps.map(([num, title, copy]) => (
-            <div className="step" key={num}>
-              <div className="num">{num}</div>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </section>
-  );
-}
+const careerRoles = [
+  "Security Guard",
+  "Security Supervisor",
+  "Facility Supervisor",
+  "Technical / Skilled Roles",
+  "Skilled Technician / Operator",
+  "Unsolicited Application",
+];
 
-function Leadership() {
+function LeadershipCareers() {
+  const [status, setStatus] = useState<{ text: string; ok: boolean } | null>(null);
+  const [sending, setSending] = useState(false);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    if (fd.get("_honey")) return;
+
+    const name = String(fd.get("name") ?? "").trim();
+    const phone = String(fd.get("phone") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    if (!name || !phone || !email || !fd.get("role")) {
+      setStatus({
+        text: "Please add your name, phone number, email and the role you are applying for.",
+        ok: false,
+      });
+      return;
+    }
+    if (!/^[+\d][\d\s-]{7,17}$/.test(phone)) {
+      setStatus({ text: "Please enter a valid phone number.", ok: false });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setStatus({ text: "Please enter a valid email address.", ok: false });
+      return;
+    }
+
+    setSending(true);
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${CAREER_EMAIL}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: fd,
+      });
+      if (!res.ok) throw new Error("Delivery failed");
+      setStatus({
+        text: "Thank you. Your details have been sent to the WISDOM recruitment desk.",
+        ok: true,
+      });
+      form.reset();
+    } catch {
+      const body = [...fd.entries()]
+        .filter(([k]) => !k.startsWith("_"))
+        .map(([k, v]) => `${k}: ${String(v)}`)
+        .join("\n");
+      window.location.href = `mailto:${CAREER_EMAIL}?subject=${encodeURIComponent(
+        "Job application from WISDOM website",
+      )}&body=${encodeURIComponent(body)}`;
+      setStatus({
+        text: "We could not confirm direct delivery, so your email app is opening as a backup. Please send that email so your application reaches us.",
+        ok: false,
+      });
+    }
+    setSending(false);
+  };
+
   return (
-    <section id="leadership">
+    <section id="careers" className="careers">
       <Reveal>
         <div className="section-head">
           <div className="kicker">Leadership</div>
           <h2 className="section-title">People behind WISDOM.</h2>
-          <p className="section-desc">
-            Different backgrounds. Complementary strengths. One focus, which is doing the work
-            properly.
-          </p>
         </div>
         <div className="founders">
           <article className="founder">
@@ -811,17 +425,10 @@ function Leadership() {
               </div>
             </div>
             <p>
-              Manoj brings extensive experience in security and field operations, supported by his
-              background with the Central Reserve Police Force and subsequent experience in
-              industrial security. At WISDOM, his focus is on manpower deployment, personnel
-              supervision, site discipline and reliable day-to-day operations.
+              Manoj brings experience in security and field operations, with a background in the
+              Central Reserve Police Force followed by industrial security. He looks after manpower
+              deployment, site discipline and day-to-day operations.
             </p>
-            <div className="creds">
-              <span className="cred">SECURITY OPERATIONS</span>
-              <span className="cred">FIELD OPERATIONS</span>
-              <span className="cred">MANPOWER DEPLOYMENT</span>
-              <span className="cred">SITE SUPERVISION</span>
-            </div>
           </article>
           <article className="founder">
             <div className="founder-head">
@@ -834,132 +441,108 @@ function Leadership() {
               </div>
             </div>
             <p>
-              Abhishek focuses on client relationships, business development and facility
-              operations. His experience across commercial and operational responsibilities helps
-              WISDOM understand client requirements, build practical service solutions and
-              maintain long-term working relationships.
+              Abhishek looks after client requirements, business development and facility
+              operations, and works on building practical service plans for each site.
             </p>
-            <div className="creds">
-              <span className="cred">SALES</span>
-              <span className="cred">BUSINESS DEVELOPMENT</span>
-              <span className="cred">FACILITY MANAGEMENT</span>
-              <span className="cred">CLIENT OPERATIONS</span>
-            </div>
           </article>
-
         </div>
+
+        <div className="section-head careers-head">
+          <div className="kicker">Careers</div>
+          <h2 className="section-title">Work With WISDOM</h2>
+          <p className="section-desc">
+            Looking for your next opportunity? Tell us about your experience and the kind of role
+            you are looking for.
+          </p>
+        </div>
+
+        <form className="form careers-form" onSubmit={onSubmit} noValidate>
+          <input type="hidden" name="_subject" value="Job application from WISDOM website" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="text"
+            name="_honey"
+            style={{ position: "absolute", left: "-9999px" }}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
+          <div className="form-row">
+            <div className="field">
+              <label htmlFor="c-name">Full Name *</label>
+              <input id="c-name" name="name" maxLength={100} required />
+            </div>
+            <div className="field">
+              <label htmlFor="c-phone">Phone *</label>
+              <input id="c-phone" name="phone" type="tel" inputMode="tel" maxLength={20} required />
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="field">
+              <label htmlFor="c-email">Email *</label>
+              <input id="c-email" name="email" type="email" maxLength={160} required />
+            </div>
+            <div className="field">
+              <label htmlFor="c-city">City / Location</label>
+              <input id="c-city" name="city" maxLength={80} />
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="field full">
+              <label htmlFor="c-role">Role Applying For *</label>
+              <select id="c-role" name="role" required defaultValue="">
+                <option value="" disabled>
+                  Select a role
+                </option>
+                {careerRoles.map((role) => (
+                  <option key={role}>{role}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="field full">
+              <label htmlFor="c-message">Experience (brief)</label>
+              <textarea
+                id="c-message"
+                name="experience"
+                maxLength={800}
+                placeholder="Where you have worked and for how long"
+              />
+            </div>
+          </div>
+          <button className="submit" type="submit" disabled={sending}>
+            {sending ? "Sending..." : "Apply Now"}
+          </button>
+          <p className="note">
+            Applications are sent to <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
+          </p>
+          {status && (
+            <p className={status.ok ? "status ok" : "status error"} role="status">
+              {status.text}
+            </p>
+          )}
+        </form>
       </Reveal>
     </section>
   );
 }
 
-function Insights() {
-  const items = [
-    ["01", "Choosing the Right Manpower Partner", "What to check before choosing a manpower partner."],
-    ["02", "What to Look for in Industrial Security", "Practical points for a well-managed security team."],
-    ["03", "From Recruitment to Onboarding", "How a clear hiring process supports better joining outcomes."],
-    ["04", "Managing Facility Services Effectively", "Why clear scope and supervision matter."],
-  ];
-  return (
-    <section className="insights" id="insights">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">WISDOM Insights</div>
-          <h2 className="section-title">Useful knowledge, without the jargon.</h2>
-        </div>
-        <div className="insight-grid">
-          {items.map(([tag, title, copy]) => (
-            <article className="insight" key={title}>
-              <small>{tag}</small>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-const faqs = [
-  [
-    "What types of manpower does WISDOM provide?",
-    "WISDOM can support skilled, semi-skilled and unskilled manpower requirements, along with site support and supervisory coordination.",
-  ],
-  [
-    "Do you provide industrial security?",
-    "Yes. WISDOM provides security personnel, supervisors and site-level security support for business and industrial environments.",
-  ],
-  [
-    "Can WISDOM support recruitment requirements?",
-    "Yes. Recruitment support can include understanding the requirement, sourcing, screening and coordinating the hiring process.",
-  ],
-  [
-    "Do you provide water tank and solar panel cleaning?",
-    "Yes. WISDOM provides water tank cleaning and routine solar panel cleaning support for relevant sites.",
-  ],
-  [
-    "What facility management services do you provide?",
-    "WISDOM supports cleaning operations, facility upkeep and site-level supervision, alongside water tank and solar panel cleaning.",
-  ],
-  [
-    "Which areas do you work in?",
-    "WISDOM is based in Jamshedpur, Jharkhand and works with businesses in the region and across India, depending on the requirement.",
-  ],
-];
-
-function Faq() {
-  const [open, setOpen] = useState<number | null>(0);
-  return (
-    <section className="faq">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">FAQ</div>
-          <h2 className="section-title">Questions businesses usually ask.</h2>
-        </div>
-        <div className="faq-list">
-          {faqs.map(([q, a], i) => {
-            const isOpen = open === i;
-            return (
-              <div className="faq-item" key={q}>
-                <button
-                  className="faq-q"
-                  type="button"
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-a-${i}`}
-                  onClick={() => setOpen(isOpen ? null : i)}
-                >
-                  {q}
-                  <span aria-hidden="true">{isOpen ? "-" : "+"}</span>
-                </button>
-                {isOpen && (
-                  <div className="faq-a" id={`faq-a-${i}`}>
-                    {a}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-/* ---------------------------- contact ---------------------------- */
+/* ------------------------------- contact ----------------------------- */
 
 const serviceOptions = [
   "Manpower",
   "Security",
-  "HR Recruitment Support",
+  "End-to-End HR Support",
   "Facility Management",
   "Water Tank Cleaning",
   "Solar Panel Cleaning",
   "Other",
 ];
 
-
-function Contact({ service, setService }: { service: string; setService: (v: string) => void }) {
+function Contact() {
+  const [service, setService] = useState("");
   const [status, setStatus] = useState<{ text: string; ok: boolean } | null>(null);
   const [sending, setSending] = useState(false);
 
@@ -970,10 +553,14 @@ function Contact({ service, setService }: { service: string; setService: (v: str
     if (fd.get("_honey")) return;
 
     const name = String(fd.get("name") ?? "").trim();
+    const company = String(fd.get("company") ?? "").trim();
     const phone = String(fd.get("phone") ?? "").trim();
     const email = String(fd.get("email") ?? "").trim();
-    if (!name || !phone || !email || !fd.get("service")) {
-      setStatus({ text: "Please fill in your name, phone, email and select a service.", ok: false });
+    if (!name || !company || !phone || !email || !fd.get("service")) {
+      setStatus({
+        text: "Please fill in your name, company, phone, email and select a service.",
+        ok: false,
+      });
       return;
     }
     if (!/^[+\d][\d\s-]{7,17}$/.test(phone)) {
@@ -1019,10 +606,13 @@ function Contact({ service, setService }: { service: string; setService: (v: str
     <section className="contact" id="contact">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Get In Touch</div>
-          <h2 className="section-title">Let us talk about your requirement.</h2>
+          <div className="kicker">Have a Requirement?</div>
+          <h2 className="section-title">
+            Let us discuss how WISDOM can support your people, security or site requirements.
+          </h2>
           <p className="section-desc">
-            Tell us what you need. Our team will get back to you and discuss the requirement.
+            Tell us what you need. Our team will review your requirement and get in touch to
+            discuss the next steps.
           </p>
         </div>
         <div className="contact-grid">
@@ -1040,29 +630,31 @@ function Contact({ service, setService }: { service: string; setService: (v: str
             />
             <div className="form-row">
               <div className="field">
-                <label htmlFor="f-name">Name</label>
+                <label htmlFor="f-name">Name *</label>
                 <input id="f-name" name="name" maxLength={100} required />
               </div>
               <div className="field">
-                <label htmlFor="f-company">Company</label>
-                <input id="f-company" name="company" maxLength={120} />
+                <label htmlFor="f-company">Company *</label>
+                <input id="f-company" name="company" maxLength={120} required />
               </div>
             </div>
             <div className="form-row">
-              <div className="field full">
-                <label htmlFor="f-phone">Phone</label>
+              <div className="field">
+                <label htmlFor="f-phone">Phone *</label>
                 <input id="f-phone" name="phone" type="tel" inputMode="tel" maxLength={20} required />
               </div>
-            </div>
-            <div className="form-row">
-              <div className="field full">
-                <label htmlFor="f-email">Email</label>
+              <div className="field">
+                <label htmlFor="f-email">Email *</label>
                 <input id="f-email" name="email" type="email" maxLength={160} required />
               </div>
             </div>
             <div className="form-row">
-              <div className="field full">
-                <label htmlFor="service">Service Required</label>
+              <div className="field">
+                <label htmlFor="f-location">Location</label>
+                <input id="f-location" name="location" maxLength={100} />
+              </div>
+              <div className="field">
+                <label htmlFor="service">Service Required *</label>
                 <select
                   id="service"
                   name="service"
@@ -1091,12 +683,8 @@ function Contact({ service, setService }: { service: string; setService: (v: str
               </div>
             </div>
             <button className="submit" type="submit" disabled={sending}>
-              {sending ? "Sending..." : "Send Enquiry"}
+              {sending ? "Sending..." : "Request a Quote"}
             </button>
-            <p className="note">
-              Submissions are sent directly to WISDOM. If that fails, your email app will open as a
-              backup so the enquiry still reaches {EMAIL}.
-            </p>
             {status && (
               <p className={status.ok ? "status ok" : "status error"} role="status">
                 {status.text}
@@ -1109,11 +697,14 @@ function Contact({ service, setService }: { service: string; setService: (v: str
             <a className="contact-link" href={`tel:${PHONE_DIAL}`}>
               Call {PHONE}
             </a>
-            <a className="contact-link" href={`mailto:${EMAIL}`}>
-              Email {EMAIL}
-            </a>
             <a className="contact-link" href={WHATSAPP} target="_blank" rel="noopener">
-              Chat on WhatsApp
+              WhatsApp Us
+            </a>
+            <a className="contact-link" href={`mailto:${EMAIL}`}>
+              {EMAIL}
+            </a>
+            <a className="contact-link" href={`mailto:${CAREER_EMAIL}`}>
+              {CAREER_EMAIL}
             </a>
             <a className="contact-link" href={LINKEDIN} target="_blank" rel="noopener">
               WISDOM on LinkedIn
@@ -1138,254 +729,6 @@ function Contact({ service, setService }: { service: string; setService: (v: str
   );
 }
 
-function Footer() {
-  return (
-    <footer>
-      <div className="wrap">
-        <div className="footer-grid">
-          <div>
-            <div className="footer-brand">
-              <img className="logo" src={logo} alt="WISDOM" width={48} height={48} loading="lazy" />
-              <span>WISDOM</span>
-            </div>
-            <p style={{ marginTop: 10 }}>Think Wisdom. Service You Can Trust.</p>
-          </div>
-          <div>
-            <div className="footer-title">Services</div>
-            <a href="#services">People &amp; Security</a>
-            <a href="#services">Facility &amp; Site Services</a>
-            <a href="#hr">HR Recruitment &amp; Workforce Support</a>
-          </div>
-          <div>
-            <div className="footer-title">Company</div>
-            <a href="#about">About</a>
-            <a href="#why">Why WISDOM</a>
-            <a href="#leadership">Leadership</a>
-            <a href="#insights">Insights</a>
-            <a href="#clients">Trusted By</a>
-            <a href="#careers">Careers</a>
-
-          </div>
-          <div>
-            <div className="footer-title">Contact</div>
-            <p>Jamshedpur, Jharkhand</p>
-            <a href={`tel:${PHONE_DIAL}`}>{PHONE}</a>
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            <a href={LINKEDIN} target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-          </div>
-
-        </div>
-        <div className="bottom">
-          <p>© {new Date().getFullYear()} WISDOM. All rights reserved.</p>
-          <p>Jamshedpur, Jharkhand, India</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-
-function Clients() {
-  const clients = [
-    ["Ecopack Services Private Limited", "Packaging and industrial operations"],
-    ["Vacmet India Limited", "Manufacturing and industrial site"],
-    ["Unite Mall, Jamshedpur", "Commercial and retail facility"],
-  ];
-  return (
-    <section className="clients" id="clients">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">Trusted By</div>
-          <h2 className="section-title">Organisations we work with.</h2>
-          <p className="section-desc">
-            A few of the companies that rely on WISDOM for people, security and site services.
-          </p>
-        </div>
-        <div className="client-list">
-          {clients.map(([name, note]) => (
-            <div className="client" key={name}>
-              <b>{name}</b>
-              <span>{note}</span>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-const careerRoles = [
-  "Security Guard",
-  "Security Supervisor",
-  "Facility Supervisor",
-  "Technical / Skilled Roles",
-  "Skilled Technician / Operator",
-  "Unsolicited Application",
-];
-
-
-
-
-function Careers() {
-  const [status, setStatus] = useState<{ text: string; ok: boolean } | null>(null);
-  const [sending, setSending] = useState(false);
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const fd = new FormData(form);
-    if (fd.get("_honey")) return;
-
-    const name = String(fd.get("name") ?? "").trim();
-    const phone = String(fd.get("phone") ?? "").trim();
-    const email = String(fd.get("email") ?? "").trim();
-    if (!name || !phone || !email || !fd.get("role")) {
-      setStatus({ text: "Please add your name, phone number, email and the role you are applying for.", ok: false });
-      return;
-    }
-    if (!/^[+\d][\d\s-]{7,17}$/.test(phone)) {
-      setStatus({ text: "Please enter a valid phone number.", ok: false });
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setStatus({ text: "Please enter a valid email address.", ok: false });
-      return;
-    }
-
-    setSending(true);
-    try {
-      const res = await fetch(`https://formsubmit.co/ajax/${CAREER_EMAIL}`, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: fd,
-      });
-      if (!res.ok) throw new Error("Delivery failed");
-      setStatus({ text: "Thank you. Your details have been sent to the WISDOM recruitment desk.", ok: true });
-      form.reset();
-    } catch {
-      const body = [...fd.entries()]
-        .filter(([k]) => !k.startsWith("_"))
-        .map(([k, v]) => `${k}: ${String(v)}`)
-        .join("\n");
-      window.location.href = `mailto:${CAREER_EMAIL}?subject=${encodeURIComponent(
-        "Job application from WISDOM website",
-      )}&body=${encodeURIComponent(body)}`;
-      setStatus({
-        text: "We could not confirm direct delivery, so your email app is opening as a backup. Please send that email so your application reaches us.",
-        ok: false,
-      });
-    }
-    setSending(false);
-  };
-
-  return (
-    <section className="careers" id="careers">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">Careers</div>
-          <h2 className="section-title">Work with WISDOM.</h2>
-          <p className="section-desc">
-            Tell us about your experience and the kind of role you are looking for. If there is
-            no suitable opening, you can still submit an unsolicited application.
-          </p>
-
-        </div>
-        <div className="careers-grid">
-          <div className="careers-note">
-            <h3>Who we look for</h3>
-            <ul>
-              <li>People who are punctual and reliable on site</li>
-              <li>Security personnel comfortable with gate and patrolling duties</li>
-              <li>Skilled and semi-skilled workers with practical experience</li>
-              <li>Technical staff such as electricians, plumbers and technicians</li>
-              <li>Supervisors who can coordinate a team and report clearly</li>
-            </ul>
-            <p className="careers-contact">
-              You can also send your details directly to{" "}
-              <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
-            </p>
-          </div>
-
-          <form className="form" onSubmit={onSubmit} noValidate>
-            <input type="hidden" name="_subject" value="Job application from WISDOM website" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input
-              type="text"
-              name="_honey"
-              style={{ position: "absolute", left: "-9999px" }}
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
-            />
-            <div className="form-row">
-              <div className="field">
-                <label htmlFor="c-name">Full Name</label>
-                <input id="c-name" name="name" maxLength={100} required />
-              </div>
-              <div className="field">
-                <label htmlFor="c-phone">Phone</label>
-                <input id="c-phone" name="phone" type="tel" inputMode="tel" maxLength={20} required />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="field">
-                <label htmlFor="c-email">Email</label>
-                <input id="c-email" name="email" type="email" maxLength={160} required />
-              </div>
-              <div className="field">
-                <label htmlFor="c-city">City / Location</label>
-                <input id="c-city" name="city" maxLength={80} />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="field full">
-                <label htmlFor="c-role">Role Applying For</label>
-                <select id="c-role" name="role" required defaultValue="">
-                  <option value="" disabled>
-                    Select a role
-                  </option>
-                  {careerRoles.map((role) => (
-                    <option key={role}>{role}</option>
-                  ))}
-                </select>
-                <p className="note">
-                  No opening that matches you? Choose Unsolicited Application and we will keep
-                  your details on file for future requirements.
-                </p>
-              </div>
-            </div>
-
-            <div className="form-row">
-              <div className="field full">
-                <label htmlFor="c-message">Experience (brief)</label>
-                <textarea
-                  id="c-message"
-                  name="experience"
-                  maxLength={800}
-                  placeholder="Where you have worked and for how long"
-                />
-              </div>
-            </div>
-            <button className="submit" type="submit" disabled={sending}>
-              {sending ? "Sending..." : "Submit Application"}
-            </button>
-            <p className="note">Applications are sent to the WISDOM recruitment desk.</p>
-            {status && (
-              <p className={status.ok ? "status ok" : "status error"} role="status">
-                {status.text}
-              </p>
-            )}
-          </form>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
 /* ------------------------------------------------------------------ */
 
 const jsonLd = {
@@ -1393,11 +736,10 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "WISDOM",
   description:
-    "Manpower, security, HR recruitment support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur, Jharkhand and across India.",
+    "Manpower, security, end-to-end HR support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur, Jharkhand and across India.",
   telephone: PHONE_DIAL,
   email: EMAIL,
   sameAs: [LINKEDIN],
-
   address: {
     "@type": "PostalAddress",
     streetAddress: "House No. 15, Road No. 2B, Chhota Govindpur",
@@ -1411,8 +753,6 @@ const jsonLd = {
 };
 
 function HomePage() {
-  const [service, setService] = useState("");
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -1422,31 +762,14 @@ function HomePage() {
       <Header />
       <main id="main">
         <Hero />
-        <About />
-        <Services onSelectService={(label) => setService(label)} />
-
-        <SiteServices />
-        <Footprint />
-        <Clients />
+        <WhatWeDo />
+        <InAction />
         <Why />
-        <CurrentFocus />
-        <Serve />
-        <Approach />
-        <Leadership />
-        <HrSupport />
-        <Insights />
-        <Careers />
-        <Faq />
-
-        <Contact service={service} setService={setService} />
+        <Reach />
+        <LeadershipCareers />
+        <Contact />
       </main>
-      <div className="mobile-bar">
-        <a href={`tel:${PHONE_DIAL}`}>Call</a>
-        <a href={WHATSAPP} target="_blank" rel="noopener">
-          WhatsApp
-        </a>
-        <a href="#contact">Get a Quote</a>
-      </div>
+      <MobileBar />
       <Footer />
     </>
   );
