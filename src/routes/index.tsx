@@ -1108,9 +1108,21 @@ const careerRoles = [
   "Semi-Skilled Manpower",
   "General Manpower",
   "Housekeeping Staff",
+  "Electrician",
+  "Plumber",
+  "Welder",
+  "Fitter",
+  "Machine Operator",
+  "AC and Refrigeration Technician",
+  "Maintenance Technician",
+  "Water Tank Cleaning Staff",
+  "Solar Panel Cleaning Staff",
+  "Driver",
   "Supervisor",
   "Office / Support Role",
+  "Open Application (any suitable role)",
 ];
+
 
 function Careers() {
   const [status, setStatus] = useState<{ text: string; ok: boolean } | null>(null);
