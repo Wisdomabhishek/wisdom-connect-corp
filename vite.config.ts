@@ -3,7 +3,7 @@ import { nitro } from "nitro/vite";
 
 export default defineConfig({
   vite: {
-    base: "/wisdom-connect-corp/",
+    base: "/",
     plugins: [
       nitro({
         preset: "node-server",
