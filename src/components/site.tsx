@@ -49,13 +49,13 @@ export function Reveal({ children }: { children: ReactNode }) {
 }
 
 const navItems = [
-  { to: "/", hash: "top", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/", hash: "why", label: "Why WISDOM" },
-  { to: "/insights", label: "Insights" },
-  { to: "/", hash: "careers", label: "Careers" },
-  { to: "/", hash: "contact", label: "Contact" },
+  { to: "/wisdom-connect-corp/", hash: "top", label: "Home" },
+  { to: "/wisdom-connect-corp/about", label: "About" },
+  { to: "/wisdom-connect-corp/services", label: "Services" },
+  { to: "/wisdom-connect-corp/", hash: "why", label: "Why WISDOM" },
+  { to: "/wisdom-connect-corp/insights", label: "Insights" },
+  { to: "/wisdom-connect-corp/", hash: "careers", label: "Careers" },
+  { to: "/wisdom-connect-corp/", hash: "contact", label: "Contact" },
 ];
 
 function NavLink({
@@ -68,24 +68,22 @@ function NavLink({
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   if (item.hash) {
-    const href = pathname === "/" ? `#${item.hash}` : `/#${item.hash}`;
-    return (
-      <a href={href} onClick={onClick}>
-        {item.label}
-      </a>
-    );
-  }
+  const href =
+    item.hash === "top"
+      ? "/wisdom-connect-corp/"
+      : `/wisdom-connect-corp/#${item.hash}`;
+
   return (
-    <Link to={item.to} onClick={onClick}>
+    <a href={href} onClick={onClick}>
       {item.label}
-    </Link>
+    </a>
   );
 }
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const quoteHref = pathname === "/" ? "#contact" : "/#contact";
+  const quoteHref = "/wisdom-connect-corp/#contact";
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -177,10 +175,10 @@ export function Footer() {
           <div>
             <div className="footer-title">Company</div>
             <Link to="/about">About</Link>
-            <a href="/#why">Why WISDOM</a>
+            <a href="/wisdom-connect-corp/#why">Why WISDOM</a>
             <Link to="/insights">Insights</Link>
-            <a href="/#careers">Careers</a>
-            <a href="/#contact">Contact</a>
+            <a href="/wisdom-connect-corp/#careers">Careers</a>
+            <a href="/wisdom-connect-corp/#contact">Contact</a>
           </div>
           <div>
             <div className="footer-title">Contact</div>
@@ -212,7 +210,7 @@ export function MobileBar() {
       <a href={WHATSAPP} target="_blank" rel="noopener">
         WhatsApp
       </a>
-      <a href="/#contact">Request a Quote</a>
+      <a href="/wisdom-connect-corp/#contact">Request a Quote</a>
     </div>
   );
 }
