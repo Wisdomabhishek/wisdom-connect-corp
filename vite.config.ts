@@ -1,14 +1,23 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { nitro } from "nitro/vite";
 
 export default defineConfig({
   tanstackStart: {
-    spa: {
-      enabled: true,
-      prerender: {
-        outputPath: "/index.html",
-        crawlLinks: false,
-        retryCount: 0,
-      },
+    server: {
+      entry: "server",
     },
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+      autoSubfolderIndex: true,
+    },
+  },
+
+  vite: {
+    plugins: [
+      nitro({
+        preset: "node-server",
+      }),
+    ],
   },
 });
