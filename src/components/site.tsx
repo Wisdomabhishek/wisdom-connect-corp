@@ -50,10 +50,10 @@ export function Reveal({ children }: { children: ReactNode }) {
 
 const navItems = [
   { to: "/", hash: "top", label: "Home" },
-  { to: "/", hash: "about", label: "About" },
-  { to: "/", hash: "services", label: "Services" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
   { to: "/", hash: "why", label: "Why WISDOM" },
-  { to: "/", hash: "insights", label: "Insights" },
+  { to: "/insights", label: "Insights" },
   { to: "/", hash: "careers", label: "Careers" },
   { to: "/", hash: "contact", label: "Contact" },
 ];
@@ -65,22 +65,27 @@ function NavLink({
   item: { to: string; hash?: string; label: string };
   onClick?: () => void;
 }) {
-  if (item.hash) {
-  const href =
-    item.hash === "top"
-      ? "/"
-      : `/#${item.hash}`;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
+  if (item.hash) {
+    const href = pathname === "/" ? `#${item.hash}` : `/#${item.hash}`;
+    return (
+      <a href={href} onClick={onClick}>
+        {item.label}
+      </a>
+    );
+  }
   return (
-    <a href={href} onClick={onClick}>
+    <Link to={item.to} onClick={onClick}>
       {item.label}
-    </a>
+    </Link>
   );
 }
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const quoteHref = "#contact";
+  const quoteHref = pathname === "/" ? "#contact" : "/#contact";
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
