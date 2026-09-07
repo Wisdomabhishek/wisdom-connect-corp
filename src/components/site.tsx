@@ -57,44 +57,41 @@ export function Reveal({ children }: { children: ReactNode }) {
 }
 
 const navItems = [
-  { to: "/", hash: "top", label: "Home" },
-  { to: "/", hash: "about", label: "About" },
-  { to: "/", hash: "services", label: "Services" },
-  { to: "/", hash: "why", label: "Why WISDOM" },
-  { to: "/", hash: "insights", label: "Insights" },
-  { to: "/", hash: "careers", label: "Careers" },
-  { to: "/", hash: "contact", label: "Contact" },
-];
+  { type: "route", to: "/", label: "Home" },
+  { type: "route", to: "/about", label: "About" },
+  { type: "route", to: "/services", label: "Services" },
+  { type: "anchor", to: "/", hash: "why", label: "Why WISDOM" },
+  { type: "route", to: "/insights", label: "Insights" },
+  { type: "anchor", to: "/", hash: "careers", label: "Careers" },
+  { type: "anchor", to: "/", hash: "contact", label: "Contact" },
+] as const;
 
 function NavLink({
   item,
   onClick,
 }: {
-  item: { to: string; hash?: string; label: string };
+  item: (typeof navItems)[number];
   onClick?: () => void;
 }) {
-  if (item.hash) {
-    const href =
-      item.hash === "top"
-        ? "/"
-        : `/#${item.hash}`;
-
+  if (item.type === "route") {
     return (
-      <a href={href} onClick={onClick}>
+      <Link to={item.to} onClick={onClick}>
         {item.label}
-      </a>
+      </Link>
     );
   }
 
+  const href = `/#${item.hash}`;
+
   return (
-    <Link to={item.to} onClick={onClick}>
+    <a href={href} onClick={onClick}>
       {item.label}
-    </Link>
+    </a>
   );
 }
-
 export function Header() {
   const [open, setOpen] = useState(false);
+  const quoteHref = "/#contact";
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -109,8 +106,6 @@ export function Header() {
       document.removeEventListener("keydown", onKey);
     };
   }, []);
-
-  const quoteHref = "/#contact";
 
   return (
     <header>
