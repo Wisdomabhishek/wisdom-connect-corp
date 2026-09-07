@@ -79,12 +79,11 @@ function NavLink({
   }
 
   return (
-    <Link to={item.to} onClick={onClick}>
+    <a href={item.to} onClick={onClick}>
       {item.label}
-    </Link>
+    </a>
   );
 }
-
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
