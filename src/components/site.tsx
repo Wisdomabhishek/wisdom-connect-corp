@@ -65,18 +65,23 @@ function NavLink({
   item: { to: string; hash?: string; label: string };
   onClick?: () => void;
 }) {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-
   if (item.hash) {
-  const href =
-    item.hash === "top"
-      ? "/wisdom-connect-corp/"
-      : `/wisdom-connect-corp/#${item.hash}`;
+    const href =
+      item.hash === "top"
+        ? "/wisdom-connect-corp/"
+        : `/wisdom-connect-corp/#${item.hash}`;
+
+    return (
+      <a href={href} onClick={onClick}>
+        {item.label}
+      </a>
+    );
+  }
 
   return (
-    <a href={href} onClick={onClick}>
+    <Link to={item.to} onClick={onClick}>
       {item.label}
-    </a>
+    </Link>
   );
 }
 
