@@ -1,12 +1,20 @@
-import securityPhoto from "@/assets/wisdom-security-team.webp";
+import securityPhoto from "@/assets/security-team.webp";
 import facilityPhoto from "@/assets/facility-cleaning.webp";
-import solarPhoto from "@/assets/wisdom-solar-cleaning.webp";
-import waterTankPhoto from "@/assets/wisdom-water-tank-cleaning.png";
-import hrSupportPhoto from "@/assets/wisdom-hr-support-team.png";
+import solarPhoto from "@/assets/solar-cleaning.webp";
+import waterTankPhoto from "@/assets/water-tank-cleaning.webp";
+import hrSupportPhoto from "@/assets/hr-support.webp";
 import skilledPhoto from "@/assets/skilled-manpower.webp";
 import hrActionPhoto from "@/assets/hr-support.webp";
 
-export { securityPhoto, facilityPhoto, solarPhoto, waterTankPhoto, hrSupportPhoto, skilledPhoto, hrActionPhoto };
+export {
+  securityPhoto,
+  facilityPhoto,
+  solarPhoto,
+  waterTankPhoto,
+  hrSupportPhoto,
+  skilledPhoto,
+  hrActionPhoto,
+};
 
 export type Service = {
   slug: string;
