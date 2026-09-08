@@ -6,7 +6,7 @@ import logo from "@/assets/wisdom-logo.jpg";
 export const PHONE = "+91 91224 47110";
 export const PHONE_DIAL = "+919122447110";
 export const WHATSAPP = "https://wa.me/919122447110";
-export const EMAIL = "wisdomutilities@gmail.com";
+export const EMAIL = "hello@wisdomservices.co";
 export const CAREER_EMAIL = "wisdomrecruitmentdesk@gmail.com";
 export const LINKEDIN = "https://www.linkedin.com/company/m-s-wisdom";
 
