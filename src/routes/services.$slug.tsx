@@ -53,7 +53,7 @@ function ServiceDetail() {
               {service.group === "people" ? "People & Security" : "Facility & Site Services"}
             </div>
             <h1 className="section-title">{service.title}</h1>
-            {!isHrSupport && <p className="section-desc">{service.intro}</p>}
+            <p className="section-desc">{service.intro}</p>
           </div>
 
           {isHrSupport && service.photo ? (
@@ -100,7 +100,7 @@ function ServiceDetail() {
 
           <div className="detail-grid">
             <div>
-              <div className="footer-title">Who this is for</div>
+              <div className="footer-title">Designed For</div>
               <ul>
                 {service.who.map((item) => (
                   <li key={item}>{item}</li>
@@ -108,7 +108,7 @@ function ServiceDetail() {
               </ul>
             </div>
             <div>
-              <div className="footer-title">What WISDOM provides</div>
+              <div className="footer-title">What We Provide</div>
               <ul>
                 {service.provides.map((item) => (
                   <li key={item}>{item}</li>
@@ -119,7 +119,7 @@ function ServiceDetail() {
 
           {!isHrSupport && (
             <div className="hr-flow-block">
-              <div className="footer-title">How it works</div>
+              <div className="footer-title">Our Process</div>
               <div className="hr-flow">
                 {service.process.map((step, i) => (
                   <span key={step}>
@@ -133,8 +133,8 @@ function ServiceDetail() {
 
           <div className="actions" style={{ marginTop: 26 }}>
             <a className="btn primary" href="/#contact">
-              Request a Quote
-            </a>
+  Discuss Your Requirement
+</a>
             <a className="btn outline" href={WHATSAPP} target="_blank" rel="noopener">
               WhatsApp Us
             </a>
