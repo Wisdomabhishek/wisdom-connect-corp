@@ -7,11 +7,14 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About WISDOM | Business Services Company in Jamshedpur" },
       {
-        name: "description",
-        content:
-  "WISDOM is a Jamshedpur based business services company providing manpower, security, facility management, HR and operational support solutions across selected locations in India.",
-      { property: "og:title", content: "About WISDOM | Business Services in Jamshedpur" },
-      {
+  name: "description",
+  content:
+    "WISDOM is a Jamshedpur based business services company providing manpower, security, facility management, HR and operational support solutions across selected locations in India.",
+},
+{
+  property: "og:title",
+  content: "About WISDOM | Business Services in Jamshedpur",
+},
         property: "og:description",
         content:
   "Learn about WISDOM, our approach to workforce and operational support, the services we provide and the people behind the business.",
