@@ -359,6 +359,62 @@ function Why() {
   );
 }
 
+function SpecialisedSolutions() {
+  const solutions = [
+    {
+      title: "WISDOM Campus Support",
+      copy:
+        "Flexible workforce and operational support for universities, colleges and educational campuses.",
+      support:
+        "Lab Assistants · Clinical Tutors · Office Assistants · Hostel Staff · Housekeeping · Security",
+    },
+    {
+      title: "WISDOM Healthcare Support",
+      copy:
+        "Reliable support personnel for hospitals, healthcare facilities and clinical environments.",
+      support:
+        "Ward Attendants · Patient Care Assistants · Housekeeping · Office Support · Security · Facility Staff",
+    },
+    {
+      title: "WISDOM Industrial Support",
+      copy:
+        "Workforce and site support designed for manufacturing, industrial and operational environments.",
+      support:
+        "Skilled Manpower · General Manpower · Warehouse Support · Security · Housekeeping · Site Operations",
+    },
+  ];
+
+  return (
+    <section className="specialised-section">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Specialised Solutions</div>
+          <h2 className="section-title">
+            Workforce solutions built around your environment.
+          </h2>
+          <p className="section-desc">
+            From campuses and healthcare facilities to industrial sites, WISDOM
+            provides people and operational support aligned with the way your
+            organisation works.
+          </p>
+        </div>
+
+        <div className="why-grid">
+          {solutions.map((solution) => (
+            <div className="why-card" key={solution.title}>
+              <h3>{solution.title}</h3>
+              <p>{solution.copy}</p>
+              <div className="sector-support">
+                {solution.support}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 /* --------------------------- reach + experience ---------------------- */
 
 const MAP_MARKS = [
@@ -909,20 +965,14 @@ function HomePage() {
       </a>
       <Header />
       <main id="main">
-      <Hero />
-
+     <Hero />
 <WhatWeDo />
-
 <SectorsWeServe />
-
 <Why />
-
+<SpecialisedSolutions />
 <Reach />
-
 <LeadershipCareers />
-
 <Faq />
-
 <Contact />
 
       </main>
