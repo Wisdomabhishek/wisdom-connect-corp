@@ -93,14 +93,6 @@ function Hero() {
 
 /* ----------------------------- what we do ---------------------------- */
 
-const sectors = [
-  "Industrial & Manufacturing",
-  "Warehousing & Logistics",
-  "Corporate & Commercial",
-  "Retail & Malls",
-  "Institutions & Communities",
-  "Project & Site Operations",
-];
 
 function WhatWeDo() {
   return (
