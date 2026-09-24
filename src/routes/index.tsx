@@ -20,20 +20,20 @@ import { services } from "@/lib/services";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WISDOM | Manpower, Security, HR & Facility Services in India" },
+      { title: "WISDOM | Manpower, Security, Facility & HR Solutions in India" },
       {
         name: "description",
         content:
-          "WISDOM provides manpower, security, end-to-end HR support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur and across India.",
+          "WISDOM provides manpower, security, facility management and HR support solutions for organisations across education, healthcare, manufacturing, corporate, hospitality, retail and other sectors in India.",
       },
       {
         property: "og:title",
-        content: "WISDOM | Manpower, Security, HR & Facility Services in India",
+        content: "WISDOM | Manpower, Security, Facility & HR Solutions in India",
       },
       {
         property: "og:description",
         content:
-          "Reliable manpower, security, HR and facility services for businesses across India. Based in Jamshedpur, Jharkhand.",
+          "Reliable people and operational support for organisations across India. WISDOM provides manpower, security, facility management and HR support solutions.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -59,15 +59,21 @@ function Hero() {
       <div className="hero-veil" />
       <div className="hero-inner">
         <div className="wrap">
-          <p className="eyebrow">Business Services | Jamshedpur, Jharkhand</p>
+         <p className="eyebrow">
+  WORKFORCE • SECURITY • FACILITY • HR SOLUTIONS
+</p>
           <h1>
             Think Wisdom.
             <br />
             <em>Service You Can Trust.</em>
           </h1>
           <p className="hero-copy">
-            Reliable manpower, security, HR and facility services for businesses across India.
-          </p>
+  Reliable people, secure sites and practical operational support for
+  organisations across India.
+</p>
+          <p className="hero-trust">
+  People. Facilities. Operations. One Trusted Partner.
+</p>
           <div className="actions">
             <a className="btn primary" href="#contact">
               Request a Quote
@@ -87,26 +93,22 @@ function Hero() {
 
 /* ----------------------------- what we do ---------------------------- */
 
-const sectors = [
-  "Industrial & Manufacturing",
-  "Warehousing & Logistics",
-  "Corporate & Commercial",
-  "Retail & Malls",
-  "Institutions & Communities",
-  "Project & Site Operations",
-];
 
 function WhatWeDo() {
   return (
     <section id="services">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">What We Do</div>
-          <h2 className="section-title">Six services. One trusted team.</h2>
-          <p className="section-desc">
-            Whatever your business needs, WISDOM provides the right people and practical support
-            to complete the work properly.
-          </p>
+          <div className="kicker">Our Services</div>
+
+<h2 className="section-title">
+  Supporting your people. Managing your operations.
+</h2>
+
+<p className="section-desc">
+  WISDOM provides dependable manpower, security, facility management and HR
+  support solutions designed around the everyday operational needs of our clients.
+</p>
         </div>
 
         <div className="service-card-grid">
@@ -142,14 +144,132 @@ function WhatWeDo() {
           ))}
         </div>
 
-        <p className="sector-line">
-          WISDOM supports requirements across:
-          {sectors.map((sector) => (
-            <span className="sector" key={sector}>
-              {sector}
-            </span>
+      </Reveal>
+    </section>
+  );
+}
+const sectorsWeServe = [
+  {
+    icon: "🎓",
+    title: "Education & Universities",
+    intro: "Supporting institutions that shape the future.",
+    description:
+      "Manpower and facility support for universities, colleges, schools, hostels and educational campuses.",
+    support:
+      "Lab Assistants • Clinical Tutors • Office Assistants • Hostel Staff • Housekeeping • Security • Campus Support",
+  },
+  {
+    icon: "🏥",
+    title: "Healthcare & Hospitals",
+    intro: "Supporting safe, clean and well-managed healthcare environments.",
+    description:
+      "Workforce and facility support for hospitals, clinics and healthcare institutions, with a focus on dependable non-clinical operational manpower.",
+    support:
+      "Ward Attendants • Patient Care Assistants • Housekeeping • Office Support • Security • Facility Staff",
+  },
+  {
+    icon: "🏭",
+    title: "Manufacturing & Industrial",
+    intro: "Keeping industrial operations supported and workforce-ready.",
+    description:
+      "Skilled, semi-skilled and general manpower, security, housekeeping and facility support for factories, plants, warehouses and industrial facilities.",
+    support:
+      "Skilled Manpower • General Manpower • Security • Housekeeping • Warehouse Support • Site Operations",
+  },
+  {
+    icon: "🏢",
+    title: "Corporate & Commercial",
+    intro: "Creating efficient workplaces that work better.",
+    description:
+      "Office support, housekeeping, security, facility management and administrative manpower for corporate offices and commercial establishments.",
+    support:
+      "Office Support • Administration • Housekeeping • Security • Facility Support",
+  },
+  {
+    icon: "🏨",
+    title: "Hospitality",
+    intro: "Supporting the people behind great guest experiences.",
+    description:
+      "Housekeeping, cleaning, security, facility and operational manpower solutions for hotels, resorts, guest houses and hospitality establishments.",
+    support:
+      "Housekeeping • Cleaning • Security • Facility Support • General Manpower",
+  },
+  {
+    icon: "🛍️",
+    title: "Retail & Shopping",
+    intro: "Helping customer-facing environments run smoothly.",
+    description:
+      "Manpower, housekeeping, security and facility services for retail outlets, shopping centres, malls and commercial spaces.",
+    support:
+      "Security • Housekeeping • Facility Staff • General Support • Customer-facing Support",
+  },
+  {
+    icon: "🏛️",
+    title: "Government & Public Institutions",
+    intro: "Supporting essential public-facing operations.",
+    description:
+      "Manpower, housekeeping, security, office support and facility services for public institutions and associated facilities.",
+    support:
+      "Security • Office Support • Housekeeping • Facility Staff • General Manpower",
+  },
+  {
+    icon: "🏗️",
+    title: "Infrastructure & Construction",
+    intro: "Supporting projects from site operations to completion.",
+    description:
+      "General and skilled manpower, site support, housekeeping, security and operational assistance for infrastructure, construction and project sites.",
+    support:
+      "Site Manpower • Skilled Workers • Security • Housekeeping • Site Support",
+  },
+  {
+    icon: "🏠",
+    title: "Residential Communities",
+    intro: "Helping communities stay safe, clean and well managed.",
+    description:
+      "Security, housekeeping, cleaning, facility and operational manpower for residential societies, apartments and managed communities.",
+    support:
+      "Security • Housekeeping • Cleaning • Facility Support • General Manpower",
+  },
+];
+
+function SectorsWeServe() {
+  return (
+    <section className="sectors-section" id="sectors">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Sectors We Serve</div>
+
+          <h2 className="section-title">
+            Reliable people and operational support for organisations across India.
+          </h2>
+
+          <p className="section-desc">
+            WISDOM delivers flexible manpower, security, facility management and
+            HR support solutions designed around the operational needs of
+            different industries.
+          </p>
+        </div>
+
+        <div className="sectors-grid">
+          {sectorsWeServe.map((sector) => (
+            <article className="sector-card" key={sector.title}>
+              <div className="sector-icon" aria-hidden="true">
+                {sector.icon}
+              </div>
+
+              <h3>{sector.title}</h3>
+
+              <strong>{sector.intro}</strong>
+
+              <p>{sector.description}</p>
+
+              <div className="sector-support">
+                <span>Typical support</span>
+                <p>{sector.support}</p>
+              </div>
+            </article>
           ))}
-        </p>
+        </div>
       </Reveal>
     </section>
   );
@@ -158,18 +278,39 @@ function WhatWeDo() {
 /* ------------------------------ why wisdom --------------------------- */
 
 const whyPoints = [
-  ["Reliable People", "People who turn up and do the work properly."],
-  ["Practical Service", "Clear scope, sensible planning, no overselling."],
-  ["Site Supervision", "On-site checks keep work and attendance on track."],
-  ["Workforce Coordination", "Straightforward coordination day to day."],
-  ["One Point of Contact", "One team for people, security and site services."],
+  [
+    "Sector Understanding",
+    "Solutions shaped around the practical requirements of your industry and workplace.",
+  ],
+  [
+    "Workforce Assurance",
+    "Structured sourcing, screening and deployment to support dependable workforce operations.",
+  ],
+  [
+    "Responsive Management",
+    "Clear communication and responsive coordination for day-to-day requirements.",
+  ],
+  [
+    "Integrated Solutions",
+    "Manpower, security, facility and HR support through one coordinated partner.",
+  ],
+  [
+    "Transparent Reporting",
+    "Clear coordination, attendance visibility and operational communication.",
+  ],
+  [
+    "Operational Continuity",
+    "Reliable support designed to help organisations maintain smooth daily operations.",
+  ],
 ];
 
 const howWeWork = [
-  ["01", "Understand", "We understand your requirement."],
-  ["02", "Plan", "We identify the people, skills and service structure required."],
-  ["03", "Deploy", "Suitable people and services are deployed."],
-  ["04", "Support", "We coordinate with the client for ongoing requirements."],
+  ["01", "Understand", "We understand your requirement, site environment and operational priorities."],
+  ["02", "Plan", "We define the people, skills, service structure and deployment requirements."],
+  ["03", "Source & Screen", "We identify suitable personnel and complete the required screening and coordination."],
+  ["04", "Deploy", "People and services are deployed according to the agreed scope and requirements."],
+  ["05", "Manage", "Our team coordinates attendance, communication and ongoing operational requirements."],
+  ["06", "Monitor & Improve", "We review service performance and work with clients to improve continuity and delivery."],
 ];
 
 function Why() {
@@ -177,11 +318,11 @@ function Why() {
     <section id="why">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Why WISDOM</div>
-          <h2 className="section-title">Experienced people. Clear accountability.</h2>
+          <div className="kicker">The WISDOM Advantage</div>
+          <h2 className="section-title">People, service and accountability working together.</h2>
           <p className="section-desc">
-            Practical support for day-to-day operations, backed by clear communication and site
-            supervision.
+            WISDOM combines workforce support with practical operational coordination to help
+            organisations manage their day-to-day requirements with greater confidence.
           </p>
         </div>
 
@@ -195,12 +336,69 @@ function Why() {
         </div>
 
         <div className="how-head">How We Work</div>
+
         <div className="approach-grid">
           {howWeWork.map(([num, title, copy]) => (
             <div className="step" key={num}>
               <div className="num">{num}</div>
               <h3>{title}</h3>
               <p>{copy}</p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+function SpecialisedSolutions() {
+  const solutions = [
+    {
+      title: "WISDOM Campus Support",
+      copy:
+        "Flexible workforce and operational support for universities, colleges and educational campuses.",
+      support:
+        "Lab Assistants · Clinical Tutors · Office Assistants · Hostel Staff · Housekeeping · Security",
+    },
+    {
+      title: "WISDOM Healthcare Support",
+      copy:
+        "Reliable support personnel for hospitals, healthcare facilities and clinical environments.",
+      support:
+        "Ward Attendants · Patient Care Assistants · Housekeeping · Office Support · Security · Facility Staff",
+    },
+    {
+      title: "WISDOM Industrial Support",
+      copy:
+        "Workforce and site support designed for manufacturing, industrial and operational environments.",
+      support:
+        "Skilled Manpower · General Manpower · Warehouse Support · Security · Housekeeping · Site Operations",
+    },
+  ];
+
+  return (
+    <section className="specialised-section">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Specialised Solutions</div>
+          <h2 className="section-title">
+            Workforce solutions built around your environment.
+          </h2>
+          <p className="section-desc">
+            From campuses and healthcare facilities to industrial sites, WISDOM
+            provides people and operational support aligned with the way your
+            organisation works.
+          </p>
+        </div>
+
+        <div className="why-grid">
+          {solutions.map((solution) => (
+            <div className="why-card" key={solution.title}>
+              <h3>{solution.title}</h3>
+              <p>{solution.copy}</p>
+              <div className="sector-support">
+                {solution.support}
+              </div>
             </div>
           ))}
         </div>
@@ -227,61 +425,74 @@ const clients = [
 
 function Reach() {
   return (
-    <section className="footprint" id="reach">
+    <section>
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Our Reach</div>
-          <h2 className="section-title">Current Service Footprint</h2>
+          <div className="kicker">Our Footprint</div>
+          <h2 className="section-title">Growing with organisations across India.</h2>
+          <p className="section-desc">
+            WISDOM is building a growing service network across key regions of
+            India, supporting organisations with workforce, security, facility
+            and HR solutions.
+          </p>
         </div>
+
         <div className="reach-grid">
-          <div className="map-holder">
-            <div className="map-figure">
-              <img
-                className="india-map-img"
-                src={indiaMapPhoto}
-                alt="Map of India marking the locations where WISDOM currently provides services"
-                width={354}
-                height={412}
-                loading="lazy"
-              />
-              {MAP_MARKS.map((mark) => (
-                <span
-                  key={mark.n}
-                  className="map-mark"
-                  style={{ left: `${mark.x}%`, top: `${mark.y}%` }}
-                  title={mark.n}
-                />
-              ))}
+          <div className="map-wrap">
+            <img
+              src={indiaMap}
+              alt="WISDOM service footprint across India"
+              className="india-map"
+            />
+
+            <div className="map-dot dot-mathura">
+              <span>Mathura</span>
             </div>
-            <div className="reach-note">
-              <h3>Growing Across India</h3>
-              <p>
-                WISDOM is building its operational presence across industrial and commercial
-                locations in India.
-              </p>
-              <p className="reach-states">
-                Currently serving selected locations across:
-                <b>Uttar Pradesh | Odisha | Jharkhand | Bihar | Maharashtra</b>
-              </p>
+
+            <div className="map-dot dot-patna">
+              <span>Patna</span>
+            </div>
+
+            <div className="map-dot dot-jamshedpur">
+              <span>Jamshedpur</span>
+            </div>
+
+            <div className="map-dot dot-angul">
+              <span>Angul</span>
+            </div>
+
+            <div className="map-dot dot-pune">
+              <span>Pune</span>
             </div>
           </div>
 
-          <div className="footprint-side">
-            <div className="footer-title">Experience</div>
-            <div className="client-list">
-              {clients.map(([name]) => (
-                <div className="client" key={name}>
-                  <b>{name}</b>
-                </div>
-              ))}
+          <div className="reach-copy">
+            <div className="how-head">Current Service Regions</div>
+
+            <p>
+              Our current service footprint includes organisations and
+              opportunities across:
+            </p>
+
+            <div className="region-list">
+              <span>Uttar Pradesh</span>
+              <span>Odisha</span>
+              <span>Jharkhand</span>
+              <span>Bihar</span>
+              <span>Maharashtra</span>
             </div>
+
+            <p>
+              As our client network grows, WISDOM continues to expand its
+              workforce and operational support capabilities across new
+              locations.
+            </p>
           </div>
         </div>
       </Reveal>
     </section>
   );
 }
-
 /* -------------------------- leadership + careers --------------------- */
 
 const careerRoles = [
@@ -351,128 +562,173 @@ function LeadershipCareers() {
     setSending(false);
   };
 
-  return (
-    <section id="careers" className="careers">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">Leadership</div>
-          <h2 className="section-title">People behind WISDOM.</h2>
-        </div>
-        <div className="founders">
-          <article className="founder">
-            <div className="founder-head">
-              <div className="initials" aria-hidden="true">
-                MS
-              </div>
-              <div>
-                <h3>Manoj Kumar Singh</h3>
-                <div className="role">Co-Founder | Security &amp; Field Operations</div>
+ return (
+  <section id="careers" className="careers">
+    <Reveal>
+      <div className="section-head">
+        <div className="kicker">Leadership</div>
+        <h2 className="section-title">Built on experience. Driven by people.</h2>
+        <p className="section-desc">
+          WISDOM is led by a team focused on dependable service, operational
+          discipline and long-term client relationships.
+        </p>
+      </div>
+
+      <div className="founders">
+        <article className="founder">
+          <div className="founder-head">
+            <div className="initials" aria-hidden="true">
+              MS
+            </div>
+            <div>
+              <h3>Manoj Kumar Singh</h3>
+              <div className="role">
+                Co-Founder | Security &amp; Field Operations
               </div>
             </div>
-            <p>
-              Manoj brings experience in security and field operations, with a background in the
-              Central Reserve Police Force followed by industrial security. He looks after manpower
-              deployment, site discipline and day-to-day operations.
-            </p>
-          </article>
-          <article className="founder">
-            <div className="founder-head">
-              <div className="initials" aria-hidden="true">
-                AK
-              </div>
-              <div>
-                <h3>Abhishek Kumar</h3>
-                <div className="role">Co-Founder | Business Development &amp; Facility Operations</div>
+          </div>
+
+          <p>
+            Manoj brings experience in security and field operations, with a
+            background in the Central Reserve Police Force followed by
+            industrial security. He focuses on manpower deployment, site
+            discipline and day-to-day field operations.
+          </p>
+        </article>
+
+        <article className="founder">
+          <div className="founder-head">
+            <div className="initials" aria-hidden="true">
+              AK
+            </div>
+            <div>
+              <h3>Abhishek Kumar</h3>
+              <div className="role">
+                Co-Founder | Business Development &amp; Facility Operations
               </div>
             </div>
-            <p>
-              Abhishek looks after client requirements, business development and facility
-              operations, and works on building practical service plans for each site.
-            </p>
-          </article>
+          </div>
+
+          <p>
+            Abhishek focuses on client requirements, business development and
+            facility operations, working with clients to develop practical
+            service plans around their operational needs.
+          </p>
+        </article>
+      </div>
+
+      <div className="section-head careers-head">
+        <div className="kicker">Careers</div>
+        <h2 className="section-title">Build Your Future With WISDOM</h2>
+        <p className="section-desc">
+          Behind every successful service is a capable and committed team.
+          Tell us about your experience and the kind of opportunity you are
+          looking for.
+        </p>
+      </div>
+
+      <form className="form careers-form" onSubmit={onSubmit} noValidate>
+        <input
+          type="hidden"
+          name="_subject"
+          value="Job application from WISDOM website"
+        />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <input
+          type="text"
+          name="_honey"
+          style={{ position: "absolute", left: "-9999px" }}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
+        <div className="form-row">
+          <div className="field">
+            <label htmlFor="c-name">Full Name *</label>
+            <input id="c-name" name="name" maxLength={100} required />
+          </div>
+
+          <div className="field">
+            <label htmlFor="c-phone">Phone *</label>
+            <input
+              id="c-phone"
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              maxLength={20}
+              required
+            />
+          </div>
         </div>
 
-        <div className="section-head careers-head">
-          <div className="kicker">Careers</div>
-          <h2 className="section-title">Work With WISDOM</h2>
-          <p className="section-desc">
-            Looking for your next opportunity? Tell us about your experience and the kind of role
-            you are looking for.
-          </p>
+        <div className="form-row">
+          <div className="field">
+            <label htmlFor="c-email">Email *</label>
+            <input
+              id="c-email"
+              name="email"
+              type="email"
+              maxLength={160}
+              required
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="c-city">City / Location</label>
+            <input id="c-city" name="city" maxLength={80} />
+          </div>
         </div>
 
-        <form className="form careers-form" onSubmit={onSubmit} noValidate>
-          <input type="hidden" name="_subject" value="Job application from WISDOM website" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input
-            type="text"
-            name="_honey"
-            style={{ position: "absolute", left: "-9999px" }}
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-          />
-          <div className="form-row">
-            <div className="field">
-              <label htmlFor="c-name">Full Name *</label>
-              <input id="c-name" name="name" maxLength={100} required />
-            </div>
-            <div className="field">
-              <label htmlFor="c-phone">Phone *</label>
-              <input id="c-phone" name="phone" type="tel" inputMode="tel" maxLength={20} required />
-            </div>
+        <div className="form-row">
+          <div className="field full">
+            <label htmlFor="c-role">Role Applying For *</label>
+            <select id="c-role" name="role" required defaultValue="">
+              <option value="" disabled>
+                Select a role
+              </option>
+              {careerRoles.map((role) => (
+                <option key={role}>{role}</option>
+              ))}
+            </select>
           </div>
-          <div className="form-row">
-            <div className="field">
-              <label htmlFor="c-email">Email *</label>
-              <input id="c-email" name="email" type="email" maxLength={160} required />
-            </div>
-            <div className="field">
-              <label htmlFor="c-city">City / Location</label>
-              <input id="c-city" name="city" maxLength={80} />
-            </div>
+        </div>
+
+        <div className="form-row">
+          <div className="field full">
+            <label htmlFor="c-message">Experience (brief)</label>
+            <textarea
+              id="c-message"
+              name="experience"
+              maxLength={800}
+              placeholder="Where you have worked and for how long"
+            />
           </div>
-          <div className="form-row">
-            <div className="field full">
-              <label htmlFor="c-role">Role Applying For *</label>
-              <select id="c-role" name="role" required defaultValue="">
-                <option value="" disabled>
-                  Select a role
-                </option>
-                {careerRoles.map((role) => (
-                  <option key={role}>{role}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="field full">
-              <label htmlFor="c-message">Experience (brief)</label>
-              <textarea
-                id="c-message"
-                name="experience"
-                maxLength={800}
-                placeholder="Where you have worked and for how long"
-              />
-            </div>
-          </div>
-          <button className="submit" type="submit" disabled={sending}>
-            {sending ? "Sending..." : "Apply Now"}
-          </button>
-          <p className="note">
-            Applications are sent to <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
+        </div>
+
+        <button className="submit" type="submit" disabled={sending}>
+          {sending ? "Sending..." : "Apply Now"}
+        </button>
+
+        <p className="note">
+          Applications are sent to{" "}
+          <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
+        </p>
+
+        {status && (
+          <p
+            className={status.ok ? "status ok" : "status error"}
+            role="status"
+          >
+            {status.text}
           </p>
-          {status && (
-            <p className={status.ok ? "status ok" : "status error"} role="status">
-              {status.text}
-            </p>
-          )}
-        </form>
-      </Reveal>
-    </section>
-  );
-}
+        )}
+      </form>
+    </Reveal>
+  </section>
+);
 
 /* ------------------------------- contact ----------------------------- */
 
@@ -675,20 +931,40 @@ function Contact() {
 
 const faqs = [
   [
-    "What kind of manpower do you provide?",
-    "Skilled, semi-skilled and general workers, deployed with proper supervision and attendance tracking.",
+    "What services does WISDOM provide?",
+    "WISDOM provides manpower services, security services, facility management, water tank cleaning, solar panel cleaning and end-to-end HR support for organisations.",
   ],
   [
-    "Do you provide security for industrial and commercial sites?",
-    "Yes. We deploy trained guards and supervisors for industrial sites, commercial buildings, offices and malls.",
+    "Which sectors does WISDOM serve?",
+    "WISDOM supports organisations across education, healthcare, manufacturing, corporate and commercial environments, hospitality, retail, government institutions, infrastructure and residential communities.",
   ],
   [
-    "Can you support hiring from sourcing to onboarding?",
-    "Yes. We support requirements, candidate sourcing, screening, interview coordination, documentation, joining and onboarding.",
+    "Can WISDOM provide manpower for specific roles?",
+    "Yes. WISDOM can support organisations with skilled, semi-skilled and general manpower based on the operational requirements of the site. Requirements are assessed before deployment.",
   ],
   [
-    "Can you provide facility and site cleaning services?",
-    "Yes. We provide floor cleaning, machine based cleaning, housekeeping support, site upkeep and workplace hygiene services.",
+    "Does WISDOM provide security services?",
+    "Yes. WISDOM provides security personnel and related site support for organisations requiring dependable security coverage and operational coordination.",
+  ],
+  [
+    "Can WISDOM support universities and educational campuses?",
+    "Yes. WISDOM can provide campus support personnel such as lab assistants, clinical tutors, office assistants, hostel staff, housekeeping personnel, security staff and other operational support roles.",
+  ],
+  [
+    "Can WISDOM support hospitals and healthcare facilities?",
+    "Yes. WISDOM can provide support personnel including ward attendants, patient care assistants, housekeeping staff, office support, security and facility personnel based on the facility's requirements.",
+  ],
+  [
+    "Where does WISDOM currently operate?",
+    "WISDOM currently has a growing service footprint across Uttar Pradesh, Odisha, Jharkhand, Bihar and Maharashtra, with plans to expand its service network as client requirements grow.",
+  ],
+  [
+    "How can an organisation discuss a requirement with WISDOM?",
+    "You can contact WISDOM through hello@wisdomservices.co or use the contact form on the website. Our team can discuss your requirement and the appropriate service structure.",
+  ],
+  [
+    "How can I apply for a job with WISDOM?",
+    "You can use the Careers section on this website to submit your details, select the role you are interested in and provide a brief summary of your experience.",
   ],
 ];
 
@@ -759,13 +1035,15 @@ function HomePage() {
       </a>
       <Header />
       <main id="main">
-        <Hero />
-        <WhatWeDo />
-        <Why />
-        <Reach />
-        <LeadershipCareers />
-        <Faq />
-        <Contact />
+     <Hero />
+<WhatWeDo />
+<SectorsWeServe />
+<Why />
+<SpecialisedSolutions />
+<Reach />
+<LeadershipCareers />
+<Faq />
+<Contact />
 
       </main>
       <MobileBar />
