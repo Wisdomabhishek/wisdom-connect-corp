@@ -440,7 +440,7 @@ function Reach() {
         <div className="reach-grid">
           <div className="map-wrap">
             <img
-              src={indiaMap}
+              src={indiaMapPhoto}
               alt="WISDOM service footprint across India"
               className="india-map"
             />
