@@ -939,20 +939,40 @@ function Contact() {
 
 const faqs = [
   [
-    "What kind of manpower do you provide?",
-    "Skilled, semi-skilled and general workers, deployed with proper supervision and attendance tracking.",
+    "What services does WISDOM provide?",
+    "WISDOM provides manpower services, security services, facility management, water tank cleaning, solar panel cleaning and end-to-end HR support for organisations.",
   ],
   [
-    "Do you provide security for industrial and commercial sites?",
-    "Yes. We deploy trained guards and supervisors for industrial sites, commercial buildings, offices and malls.",
+    "Which sectors does WISDOM serve?",
+    "WISDOM supports organisations across education, healthcare, manufacturing, corporate and commercial environments, hospitality, retail, government institutions, infrastructure and residential communities.",
   ],
   [
-    "Can you support hiring from sourcing to onboarding?",
-    "Yes. We support requirements, candidate sourcing, screening, interview coordination, documentation, joining and onboarding.",
+    "Can WISDOM provide manpower for specific roles?",
+    "Yes. WISDOM can support organisations with skilled, semi-skilled and general manpower based on the operational requirements of the site. Requirements are assessed before deployment.",
   ],
   [
-    "Can you provide facility and site cleaning services?",
-    "Yes. We provide floor cleaning, machine based cleaning, housekeeping support, site upkeep and workplace hygiene services.",
+    "Does WISDOM provide security services?",
+    "Yes. WISDOM provides security personnel and related site support for organisations requiring dependable security coverage and operational coordination.",
+  ],
+  [
+    "Can WISDOM support universities and educational campuses?",
+    "Yes. WISDOM can provide campus support personnel such as lab assistants, clinical tutors, office assistants, hostel staff, housekeeping personnel, security staff and other operational support roles.",
+  ],
+  [
+    "Can WISDOM support hospitals and healthcare facilities?",
+    "Yes. WISDOM can provide support personnel including ward attendants, patient care assistants, housekeeping staff, office support, security and facility personnel based on the facility's requirements.",
+  ],
+  [
+    "Where does WISDOM currently operate?",
+    "WISDOM currently has a growing service footprint across Uttar Pradesh, Odisha, Jharkhand, Bihar and Maharashtra, with plans to expand its service network as client requirements grow.",
+  ],
+  [
+    "How can an organisation discuss a requirement with WISDOM?",
+    "You can contact WISDOM through hello@wisdomservices.co or use the contact form on the website. Our team can discuss your requirement and the appropriate service structure.",
+  ],
+  [
+    "How can I apply for a job with WISDOM?",
+    "You can use the Careers section on this website to submit your details, select the role you are interested in and provide a brief summary of your experience.",
   ],
 ];
 
