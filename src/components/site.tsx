@@ -127,9 +127,9 @@ export function Header() {
               <NavLink key={item.label} item={item} />
             ))}
 
-            <a className="cta" href={quoteHref}>
-              Request a Quote
-            </a>
+           <a className="cta" href={quoteHref}>
+  Discuss Your Requirement
+</a>
           </div>
 
           <button
@@ -156,12 +156,12 @@ export function Header() {
             />
           ))}
 
-          <a
-            href={quoteHref}
-            onClick={() => setOpen(false)}
-          >
-            Request a Quote
-          </a>
+         <a
+  href={quoteHref}
+  onClick={() => setOpen(false)}
+>
+  Discuss Your Requirement
+</a>
 
           <a
             href={`tel:${PHONE_DIAL}`}
@@ -209,57 +209,56 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="footer-title">Services</div>
+  <div className="footer-title">Services</div>
 
-            <a href="/#services">
-              Manpower Services
-            </a>
+  <Link to="/services/$slug" params={{ slug: "manpower-services" }}>
+    Manpower Services
+  </Link>
 
-            <a href="/#services">
-              Security Services
-            </a>
+  <Link to="/services/$slug" params={{ slug: "security-services" }}>
+    Security Services
+  </Link>
 
-            <a href="/#services">
-              End-to-End HR Support
-            </a>
+  <Link to="/services/$slug" params={{ slug: "end-to-end-hr-support" }}>
+    End-to-End HR Support
+  </Link>
 
-            <a href="/#services">
-              Facility Management
-            </a>
+  <Link to="/services/$slug" params={{ slug: "facility-management" }}>
+    Facility Management
+  </Link>
 
-            <a href="/#services">
-              Water Tank Cleaning
-            </a>
+  <Link to="/services/$slug" params={{ slug: "water-tank-cleaning" }}>
+    Water Tank Cleaning
+  </Link>
 
-            <a href="/#services">
-              Solar Panel Cleaning
-            </a>
-          </div>
+  <Link to="/services/$slug" params={{ slug: "solar-panel-cleaning" }}>
+    Solar Panel Cleaning
+  </Link>
+</div>
 
           <div>
-            <div className="footer-title">Company</div>
+  <div className="footer-title">Company</div>
 
-            <a href="/#about">
-              About
-            </a>
+  <Link to="/about">
+    About
+  </Link>
 
-            <a href="/#why">
-              Why WISDOM
-            </a>
+  <a href="/#why">
+    Why WISDOM
+  </a>
 
-            <a href="/#insights">
-              Insights
-            </a>
+  <Link to="/insights">
+    Insights
+  </Link>
 
-            <a href="/#careers">
-              Careers
-            </a>
+  <a href="/#careers">
+    Careers
+  </a>
 
-            <a href="/#contact">
-              Contact
-            </a>
-          </div>
-
+  <a href="/#contact">
+    Contact
+  </a>
+</div>
           <div>
             <div className="footer-title">Contact</div>
 
@@ -323,9 +322,9 @@ export function MobileBar() {
         WhatsApp
       </a>
 
-      <a href="/#contact">
-        Request a Quote
-      </a>
+<a href="/#contact">
+  Discuss Your Requirement
+</a>
     </div>
   );
 }
