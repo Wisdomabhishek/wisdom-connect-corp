@@ -286,18 +286,39 @@ function SectorsWeServe() {
 /* ------------------------------ why wisdom --------------------------- */
 
 const whyPoints = [
-  ["Reliable People", "People who turn up and do the work properly."],
-  ["Practical Service", "Clear scope, sensible planning, no overselling."],
-  ["Site Supervision", "On-site checks keep work and attendance on track."],
-  ["Workforce Coordination", "Straightforward coordination day to day."],
-  ["One Point of Contact", "One team for people, security and site services."],
+  [
+    "Sector Understanding",
+    "Solutions shaped around the practical requirements of your industry and workplace.",
+  ],
+  [
+    "Workforce Assurance",
+    "Structured sourcing, screening and deployment to support dependable workforce operations.",
+  ],
+  [
+    "Responsive Management",
+    "Clear communication and responsive coordination for day-to-day requirements.",
+  ],
+  [
+    "Integrated Solutions",
+    "Manpower, security, facility and HR support through one coordinated partner.",
+  ],
+  [
+    "Transparent Reporting",
+    "Clear coordination, attendance visibility and operational communication.",
+  ],
+  [
+    "Operational Continuity",
+    "Reliable support designed to help organisations maintain smooth daily operations.",
+  ],
 ];
 
 const howWeWork = [
-  ["01", "Understand", "We understand your requirement."],
-  ["02", "Plan", "We identify the people, skills and service structure required."],
-  ["03", "Deploy", "Suitable people and services are deployed."],
-  ["04", "Support", "We coordinate with the client for ongoing requirements."],
+  ["01", "Understand", "We understand your requirement, site environment and operational priorities."],
+  ["02", "Plan", "We define the people, skills, service structure and deployment requirements."],
+  ["03", "Source & Screen", "We identify suitable personnel and complete the required screening and coordination."],
+  ["04", "Deploy", "People and services are deployed according to the agreed scope and requirements."],
+  ["05", "Manage", "Our team coordinates attendance, communication and ongoing operational requirements."],
+  ["06", "Monitor & Improve", "We review service performance and work with clients to improve continuity and delivery."],
 ];
 
 function Why() {
@@ -305,11 +326,11 @@ function Why() {
     <section id="why">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Why WISDOM</div>
-          <h2 className="section-title">Experienced people. Clear accountability.</h2>
+          <div className="kicker">The WISDOM Advantage</div>
+          <h2 className="section-title">People, service and accountability working together.</h2>
           <p className="section-desc">
-            Practical support for day-to-day operations, backed by clear communication and site
-            supervision.
+            WISDOM combines workforce support with practical operational coordination to help
+            organisations manage their day-to-day requirements with greater confidence.
           </p>
         </div>
 
@@ -323,6 +344,7 @@ function Why() {
         </div>
 
         <div className="how-head">How We Work</div>
+
         <div className="approach-grid">
           {howWeWork.map(([num, title, copy]) => (
             <div className="step" key={num}>
