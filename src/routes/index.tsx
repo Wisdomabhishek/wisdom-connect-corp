@@ -20,20 +20,20 @@ import { services } from "@/lib/services";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WISDOM | Manpower, Security, HR & Facility Services in India" },
+      { title: "WISDOM | Manpower, Security, Facility & HR Solutions in India" },
       {
         name: "description",
         content:
-          "WISDOM provides manpower, security, end-to-end HR support, facility management, water tank cleaning and solar panel cleaning for businesses in Jamshedpur and across India.",
+          "WISDOM provides manpower, security, facility management and HR support solutions for organisations across education, healthcare, manufacturing, corporate, hospitality, retail and other sectors in India.",
       },
       {
         property: "og:title",
-        content: "WISDOM | Manpower, Security, HR & Facility Services in India",
+        content: "WISDOM | Manpower, Security, Facility & HR Solutions in India",
       },
       {
         property: "og:description",
         content:
-          "Reliable manpower, security, HR and facility services for businesses across India. Based in Jamshedpur, Jharkhand.",
+          "Reliable people and operational support for organisations across India. WISDOM provides manpower, security, facility management and HR support solutions.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -59,15 +59,21 @@ function Hero() {
       <div className="hero-veil" />
       <div className="hero-inner">
         <div className="wrap">
-          <p className="eyebrow">Business Services | Jamshedpur, Jharkhand</p>
+         <p className="eyebrow">
+  WORKFORCE • SECURITY • FACILITY • HR SOLUTIONS
+</p>
           <h1>
             Think Wisdom.
             <br />
             <em>Service You Can Trust.</em>
           </h1>
           <p className="hero-copy">
-            Reliable manpower, security, HR and facility services for businesses across India.
-          </p>
+  Reliable people, secure sites and practical operational support for
+  organisations across India.
+</p>
+          <p className="hero-trust">
+  People. Facilities. Operations. One Trusted Partner.
+</p>
           <div className="actions">
             <a className="btn primary" href="#contact">
               Request a Quote
@@ -101,12 +107,16 @@ function WhatWeDo() {
     <section id="services">
       <Reveal>
         <div className="section-head">
-          <div className="kicker">What We Do</div>
-          <h2 className="section-title">Six services. One trusted team.</h2>
-          <p className="section-desc">
-            Whatever your business needs, WISDOM provides the right people and practical support
-            to complete the work properly.
-          </p>
+          <div className="kicker">Our Services</div>
+
+<h2 className="section-title">
+  Supporting your people. Managing your operations.
+</h2>
+
+<p className="section-desc">
+  WISDOM provides dependable manpower, security, facility management and HR
+  support solutions designed around the everyday operational needs of our clients.
+</p>
         </div>
 
         <div className="service-card-grid">
@@ -142,14 +152,132 @@ function WhatWeDo() {
           ))}
         </div>
 
-        <p className="sector-line">
-          WISDOM supports requirements across:
-          {sectors.map((sector) => (
-            <span className="sector" key={sector}>
-              {sector}
-            </span>
+      </Reveal>
+    </section>
+  );
+}
+const sectorsWeServe = [
+  {
+    icon: "🎓",
+    title: "Education & Universities",
+    intro: "Supporting institutions that shape the future.",
+    description:
+      "Manpower and facility support for universities, colleges, schools, hostels and educational campuses.",
+    support:
+      "Lab Assistants • Clinical Tutors • Office Assistants • Hostel Staff • Housekeeping • Security • Campus Support",
+  },
+  {
+    icon: "🏥",
+    title: "Healthcare & Hospitals",
+    intro: "Supporting safe, clean and well-managed healthcare environments.",
+    description:
+      "Workforce and facility support for hospitals, clinics and healthcare institutions, with a focus on dependable non-clinical operational manpower.",
+    support:
+      "Ward Attendants • Patient Care Assistants • Housekeeping • Office Support • Security • Facility Staff",
+  },
+  {
+    icon: "🏭",
+    title: "Manufacturing & Industrial",
+    intro: "Keeping industrial operations supported and workforce-ready.",
+    description:
+      "Skilled, semi-skilled and general manpower, security, housekeeping and facility support for factories, plants, warehouses and industrial facilities.",
+    support:
+      "Skilled Manpower • General Manpower • Security • Housekeeping • Warehouse Support • Site Operations",
+  },
+  {
+    icon: "🏢",
+    title: "Corporate & Commercial",
+    intro: "Creating efficient workplaces that work better.",
+    description:
+      "Office support, housekeeping, security, facility management and administrative manpower for corporate offices and commercial establishments.",
+    support:
+      "Office Support • Administration • Housekeeping • Security • Facility Support",
+  },
+  {
+    icon: "🏨",
+    title: "Hospitality",
+    intro: "Supporting the people behind great guest experiences.",
+    description:
+      "Housekeeping, cleaning, security, facility and operational manpower solutions for hotels, resorts, guest houses and hospitality establishments.",
+    support:
+      "Housekeeping • Cleaning • Security • Facility Support • General Manpower",
+  },
+  {
+    icon: "🛍️",
+    title: "Retail & Shopping",
+    intro: "Helping customer-facing environments run smoothly.",
+    description:
+      "Manpower, housekeeping, security and facility services for retail outlets, shopping centres, malls and commercial spaces.",
+    support:
+      "Security • Housekeeping • Facility Staff • General Support • Customer-facing Support",
+  },
+  {
+    icon: "🏛️",
+    title: "Government & Public Institutions",
+    intro: "Supporting essential public-facing operations.",
+    description:
+      "Manpower, housekeeping, security, office support and facility services for public institutions and associated facilities.",
+    support:
+      "Security • Office Support • Housekeeping • Facility Staff • General Manpower",
+  },
+  {
+    icon: "🏗️",
+    title: "Infrastructure & Construction",
+    intro: "Supporting projects from site operations to completion.",
+    description:
+      "General and skilled manpower, site support, housekeeping, security and operational assistance for infrastructure, construction and project sites.",
+    support:
+      "Site Manpower • Skilled Workers • Security • Housekeeping • Site Support",
+  },
+  {
+    icon: "🏠",
+    title: "Residential Communities",
+    intro: "Helping communities stay safe, clean and well managed.",
+    description:
+      "Security, housekeeping, cleaning, facility and operational manpower for residential societies, apartments and managed communities.",
+    support:
+      "Security • Housekeeping • Cleaning • Facility Support • General Manpower",
+  },
+];
+
+function SectorsWeServe() {
+  return (
+    <section className="sectors-section" id="sectors">
+      <Reveal>
+        <div className="section-head">
+          <div className="kicker">Sectors We Serve</div>
+
+          <h2 className="section-title">
+            Reliable people and operational support for organisations across India.
+          </h2>
+
+          <p className="section-desc">
+            WISDOM delivers flexible manpower, security, facility management and
+            HR support solutions designed around the operational needs of
+            different industries.
+          </p>
+        </div>
+
+        <div className="sectors-grid">
+          {sectorsWeServe.map((sector) => (
+            <article className="sector-card" key={sector.title}>
+              <div className="sector-icon" aria-hidden="true">
+                {sector.icon}
+              </div>
+
+              <h3>{sector.title}</h3>
+
+              <strong>{sector.intro}</strong>
+
+              <p>{sector.description}</p>
+
+              <div className="sector-support">
+                <span>Typical support</span>
+                <p>{sector.support}</p>
+              </div>
+            </article>
           ))}
-        </p>
+        </div>
       </Reveal>
     </section>
   );
@@ -759,13 +887,21 @@ function HomePage() {
       </a>
       <Header />
       <main id="main">
-        <Hero />
-        <WhatWeDo />
-        <Why />
-        <Reach />
-        <LeadershipCareers />
-        <Faq />
-        <Contact />
+      <Hero />
+
+<WhatWeDo />
+
+<SectorsWeServe />
+
+<Why />
+
+<Reach />
+
+<LeadershipCareers />
+
+<Faq />
+
+<Contact />
 
       </main>
       <MobileBar />
