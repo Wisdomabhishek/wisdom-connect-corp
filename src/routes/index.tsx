@@ -726,9 +726,10 @@ function LeadershipCareers() {
           </p>
         )}
       </form>
-    </Reveal>
+        </Reveal>
   </section>
 );
+}
 
 /* ------------------------------- contact ----------------------------- */
 
