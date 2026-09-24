@@ -433,61 +433,74 @@ const clients = [
 
 function Reach() {
   return (
-    <section className="footprint" id="reach">
+    <section>
       <Reveal>
         <div className="section-head">
-          <div className="kicker">Our Reach</div>
-          <h2 className="section-title">Current Service Footprint</h2>
+          <div className="kicker">Our Footprint</div>
+          <h2 className="section-title">Growing with organisations across India.</h2>
+          <p className="section-desc">
+            WISDOM is building a growing service network across key regions of
+            India, supporting organisations with workforce, security, facility
+            and HR solutions.
+          </p>
         </div>
+
         <div className="reach-grid">
-          <div className="map-holder">
-            <div className="map-figure">
-              <img
-                className="india-map-img"
-                src={indiaMapPhoto}
-                alt="Map of India marking the locations where WISDOM currently provides services"
-                width={354}
-                height={412}
-                loading="lazy"
-              />
-              {MAP_MARKS.map((mark) => (
-                <span
-                  key={mark.n}
-                  className="map-mark"
-                  style={{ left: `${mark.x}%`, top: `${mark.y}%` }}
-                  title={mark.n}
-                />
-              ))}
+          <div className="map-wrap">
+            <img
+              src={indiaMap}
+              alt="WISDOM service footprint across India"
+              className="india-map"
+            />
+
+            <div className="map-dot dot-mathura">
+              <span>Mathura</span>
             </div>
-            <div className="reach-note">
-              <h3>Growing Across India</h3>
-              <p>
-                WISDOM is building its operational presence across industrial and commercial
-                locations in India.
-              </p>
-              <p className="reach-states">
-                Currently serving selected locations across:
-                <b>Uttar Pradesh | Odisha | Jharkhand | Bihar | Maharashtra</b>
-              </p>
+
+            <div className="map-dot dot-patna">
+              <span>Patna</span>
+            </div>
+
+            <div className="map-dot dot-jamshedpur">
+              <span>Jamshedpur</span>
+            </div>
+
+            <div className="map-dot dot-angul">
+              <span>Angul</span>
+            </div>
+
+            <div className="map-dot dot-pune">
+              <span>Pune</span>
             </div>
           </div>
 
-          <div className="footprint-side">
-            <div className="footer-title">Experience</div>
-            <div className="client-list">
-              {clients.map(([name]) => (
-                <div className="client" key={name}>
-                  <b>{name}</b>
-                </div>
-              ))}
+          <div className="reach-copy">
+            <div className="how-head">Current Service Regions</div>
+
+            <p>
+              Our current service footprint includes organisations and
+              opportunities across:
+            </p>
+
+            <div className="region-list">
+              <span>Uttar Pradesh</span>
+              <span>Odisha</span>
+              <span>Jharkhand</span>
+              <span>Bihar</span>
+              <span>Maharashtra</span>
             </div>
+
+            <p>
+              As our client network grows, WISDOM continues to expand its
+              workforce and operational support capabilities across new
+              locations.
+            </p>
           </div>
         </div>
       </Reveal>
     </section>
   );
 }
-
 /* -------------------------- leadership + careers --------------------- */
 
 const careerRoles = [
@@ -557,128 +570,173 @@ function LeadershipCareers() {
     setSending(false);
   };
 
-  return (
-    <section id="careers" className="careers">
-      <Reveal>
-        <div className="section-head">
-          <div className="kicker">Leadership</div>
-          <h2 className="section-title">People behind WISDOM.</h2>
-        </div>
-        <div className="founders">
-          <article className="founder">
-            <div className="founder-head">
-              <div className="initials" aria-hidden="true">
-                MS
-              </div>
-              <div>
-                <h3>Manoj Kumar Singh</h3>
-                <div className="role">Co-Founder | Security &amp; Field Operations</div>
+ return (
+  <section id="careers" className="careers">
+    <Reveal>
+      <div className="section-head">
+        <div className="kicker">Leadership</div>
+        <h2 className="section-title">Built on experience. Driven by people.</h2>
+        <p className="section-desc">
+          WISDOM is led by a team focused on dependable service, operational
+          discipline and long-term client relationships.
+        </p>
+      </div>
+
+      <div className="founders">
+        <article className="founder">
+          <div className="founder-head">
+            <div className="initials" aria-hidden="true">
+              MS
+            </div>
+            <div>
+              <h3>Manoj Kumar Singh</h3>
+              <div className="role">
+                Co-Founder | Security &amp; Field Operations
               </div>
             </div>
-            <p>
-              Manoj brings experience in security and field operations, with a background in the
-              Central Reserve Police Force followed by industrial security. He looks after manpower
-              deployment, site discipline and day-to-day operations.
-            </p>
-          </article>
-          <article className="founder">
-            <div className="founder-head">
-              <div className="initials" aria-hidden="true">
-                AK
-              </div>
-              <div>
-                <h3>Abhishek Kumar</h3>
-                <div className="role">Co-Founder | Business Development &amp; Facility Operations</div>
+          </div>
+
+          <p>
+            Manoj brings experience in security and field operations, with a
+            background in the Central Reserve Police Force followed by
+            industrial security. He focuses on manpower deployment, site
+            discipline and day-to-day field operations.
+          </p>
+        </article>
+
+        <article className="founder">
+          <div className="founder-head">
+            <div className="initials" aria-hidden="true">
+              AK
+            </div>
+            <div>
+              <h3>Abhishek Kumar</h3>
+              <div className="role">
+                Co-Founder | Business Development &amp; Facility Operations
               </div>
             </div>
-            <p>
-              Abhishek looks after client requirements, business development and facility
-              operations, and works on building practical service plans for each site.
-            </p>
-          </article>
+          </div>
+
+          <p>
+            Abhishek focuses on client requirements, business development and
+            facility operations, working with clients to develop practical
+            service plans around their operational needs.
+          </p>
+        </article>
+      </div>
+
+      <div className="section-head careers-head">
+        <div className="kicker">Careers</div>
+        <h2 className="section-title">Build Your Future With WISDOM</h2>
+        <p className="section-desc">
+          Behind every successful service is a capable and committed team.
+          Tell us about your experience and the kind of opportunity you are
+          looking for.
+        </p>
+      </div>
+
+      <form className="form careers-form" onSubmit={onSubmit} noValidate>
+        <input
+          type="hidden"
+          name="_subject"
+          value="Job application from WISDOM website"
+        />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <input
+          type="text"
+          name="_honey"
+          style={{ position: "absolute", left: "-9999px" }}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
+        <div className="form-row">
+          <div className="field">
+            <label htmlFor="c-name">Full Name *</label>
+            <input id="c-name" name="name" maxLength={100} required />
+          </div>
+
+          <div className="field">
+            <label htmlFor="c-phone">Phone *</label>
+            <input
+              id="c-phone"
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              maxLength={20}
+              required
+            />
+          </div>
         </div>
 
-        <div className="section-head careers-head">
-          <div className="kicker">Careers</div>
-          <h2 className="section-title">Work With WISDOM</h2>
-          <p className="section-desc">
-            Looking for your next opportunity? Tell us about your experience and the kind of role
-            you are looking for.
-          </p>
+        <div className="form-row">
+          <div className="field">
+            <label htmlFor="c-email">Email *</label>
+            <input
+              id="c-email"
+              name="email"
+              type="email"
+              maxLength={160}
+              required
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="c-city">City / Location</label>
+            <input id="c-city" name="city" maxLength={80} />
+          </div>
         </div>
 
-        <form className="form careers-form" onSubmit={onSubmit} noValidate>
-          <input type="hidden" name="_subject" value="Job application from WISDOM website" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input
-            type="text"
-            name="_honey"
-            style={{ position: "absolute", left: "-9999px" }}
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-          />
-          <div className="form-row">
-            <div className="field">
-              <label htmlFor="c-name">Full Name *</label>
-              <input id="c-name" name="name" maxLength={100} required />
-            </div>
-            <div className="field">
-              <label htmlFor="c-phone">Phone *</label>
-              <input id="c-phone" name="phone" type="tel" inputMode="tel" maxLength={20} required />
-            </div>
+        <div className="form-row">
+          <div className="field full">
+            <label htmlFor="c-role">Role Applying For *</label>
+            <select id="c-role" name="role" required defaultValue="">
+              <option value="" disabled>
+                Select a role
+              </option>
+              {careerRoles.map((role) => (
+                <option key={role}>{role}</option>
+              ))}
+            </select>
           </div>
-          <div className="form-row">
-            <div className="field">
-              <label htmlFor="c-email">Email *</label>
-              <input id="c-email" name="email" type="email" maxLength={160} required />
-            </div>
-            <div className="field">
-              <label htmlFor="c-city">City / Location</label>
-              <input id="c-city" name="city" maxLength={80} />
-            </div>
+        </div>
+
+        <div className="form-row">
+          <div className="field full">
+            <label htmlFor="c-message">Experience (brief)</label>
+            <textarea
+              id="c-message"
+              name="experience"
+              maxLength={800}
+              placeholder="Where you have worked and for how long"
+            />
           </div>
-          <div className="form-row">
-            <div className="field full">
-              <label htmlFor="c-role">Role Applying For *</label>
-              <select id="c-role" name="role" required defaultValue="">
-                <option value="" disabled>
-                  Select a role
-                </option>
-                {careerRoles.map((role) => (
-                  <option key={role}>{role}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="field full">
-              <label htmlFor="c-message">Experience (brief)</label>
-              <textarea
-                id="c-message"
-                name="experience"
-                maxLength={800}
-                placeholder="Where you have worked and for how long"
-              />
-            </div>
-          </div>
-          <button className="submit" type="submit" disabled={sending}>
-            {sending ? "Sending..." : "Apply Now"}
-          </button>
-          <p className="note">
-            Applications are sent to <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
+        </div>
+
+        <button className="submit" type="submit" disabled={sending}>
+          {sending ? "Sending..." : "Apply Now"}
+        </button>
+
+        <p className="note">
+          Applications are sent to{" "}
+          <a href={`mailto:${CAREER_EMAIL}`}>{CAREER_EMAIL}</a>.
+        </p>
+
+        {status && (
+          <p
+            className={status.ok ? "status ok" : "status error"}
+            role="status"
+          >
+            {status.text}
           </p>
-          {status && (
-            <p className={status.ok ? "status ok" : "status error"} role="status">
-              {status.text}
-            </p>
-          )}
-        </form>
-      </Reveal>
-    </section>
-  );
-}
+        )}
+      </form>
+    </Reveal>
+  </section>
+);
 
 /* ------------------------------- contact ----------------------------- */
 
