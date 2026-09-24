@@ -62,17 +62,21 @@ function InsightsPage() {
     <PageShell>
       <section className="page-head">
         <Reveal>
-          <div className="kicker">Insights</div>
-<h1 className="section-title">
-  Practical thinking for better workforce and operations.
-</h1>
-<p className="section-desc">
-  Short, practical observations on manpower, security, HR and facility
-  operations from the work WISDOM supports across different sites and
-  organisations.
-</p>
-          </div>
-          <div className="insight-grid">
+  <div className="section-head">
+    <div className="kicker">Insights</div>
+
+    <h1 className="section-title">
+      Practical thinking for better workforce and operations.
+    </h1>
+
+    <p className="section-desc">
+      Short, practical observations on manpower, security, HR and facility
+      operations from the work WISDOM supports across different sites and
+      organisations.
+    </p>
+  </div>
+
+  <div className="insight-grid">
             {notes.map((note) => (
               <article className="insight" key={note.title}>
                 <small>{note.tag}</small>
