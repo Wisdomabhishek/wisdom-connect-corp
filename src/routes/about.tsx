@@ -15,6 +15,7 @@ export const Route = createFileRoute("/about")({
   property: "og:title",
   content: "About WISDOM | Business Services in Jamshedpur",
 },
+      {
         property: "og:description",
         content:
   "Learn about WISDOM, our approach to workforce and operational support, the services we provide and the people behind the business.",
