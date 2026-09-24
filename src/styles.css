@@ -1638,6 +1638,96 @@ footer a:hover {
   margin-top: 24px;
 }
 
+.map-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.india-map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map-dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.map-dot::before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 0 auto 4px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 4px rgba(237, 138, 33, 0.22);
+}
+
+.map-dot span {
+  display: block;
+  white-space: nowrap;
+  padding: 4px 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  box-shadow: 0 4px 12px rgba(11, 23, 38, 0.08);
+}
+
+.dot-mathura {
+  left: 33.26%;
+  top: 31.38%;
+}
+
+.dot-patna {
+  left: 57.46%;
+  top: 37.3%;
+}
+
+.dot-jamshedpur {
+  left: 60.83%;
+  top: 45.98%;
+}
+
+.dot-angul {
+  left: 57.33%;
+  top: 52.09%;
+}
+
+.dot-pune {
+  left: 20.92%;
+  top: 59.31%;
+}
+
+.reach-copy {
+  min-width: 0;
+}
+
+.region-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 20px;
+}
+
+.region-list span {
+  display: inline-block;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .reach-note h3 {
   margin: 0 0 8px;
   font-size: 1.1rem;
@@ -1776,6 +1866,14 @@ footer a:hover {
   .detail-grid,
   .hr-service-intro {
     grid-template-columns: 1fr;
+  }
+
+     .map-wrap {
+    max-width: 620px;
+  }
+
+  .reach-copy {
+    width: 100%;
   }
 
   .action-shot:first-child {
